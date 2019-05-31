@@ -18,6 +18,17 @@
               <div class="float-left"><a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus mdi mdi-plus-circle"></span>Tambah</a></div>
               <br><br>
             </div>
+            <div class="col-sm-12 col-md-6">
+              <div class="dataTables_length" id="tabelADM_length">
+                <label>
+                  Show
+                  <select name="tabelADM_length" class="form-control form-control-sm" aria-controls="tabelADM">
+                    <option value="masuk">Laporan Masuk</option>
+                    <option value="keluar">Laporan Keluar</option>
+                  </select>
+                </label>
+              </div>
+            </div>
             <div class="table-responsive">
               <table id="tabelREF" class="table table-striped">
                 <thead>
