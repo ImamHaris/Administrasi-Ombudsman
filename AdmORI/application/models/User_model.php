@@ -1,29 +1,28 @@
 <?php
-class Dosen_model extends CI_Model
+class User_model extends CI_Model
 {
 
-  function dosen_list()
+  function user_list()
   {
-    $hasil = $this->db->get('dosen');
+    $hasil = $this->db->get('user');
     return $hasil->result();
   }
 
-  function save_dosen()
+  function save_user()
   {
 
     $data = array(
-      'id_user'   => $this->input->post('id_user'),
       'Nama'   => $this->input->post('nama'),
       'password' => MD5($this->input->post('password')),
       'Email' => $this->input->post('email'),
       'No_telepon' => $this->input->post('no_telepon'),
       'Alamat' => $this->input->post('alamat'),
     );
-    $result = $this->db->insert('dosen', $data);
+    $result = $this->db->insert('user', $data);
     return $result;
   }
 
-  function update_dosen()
+  function update_user()
   {
     $id_user = $this->input->post('id_user');
     $nama = $this->input->post('nama');
@@ -38,15 +37,15 @@ class Dosen_model extends CI_Model
     $this->db->set('No_telepon', $no_telepon);
     $this->db->set('Alamat', $alamat);
     $this->db->where('id_user', $id_user);
-    $result = $this->db->update('dosen');
+    $result = $this->db->update('user');
     return $result;
   }
 
-  function delete_dosen()
+  function delete_user()
   {
     $id_user = $this->input->post('id_user');
     $this->db->where('id_user', $id_user);
-    $result = $this->db->delete('dosen');
+    $result = $this->db->delete('user');
     return $result;
   }
 
@@ -58,20 +57,20 @@ class Dosen_model extends CI_Model
     $this->db->set('Alamat', $alamat);
     $this->db->set('foto', $foto);
     $this->db->where('id_user', $id_user);
-    $this->db->update('dosen');
+    $this->db->update('user');
     return $this->db->affected_rows();
   }
 
-  function get_dosen($id_user)
+  function get_user($id_user)
   {
-    $query = $this->db->get_where('dosen', array('id_user' => $id_user));
+    $query = $this->db->get_where('user', array('id_user' => $id_user));
     return $query;
   }
 
   function cek_pw_lama($pw)
   {
     $pw = MD5($pw);
-    $query = $this->db->get_where('dosen', array('password' => $pw));
+    $query = $this->db->get_where('user', array('password' => $pw));
     return $query;
   }
 
@@ -79,7 +78,7 @@ class Dosen_model extends CI_Model
   {
     $this->db->set('password', MD5($new_password));
     $this->db->where('id_user', $id_user);
-    $result = $this->db->update('dosen');
+    $result = $this->db->update('user');
     return $result;
   }
 
