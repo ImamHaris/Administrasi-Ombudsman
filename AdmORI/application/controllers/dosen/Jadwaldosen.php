@@ -22,33 +22,12 @@ class Jadwaldosen extends CI_Controller
 
 	public function index()
 	{
-		$nip = $this->session->userdata('ses_id'); //Mengambil nip dosen yang sedang login
+		$id_user = $this->session->userdata('ses_id'); //Mengambil nip dosen yang sedang login
 		$this->load->model('mahasiswa_model');
-		$isi['jumlah_konsul'] = $this->mahasiswa_model->jumlah_konsul($nip); //Mengambil jumlah konsultasi mahasiswa bimbingan dosen yg login  yang belum diperiksa
+		$isi['jumlah_konsul'] = $this->mahasiswa_model->jumlah_konsul($id_user); //Mengambil jumlah konsultasi mahasiswa bimbingan dosen yg login  yang belum diperiksa
 		$isi['konten'] = 'dosen/jadwaldosen';
 		$this->load->view('dosen/template', $isi);
 	}
 
-	function jadwal_data()
-	{
-		$nip = $this->session->userdata('ses_id');  //Mengambil nip dosen yang sedang login
-		$this->load->model('dosen_model');
-		$data = $this->dosen_model->jadwal_list_nip($nip); //Mengambil jadwal dosen yang sedang login
-		echo json_encode($data);
-	}
-
-	function input_jadwal()
-	{
-		$nip = $this->session->userdata('ses_id');  //Mengambil nip dosen yang sedang login
-		$this->load->model('dosen_model');
-		$data = $this->dosen_model->jadwal_kosong($nip);  //Mengambil jadwal kosong dosen yang sedang login
-		echo json_encode($data);
-	}
-
-	function delete_jadwal()
-	{
-		$this->load->model('dosen_model');
-		$data = $this->dosen_model->delete_jadwal();
-		echo json_encode($data);
-	}
+	
 }

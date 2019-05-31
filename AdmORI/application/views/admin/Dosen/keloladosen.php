@@ -22,7 +22,7 @@
               <table id="tabelDSN" class="table table-striped">
                 <thead>
                   <tr>
-                    <th>NIP</th>
+                    <th>ID User</th>
                     <th>Nama</th>
                     <th>Password</th>
                     <th>Email</th>
@@ -50,18 +50,12 @@
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tambah Dosen Baru</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Tambah User Baru</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-                    <div class="form-group row">
-                        <label class="col-md-2 col-form-label">NIP</label>
-                        <div class="col-md-10">
-                          <input type="text" name="nip" id="nip" class="form-control" placeholder="NIP">
-                        </div>
-                    </div>
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label">Nama</label>
                         <div class="col-md-10">
@@ -109,16 +103,16 @@
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit Dosen</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Edit User</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
                 <div class="form-group row">
-                    <label class="col-md-2 col-form-label">NIP</label>
+                    <label class="col-md-2 col-form-label">ID User</label>
                     <div class="col-md-10">
-                      <input type="text" name="nip_edit" id="nip_edit" class="form-control">
+                      <input type="text" name="id_user_edit" id="id_user_edit" class="form-control">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -168,7 +162,7 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Delete Data Dosen</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Delete Data User</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -177,7 +171,7 @@
                    <strong>Delete ?</strong>
               </div>
               <div class="modal-footer">
-                <input type="hidden" name="nip_delete" id="nip_delete" class="form-control">
+                <input type="hidden" name="id_user_delete" id="id_user_delete" class="form-control">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
                 <button type="button" type="submit" id="btn_delete" class="btn btn-primary">Ya</button>
               </div>
@@ -209,15 +203,15 @@
   		            var i;
   		            for(i=0; i<data.length; i++){
   									html += '<tr>'+
-  												'<td>'+data[i].NIP+'</td>'+
+  												'<td>'+data[i].id_user+'</td>'+
   													'<td>'+data[i].Nama+'</td>'+
   													'<td>'+data[i].password+'</td>'+
   													'<td>'+data[i].Email+'</td>'+
   													'<td>'+data[i].No_telepon+'</td>'+
   													'<td>'+data[i].Alamat+'</td>'+
   													'<td style="text-align:right;">'+
-                                      '<a href="javascript:void(0);" class="btn btn-info btn-sm item_edit" data-nip="'+data[i].NIP+'" data-nama="'+data[i].Nama+'" data-password="'+data[i].password+'" data-email="'+data[i].Email+'" data-no_telepon="'+data[i].No_telepon+'" data-alamat="'+data[i].Alamat+'">Edit</a>'+' '+
-                                      '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-nip="'+data[i].NIP+'">Delete</a>'+
+                                      '<a href="javascript:void(0);" class="btn btn-info btn-sm item_edit" data-id_user="'+data[i].id_user+'" data-nama="'+data[i].Nama+'" data-password="'+data[i].password+'" data-email="'+data[i].Email+'" data-no_telepon="'+data[i].No_telepon+'" data-alamat="'+data[i].Alamat+'">Edit</a>'+' '+
+                                      '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id_user="'+data[i].id_user+'">Delete</a>'+
                                   '</td>'+
   		                        '</tr>';
   		            }
@@ -233,7 +227,6 @@
         error.insertBefore(element);
         },
        rules: {
-         nip: "required",
          nama: "required",
          password: "required",
          email: "required",
@@ -241,9 +234,6 @@
          alamat: "required"
        },
        messages: {
-         nip: {
-           required: "Field Ini Harus Diisi"
-         },
          nama: {
            required: "Field Ini Harus Diisi"
          },
@@ -262,7 +252,7 @@
        },
        submitHandler: function(form) {
            // your ajax would go here
-           var nip = $('#nip').val();
+           var id_user = $('#id_user').val();
            var nama = $('#nama').val();
            var password = $('#password').val();
            var email = $('#email').val();
@@ -272,9 +262,8 @@
                type : "POST",
                url  : "<?php echo site_url('admin/keloladosen/save')?>",
                dataType : "JSON",
-               data : {nip:nip , nama:nama, password:password, email:email, no_telepon:no_telepon, alamat:alamat},
+               data : {nama:nama, password:password, email:email, no_telepon:no_telepon, alamat:alamat},
                success: function(data){
-                   $('[name="nip"]').val("");
                    $('[name="nama"]').val("");
                    $('[name="password"]').val("");
                    $('[name="email"]').val("");
@@ -284,7 +273,6 @@
                    show_dosen();
                }
            });
-           alert('simulated ajax submit');
            return false;  // blocks regular submit since you have ajax
        }
    });
@@ -296,7 +284,6 @@
 
           //get data for update record
           $('#show_data').on('click','.item_edit',function(){
-              var nip = $(this).data('nip');
               var nama = $(this).data('nama');
               var password  = $(this).data('password');
               var email = $(this).data('email');
@@ -304,7 +291,7 @@
               var alamat = $(this).data('alamat');
 
               $('#Modal_Edit').modal('show');
-              $('[name="nip_edit"]').val(nip);
+              $('[name="id_user_edit"]').val(id_user);
               $('[name="nama_edit"]').val(nama);
               $('[name="password_edit"]').val(password);
               $('[name="email_edit"]').val(email);
@@ -315,7 +302,7 @@
           //update record to database
            $('#btn_update').on('click',function(){
 
-             var nip = $('#nip_edit').val();
+             var id_user = $('#id_user_edit').val();
              var nama = $('#nama_edit').val();
              var password = $('#password_edit').val();
              var email = $('#email_edit').val();
@@ -326,9 +313,9 @@
                   type : "POST",
                   url  : "<?php echo site_url('admin/keloladosen/update')?>",
                   dataType : "JSON",
-                  data : {nip:nip , nama:nama, password:password, email:email, no_telepon:no_telepon, alamat:alamat},
+                  data : {id_user:id_user , nama:nama, password:password, email:email, no_telepon:no_telepon, alamat:alamat},
                   success: function(data){
-                      $('[name="nip_edit"]').val("");
+                      $('[name="id_user_edit"]').val("");
                       $('[name="nama_edit"]').val("");
                       $('[name="password_edit"]').val("");
                       $('[name="tahun_edit"]').val("");
@@ -343,22 +330,22 @@
 
           //get data for delete record
           $('#show_data').on('click','.item_delete',function(){
-              var nip = $(this).data('nip');
+              var id_user = $(this).data('id_user');
 
               $('#Modal_Delete').modal('show');
-              $('[name="nip_delete"]').val(nip);
+              $('[name="id_user_delete"]').val(id_user);
           });
 
           //delete record to database
            $('#btn_delete').on('click',function(){
-              var nip = $('#nip_delete').val();
+              var id_user = $('#id_user_delete').val();
               $.ajax({
                   type : "POST",
                   url  : "<?php echo site_url('admin/keloladosen/delete')?>",
                   dataType : "JSON",
-                  data : {nip:nip},
+                  data : {id_user:id_user},
                   success: function(data){
-                      $('[name="nip_delete"]').val("");
+                      $('[name="id_user_delete"]').val("");
                       $('#Modal_Delete').modal('hide');
                       show_dosen();
                   }
