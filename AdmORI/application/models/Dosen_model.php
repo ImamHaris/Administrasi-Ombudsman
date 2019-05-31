@@ -12,7 +12,7 @@ class Dosen_model extends CI_Model
   {
 
     $data = array(
-      'NIP'   => $this->input->post('nip'),
+      'id_user'   => $this->input->post('id_user'),
       'Nama'   => $this->input->post('nama'),
       'password' => MD5($this->input->post('password')),
       'Email' => $this->input->post('email'),
@@ -25,7 +25,7 @@ class Dosen_model extends CI_Model
 
   function update_dosen()
   {
-    $nip = $this->input->post('nip');
+    $id_user = $this->input->post('id_user');
     $nama = $this->input->post('nama');
     $password = MD5($this->input->post('password'));
     $email = $this->input->post('email');
@@ -37,34 +37,34 @@ class Dosen_model extends CI_Model
     $this->db->set('Email', $email);
     $this->db->set('No_telepon', $no_telepon);
     $this->db->set('Alamat', $alamat);
-    $this->db->where('NIP', $nip);
+    $this->db->where('id_user', $id_user);
     $result = $this->db->update('dosen');
     return $result;
   }
 
   function delete_dosen()
   {
-    $nip = $this->input->post('nip');
-    $this->db->where('NIP', $nip);
+    $id_user = $this->input->post('id_user');
+    $this->db->where('id_user', $id_user);
     $result = $this->db->delete('dosen');
     return $result;
   }
 
-  function update_profile($nip, $nama, $email, $no_telepon, $alamat, $foto)
+  function update_profile($id_user, $nama, $email, $no_telepon, $alamat, $foto)
   {
     $this->db->set('Nama', $nama);
     $this->db->set('Email', $email);
     $this->db->set('No_telepon', $no_telepon);
     $this->db->set('Alamat', $alamat);
     $this->db->set('foto', $foto);
-    $this->db->where('NIP', $nip);
+    $this->db->where('id_user', $id_user);
     $this->db->update('dosen');
     return $this->db->affected_rows();
   }
 
-  function get_dosen($nip)
+  function get_dosen($id_user)
   {
-    $query = $this->db->get_where('dosen', array('NIP' => $nip));
+    $query = $this->db->get_where('dosen', array('id_user' => $id_user));
     return $query;
   }
 
@@ -75,42 +75,12 @@ class Dosen_model extends CI_Model
     return $query;
   }
 
-  function updatePassword($new_password, $nip)
+  function updatePassword($new_password, $id_user)
   {
     $this->db->set('password', MD5($new_password));
-    $this->db->where('NIP', $nip);
+    $this->db->where('id_user', $id_user);
     $result = $this->db->update('dosen');
     return $result;
   }
 
-  function dosen_pembimbing($nip1, $nip2)
-  {
-    $query = $this->db->query(" SELECT * FROM dosen WHERE NIP='$nip1' OR NIP='$nip2' ");
-    return $query->result();
-  }
-  function jadwal_list_nip($nip)
-  {
-    $query = $this->db->get_where('jadwal_kosong', array('NIP' => $nip));
-    return $query->result();
-  }
-
-  function jadwal_kosong($nip)
-  {
-    $data = array(
-      'NIP'   => $nip,
-      'Gedung'   => $this->input->post('gedung'),
-      'Tanggal' => $this->input->post('tanggal'),
-      'Jam' => $this->input->post('jam')
-    );
-    $result = $this->db->insert('jadwal_kosong', $data);
-    return $result;
-  }
-
-  function delete_jadwal()
-  {
-    $id_jadwal = $this->input->post('id_jadwal');
-    $this->db->where('Id_Jadwal', $id_jadwal);
-    $result = $this->db->delete('jadwal_kosong');
-    return $result;
-  }
 }
