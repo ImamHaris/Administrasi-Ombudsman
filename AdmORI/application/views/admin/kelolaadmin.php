@@ -43,7 +43,7 @@
 <!-- main-panel ends -->
 
 <!-- MODAL ADD -->
-<link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/bootstrap.css'?>">
+
         <form id="form_admin">
         <div class="modal fade" id="Modal_Add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg" role="document">

@@ -55,31 +55,10 @@ class Login extends CI_Controller
       $this->session->set_userdata('ses_foto', $data['foto']);
       redirect('dosen/berandadosen');
     } else {
-      $cek_mahasiswa = $this->login_model->cek_mhs($username, $password);
-      //Set data user dari DB ke Session
-      if ($cek_mahasiswa->num_rows() > 0) {
-        $data = $cek_mahasiswa->row_array();
-        $this->session->set_userdata('masuk', TRUE);
-        $this->session->set_userdata('akses', 'Mahasiswa');
-        $this->session->set_userdata('ses_id', $data['NIM']);
-        $this->session->set_userdata('ses_nama', $data['Nama']);
-        $this->session->set_userdata('ses_email', $data['Email']);
-        $this->session->set_userdata('ses_no_telp', $data['No_telepon']);
-        $this->session->set_userdata('ses_alamat', $data['Alamat']);
-        $this->session->set_userdata('ses_judulta', $data['Judul_TA']);
-        $this->session->set_userdata('ses_foto', $data['foto']);
-        $this->session->set_userdata('ses_nippembimbing', $data['Pembimbing']);
-        $this->session->set_userdata('ses_nippembimbing2', $data['Pembimbing2']);
-        $dosen1 = $this->dosen_model->get_dosen($data['Pembimbing'])->row_array();
-        $dosen2 = $this->dosen_model->get_dosen($data['Pembimbing2'])->row_array();
-        $this->session->set_userdata('ses_pembimbing', $dosen1['Nama']);
-        $this->session->set_userdata('ses_pembimbing2', $dosen2['Nama']);
-        redirect('mahasiswa/berandamahasiswa');
-      } else {
         $this->session->set_flashdata('error', 'Username / Password Salah!');
         $url = base_url('login');
         redirect($url);
-      }
+      
     }
   }
 
