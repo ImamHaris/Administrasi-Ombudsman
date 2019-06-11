@@ -1,5 +1,5 @@
 <!-- partial -->
-<link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/style.css'?>">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/graph.css'?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/dataTables.bootstrap4.css'?>">
 <div class="main-panel">
   <div class="content-wrapper">
@@ -11,7 +11,7 @@
 
    <!-- tabel referensi -->
 
-   <div id="page-wrapper">
+   
 				<div class="graphs">
 					<div class="col_3">
 						<div class="col-md-3 widget widget1">
@@ -20,7 +20,7 @@
 								<div class="stats">
 								 
 								  
-								  	<div class="huge">1</div>
+								  <!--	<div class="huge"><?php echo $data_dashboard['surat_masuk']; ?></div> -->
 									<p>Surat Masuk</p>
 								  
 								</div>
@@ -31,7 +31,7 @@
 								<i class="fa fa-users"></i>
 								<div class="stats">
 								  
-								  <div class="huge">1</div>
+								 <!-- <div class="huge"><?php echo $data_dashboard['surat_keluar']; ?></div> -->
 									<p> Surat Masuk</p>
 								  </div>
 								</div>
@@ -46,11 +46,6 @@
 		<!-- //switches -->
 	
 			
-		</div>		
-</div>
-			<!--body wrapper start-->
-			</div>
-			 <!--body wrapper end-->
 		</div>
     </div>
 <!-- main-panel ends -->
