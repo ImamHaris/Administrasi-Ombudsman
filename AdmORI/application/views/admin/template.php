@@ -36,7 +36,7 @@ h3 {
 </div>
 <div class="col-md-6">
     <h1>Sistem Informasi Administrasi
-    <h4>"Ombudsman Rakyat Indonesia Perwakilan Lampung "</h4>
+    <h4>"Ombudsman Republik Indonesia Perwakilan Lampung "</h4>
 </div>
 </div>
 </div>
