@@ -6,7 +6,7 @@
   <base href="<?php echo $this->config->base_url(); ?>" />
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Sistem Informasi Tugas Akhir PWK</title>
+  <title>ADM ORI</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="<?php base_url() ?>assets/iconfonts/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="<?php base_url() ?>assets/css/vendor.bundle.base.css">
@@ -35,7 +35,7 @@ h3 {
   </a>
 </div>
 <div class="col-md-6">
-    <h1>Sistem Informasi Administrasi Berkas Laporan
+    <h1>Sistem Informasi Administrasi
     <h4>"Ombudsman Rakyat Indonesia Perwakilan Lampung "</h4>
 </div>
 </div>
@@ -126,7 +126,7 @@ h3 {
           <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url('admin/referensi') ?>">
               <i class="menu-icon mdi mdi-note-multiple-outline"></i>
-              <span class="menu-title">Kelola Berkas Laporan</span>
+              <span class="menu-title">Kelola Berkas Administrasi</span>
             </a>
           </li>
         </ul>

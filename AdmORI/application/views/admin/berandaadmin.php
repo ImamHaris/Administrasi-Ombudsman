@@ -13,7 +13,7 @@
           <br>
           <br>
           <br>
-          <h1><b><center><font color=#12688D > SISTEM INFORMASI BERKAS LAPORAN</font></center></h1></b>
+          <h1><b><center><font color=#12688D > SISTEM INFORMASI ADMINISTRASI</font></center></h1></b>
           <h1><b><center><font color=#12688D > OMBUDSMAN RI</font></center></h1></b>
            <h1><b><center><font color=#12688D >PERWAKILAN LAMPUNG</font></center></h1></b>
         </div>
