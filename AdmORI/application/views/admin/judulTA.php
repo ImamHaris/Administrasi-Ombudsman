@@ -1,4 +1,5 @@
 <!-- partial -->
+<link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/style.css'?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/dataTables.bootstrap4.css'?>">
 <div class="main-panel">
   <div class="content-wrapper">
@@ -10,44 +11,47 @@
 
    <!-- tabel referensi -->
 
-    <div class="row">
-      <div class="col-lg-12 grid-margin">
-        <div class="card">
-          <div class="card-body">
-            <div class="col-md-12">
-              <div class="float-left"><a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus mdi mdi-plus-circle"></span>Tambah</a></div>
-              <br><br>
-            </div>
-            <div class="col-sm-12 col-md-6">
-              <div class="dataTables_length" id="tabelADM_length">
-                <label>
-                  Show
-                  <select name="tabelADM_length" class="form-control form-control-sm" aria-controls="tabelADM">
-                    <option value="masuk">Laporan Masuk</option>
-                    <option value="keluar">Laporan Keluar</option>
-                  </select>
-                </label>
-              </div>
-            </div>
-            <div class="table-responsive">
-              <table id="tabelREF" class="table table-striped">
-                <thead>
-                  <tr>
-                      <th>No</th>
-                      <th>Nama Berkas</th>
-                      <th>Penulis</th>
-                      <th style="text-align: right;">Actions</th>
-                  </tr>
-                </thead>
-                <tbody id="show_data">
+   <div id="page-wrapper">
+				<div class="graphs">
+					<div class="col_3">
+						<div class="col-md-3 widget widget1">
+							<div class="r3_counter_box">
+								<i class="fa fa-mail-forward"></i>
+								<div class="stats">
+								 
+								  
+								  	<div class="huge">1</div>
+									<p>Surat Masuk</p>
+								  
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 widget widget1">
+							<div class="r3_counter_box">
+								<i class="fa fa-users"></i>
+								<div class="stats">
+								  
+								  <div class="huge">1</div>
+									<p> Surat Masuk</p>
+								  </div>
+								</div>
+							</div>
+						</div>
+						
+						</div>
+						<div class="clearfix"> </div>
+					</div>
 
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
+		<!-- //switches -->
+	
+			
+		</div>		
+</div>
+			<!--body wrapper start-->
+			</div>
+			 <!--body wrapper end-->
+		</div>
     </div>
 <!-- main-panel ends -->
 <!-- MODAL ADD -->
