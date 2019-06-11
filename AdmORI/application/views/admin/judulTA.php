@@ -36,9 +36,6 @@
                       <th>No</th>
                       <th>Nama Berkas</th>
                       <th>Penulis</th>
-                      <th>Tahun</th>
-                      <th>Asal Referensi</th>
-                      <th>File</th>
                       <th style="text-align: right;">Actions</th>
                   </tr>
                 </thead>
@@ -207,10 +204,8 @@
                             '<td>'+nomor+'</td>'+
                               '<td>'+data[i].Judul_TA+'</td>'+
                               '<td>'+data[i].Penulis+'</td>'+
-                              '<td>'+data[i].Tahun+'</td>'+
-                              '<td>'+data[i].Asal_Referensi+'</td>'+
-                              '<td>'+'<a href="'+link_file+'" class="btn btn-info btn-sm item_edit" target="_blank">'+download+'</a>'+'</td>'+
                               '<td style="text-align:right;">'+
+                                      '<a href="'+link_file+'" class="btn btn-info btn-sm item_edit" target="_blank">'+download+'</a>'+' '+
                                       '<a href="javascript:void(0);" class="btn btn-info btn-sm item_edit" data-id_referensi="'+data[i].Id_Referensi+'" data-judul_ta="'+data[i].Judul_TA+'" data-penulis="'+data[i].Penulis+'" data-tahun="'+data[i].Tahun+'" data-asal_referensi="'+data[i].Asal_Referensi+'" >Edit</a>'+' '+
                                       '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id_referensi="'+data[i].Id_Referensi+'">Delete</a>'+
                                   '</td>'+
