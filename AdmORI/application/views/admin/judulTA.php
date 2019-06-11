@@ -50,7 +50,6 @@
     </div>
     </div>
 <!-- main-panel ends -->
-<link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/bootstrap.css'?>">
 <!-- MODAL ADD -->
         <form id="submit">
         <div class="modal fade" id="Modal_Add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -198,14 +197,14 @@
                   var i,nomor;
                   for(i=0; i<data.length; i++){
                     var link_file = '<?php echo site_url('assets/upload/referensi/')?>'+data[i].file;
-                    var download = 'Download';
+                    var download = ' Download';
                     nomor = i+1;
                       html += '<tr>'+
                             '<td>'+nomor+'</td>'+
                               '<td>'+data[i].Judul_TA+'</td>'+
                               '<td>'+data[i].Penulis+'</td>'+
                               '<td style="text-align:right;">'+
-                                      '<a href="'+link_file+'" class="btn btn-info btn-sm item_edit" target="_blank">'+download+'</a>'+' '+
+                                      '<a href="'+link_file+'" class="btn btn-info btn-sm glyphicon glyphicon-download-alt " target="_blank">'+download+'</a>'+' '+
                                       '<a href="javascript:void(0);" class="btn btn-info btn-sm item_edit" data-id_referensi="'+data[i].Id_Referensi+'" data-judul_ta="'+data[i].Judul_TA+'" data-penulis="'+data[i].Penulis+'" data-tahun="'+data[i].Tahun+'" data-asal_referensi="'+data[i].Asal_Referensi+'" >Edit</a>'+' '+
                                       '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id_referensi="'+data[i].Id_Referensi+'">Delete</a>'+
                                   '</td>'+
