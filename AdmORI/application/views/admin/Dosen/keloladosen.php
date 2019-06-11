@@ -44,58 +44,61 @@
 <!-- main-panel ends -->
 
 <!-- MODAL ADD -->
-<link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/bootstrap.css'?>">
-        <form id="form_dosen">
+<form id="form_dosen">
         <div class="modal fade" id="Modal_Add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tambah User Baru</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                    <div class="form-group row">
-                        <label class="col-md-2 col-form-label">Nama</label>
-                        <div class="col-md-10">
-                          <input type="text" name="nama" id="nama" class="form-control" placeholder="Nama">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-md-2 col-form-label">Password</label>
-                        <div class="col-md-10">
-                          <input type="password" name="password" id="password" class="form-control" placeholder="Password">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-md-2 col-form-label">Email</label>
-                        <div class="col-md-10">
-                          <input type="text" name="email" id="email" class="form-control" placeholder="Email">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-md-2 col-form-label">No. Telepon</label>
-                        <div class="col-md-10">
-                          <input type="text" name="no_telepon" id="no_telepon" class="form-control" placeholder="No. Telepon">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-md-2 col-form-label">Alamat</label>
-                        <div class="col-md-10">
-                          <input type="text" name="alamat" id="alamat" class="form-control" placeholder="Alamat">
-                        </div>
-                    </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" type="submit" id="btn_save" class="btn btn-primary">Save</button>
-              </div>
-            </div>
-          </div>
+
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Tambah User Baru</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-4">
+          <i class="fas fa-lock prefix grey-text"></i>
+          <label data-error="wrong" data-success="right" for="orangeForm-pass">Nama</label>
+          <input type="text" name="nama" id="nama" class="form-control" placeholder="Nama">  
         </div>
-        </form>
+        <div class="md-form mb-4">
+          <i class="fas fa-lock prefix grey-text"></i>
+          <label data-error="wrong" data-success="right" for="orangeForm-pass">Password</label>
+          <input type="password" name="password" id="password" class="form-control" placeholder="Password">        
+        </div>
+        <div class="md-form mb-4">
+          <i class="fas fa-lock prefix grey-text"></i>
+          <label data-error="wrong" data-success="right" for="orangeForm-pass">Email</label>
+          <input type="text" name="email" id="email" class="form-control" placeholder="Email">
+        </div>
+        <div class="md-form mb-4">
+          <i class="fas fa-lock prefix grey-text"></i>
+          <label data-error="wrong" data-success="right" for="orangeForm-pass">No.Telp</label>
+          <input type="text" name="no_telepon" id="no_telepon" class="form-control" placeholder="No. Telepon">
+        </div>
+        <div class="md-form mb-4">
+          <i class="fas fa-lock prefix grey-text"></i>
+          <label data-error="wrong" data-success="right" for="orangeForm-pass">Alamat</label>
+          <input type="text" name="alamat" id="alamat" class="form-control" placeholder="Alamat">
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" type="submit" id="btn_save" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="text-center">
+  <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalRegisterForm">Launch
+    Modal Register Form</a>
+</div>
+        
     <!--END MODAL ADD-->
+
+
 
     <!-- MODAL EDIT -->
     <form>
@@ -235,19 +238,19 @@
        },
        messages: {
          nama: {
-           required: "Field Ini Harus Diisi"
+           required: "Harus Diisi" 
          },
          password: {
-           required: "Field Ini Harus Diisi"
+           required: "Harus Diisi"
          },
          email: {
-           required: "Field Ini Harus Diisi"
+           required: "Harus Diisi"
          },
          no_telepon: {
-           required: "Field Ini Harus Diisi"
+           required: "Harus Diisi"
          },
          alamat: {
-           required: "Field Ini Harus Diisi"
+           required: "Harus Diisi"
          }
        },
        submitHandler: function(form) {

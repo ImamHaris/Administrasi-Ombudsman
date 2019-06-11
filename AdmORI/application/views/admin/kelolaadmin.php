@@ -85,10 +85,6 @@
   <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalRegisterForm">Launch
     Modal Register Form</a>
 </div>
-
-
-
-
         
     <!--END MODAL ADD-->
 
