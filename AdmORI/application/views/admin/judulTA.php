@@ -24,7 +24,7 @@
       
     </div>
     <div class="col-xs-6 col-sm-3 placeholder">
-    <a href="tambah_artikel.php"> <button class='btn btn-lg '  style='background-color:transparent;'>
+    <a href="admin/suratmu"> <button class='btn btn-lg '  style='background-color:transparent;'>
     <img src="<?php echo base_url().'assets/images/icons/suratkeluar.png'?>" style="height: 100px; width: 100px" class="img-responsive" alt="Generic placeholder thumbnail">
 
     <h4>Surat Keluar</h4>
