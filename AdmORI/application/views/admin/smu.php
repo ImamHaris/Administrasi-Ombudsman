@@ -4,7 +4,7 @@
   <div class="content-wrapper">
     <div id="header">
             <h1><b>
-        <font color=#12688D> KELOLA SURAT KELUAR UMUM</font></h1></b>
+        <font color=#12688D> KELOLA SURAT MASUK UMUM</font></h1></b>
         <hr width=100% size=8 NOSHADE class="hr hr-prmary" style="height: 10px; background-color: #12688D">
     </div>
 
@@ -25,7 +25,7 @@
                       <th>ID</th>
                       <th>No Surat</th>
                       <th>Tanggal Surat</th>
-                      <th>Tujuan</th>
+                      <th>Pengirim</th>
                       <th>Perihal</th>
                       <th>File</th>
                       <th style="text-align: right;">Actions</th>
@@ -43,56 +43,58 @@
     </div>
 <!-- main-panel ends -->
 <!-- MODAL ADD -->
-        <form id="submit">
+
+<form id="form_smu">
         <div class="modal fade" id="Modal_Add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tambah Referensi Baru</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                    <div class="form-group row">
-                        <label class="col-md-2 col-form-label">Judul TA</label>
-                        <div class="col-md-10">
-                          <input type="text" name="judul_ta" id="judul_ta" class="form-control" placeholder="Judul TA" required>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-md-2 col-form-label">Penulis</label>
-                        <div class="col-md-10">
-                          <input type="text" name="penulis" id="penulis" class="form-control" placeholder="Penulis"required>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-md-2 col-form-label">Tahun</label>
-                        <div class="col-md-10">
-                          <input type="text" name="tahun" id="tahun" class="form-control" placeholder="Tahun"required>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-md-2 col-form-label">Asal Referensi</label>
-                        <div class="col-md-10">
-                          <input type="text" name="asal_referensi" id="asal_referensi" class="form-control" placeholder="Asal Referensi"required>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-md-2 col-form-label">File</label>
-                        <div class="col-md-10">
-                          <input type="file" name="file" id="file" class="form-control"required>
-                        </div>
-                    </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit " type="submit" id="btn_save" class="btn btn-primary">Save</button>
-              </div>
-            </div>
-          </div>
+
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Tambah Surat Masuk Umum Baru</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <i class="fas fa-user prefix grey-text"></i>
+          <label data-error="wrong" data-success="right" for="orangeForm-name">No Surat</label>
+          <input type="text" name="no_surat" id="no_surat" class="form-control" placeholder="No Surat" required>   
         </div>
-        </form>
+        <div class="md-form mb-5">
+          <i class="fas fa-envelope prefix grey-text"></i>
+          <label data-error="wrong" data-success="right" for="orangeForm-email">Tanggal Surat</label>
+          <input type="date" name="tgl_surat" id="tgl_surat" class="form-control" placeholder="Tanggal Surat" required>         
+        </div>
+
+        <div class="md-form mb-5">
+          <i class="fas fa-lock prefix grey-text"></i>
+          <label data-error="wrong" data-success="right" for="orangeForm-pass">Pengirim</label>
+          <input type="text" name="pengirim" id="pengirim" class="form-control" placeholder="Pengirim" required>
+        </div>
+
+        <div class="md-form mb-5">
+          <i class="fas fa-lock prefix grey-text"></i>
+          <label data-error="wrong" data-success="right" for="orangeForm-pass">Perihal</label>
+          <input type="text" name="perihal" id="perihal" class="form-control" placeholder="Perihal" required>
+        </div>
+
+        <div class="md-form mb-5">
+          <i class="fas fa-lock prefix grey-text"></i>
+          <label data-error="wrong" data-success="right" for="orangeForm-pass">File</label>
+          <input type="file" name="file" id="file" class="form-control" placeholder="File" required>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" type="submit" id="btn_save" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
     <!--END MODAL ADD-->
 
     <!-- MODAL EDIT -->
@@ -101,35 +103,35 @@
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit Referensi</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Edit Surat</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-                <input type="hidden" name="id_referensi_edit" id="id_referensi_edit" class="form-control" placeholder="ID Referensi"required>
+                <input type="hidden" name="id_surat_edit" id="id_surat_edit" class="form-control" placeholder="ID Surat"required>
                 <div class="form-group row">
-                    <label class="col-md-2 col-form-label">Judul TA</label>
+                    <label class="col-md-2 col-form-label">No Surat</label>
                     <div class="col-md-10">
-                      <input type="text" name="judul_ta_edit" id="judul_ta_edit" class="form-control" placeholder="Judul TA"required>
+                      <input type="text" name="no_surat_edit" id="no_surat_edit" class="form-control" placeholder="No Surat"required>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-md-2 col-form-label">Penulis</label>
+                    <label class="col-md-2 col-form-label">Tanggal Surat</label>
                     <div class="col-md-10">
-                      <input type="text" name="penulis_edit" id="penulis_edit" class="form-control" placeholder="Price" required>
+                      <input type="text" name="tgl_surat_edit" id="tgl_surat_edit" class="form-control" placeholder="Tanggal Surat" required>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-md-2 col-form-label">Tahun</label>
+                    <label class="col-md-2 col-form-label">Pengirim</label>
                     <div class="col-md-10">
-                      <input type="text" name="tahun_edit" id="tahun_edit" class="form-control" placeholder="Tahun" required>
+                      <input type="text" name="pengirim_edit" id="pengirim_edit" class="form-control" placeholder="Pengirim" required>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-md-2 col-form-label">Asal Referensi</label>
+                    <label class="col-md-2 col-form-label">Perihal</label>
                     <div class="col-md-10">
-                      <input type="text" name="asal_referensi_edit" id="asal_referensi_edit" class="form-control" placeholder="Asal Referensi" required>
+                      <input type="text" name="perihal_edit" id="perihal_edit" class="form-control" placeholder="Perihal" required>
                     </div>
                 </div>
               </div>
@@ -149,16 +151,16 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Delete Referensi</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Delete Surat</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-                   <strong>Delete Referensi Ini?</strong>
+                   <strong>Delete Surat Ini?</strong>
               </div>
               <div class="modal-footer">
-                <input type="hidden" name="id_referensi_delete" id="id_referensi_delete" class="form-control">
+                <input type="hidden" name="id_surat_delete" id="id_surat_delete" class="form-control">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
                 <button type="button" type="submit" id="btn_delete" class="btn btn-primary">Ya</button>
               </div>
@@ -181,7 +183,7 @@
       function show_referensi(){
           $.ajax({
               type  : 'ajax',
-              url   : '<?php echo site_url('admin/referensi/referensi_data')?>',
+              url   : '<?php echo site_url('admin/suratmu/smu_data')?>',
               async : false,
               dataType : 'json',
               success : function(data){
@@ -193,14 +195,14 @@
                     nomor = i+1;
                       html += '<tr>'+
                             '<td>'+nomor+'</td>'+
-                              '<td>'+data[i].Judul_TA+'</td>'+
-                              '<td>'+data[i].Penulis+'</td>'+
-                              '<td>'+data[i].Tahun+'</td>'+
-                              '<td>'+data[i].Asal_Referensi+'</td>'+
+                              '<td>'+data[i].no_surat+'</td>'+
+                              '<td>'+data[i].tgl_surat+'</td>'+
+                              '<td>'+data[i].pengirim+'</td>'+
+                              '<td>'+data[i].perihal+'</td>'+
                               '<td>'+'<a href="'+link_file+'" target="_blank">'+download+'</a>'+'</td>'+
                               '<td style="text-align:right;">'+
-                                      '<a href="javascript:void(0);" class="btn btn-info btn-sm item_edit" data-id_referensi="'+data[i].Id_Referensi+'" data-judul_ta="'+data[i].Judul_TA+'" data-penulis="'+data[i].Penulis+'" data-tahun="'+data[i].Tahun+'" data-asal_referensi="'+data[i].Asal_Referensi+'" >Edit</a>'+' '+
-                                      '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id_referensi="'+data[i].Id_Referensi+'">Delete</a>'+
+                                      '<a href="javascript:void(0);" class="btn btn-info btn-sm item_edit" data-id_surat="'+data[i].id_surat+'" data-no_surat="'+data[i].no_surat+'" data-tgl_surat="'+data[i].tgl_surat+'" data-pengirim="'+data[i].pengirim+'" data-perihal="'+data[i].perihal+'" >Edit</a>'+' '+
+                                      '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id_surat="'+data[i].id_surat+'">Delete</a>'+
                                   '</td>'+
                               '</tr>';
 
@@ -213,7 +215,7 @@
       $('#submit').submit(function(e){
             e.preventDefault();
                  $.ajax({
-                     url:'<?php echo base_url();?>admin/referensi/upload',
+                     url:'<?php echo base_url();?>admin/suratmu/upload',
                      type:"post",
                      data:new FormData(this),
                      processData:false,
@@ -222,73 +224,73 @@
                      async:false,
                       success: function(data){
                           $('#Modal_Add').modal('hide');
-                          $('[name="id_referensi"]').val("");
-                          $('[name="judul_ta"]').val("");
-                          $('[name="penulis"]').val("");
-                          $('[name="tahun"]').val("");
-                          $('[name="asal_referensi"]').val("");
+                          $('[name="id_surat"]').val("");
+                          $('[name="no_surat"]').val("");
+                          $('[name="tgl_surat"]').val("");
+                          $('[name="pengirim"]').val("");
+                          $('[name="perihal"]').val("");
                           $('[name="file"]').val("");
-                          show_referensi();
+                          show_smu();
                    }
                  });
             });
 
       //get data for update record
       $('#show_data').on('click','.item_edit',function(){
-          var id_referensi = $(this).data('id_referensi');
-          var judul_ta = $(this).data('judul_ta');
-          var penulis  = $(this).data('penulis');
-          var tahun = $(this).data('tahun');
-          var asal_referensi = $(this).data('asal_referensi');
+          var id_surat = $(this).data('id_surat');
+          var no_surat = $(this).data('no_surat');
+          var tgl_surat  = $(this).data('tgl_surat');
+          var pengirim = $(this).data('pengirim');
+          var perihal = $(this).data('perihal');
           $('#Modal_Edit').modal('show');
-          $('[name="id_referensi_edit"]').val(id_referensi);
-          $('[name="judul_ta_edit"]').val(judul_ta);
-          $('[name="penulis_edit"]').val(penulis);
-          $('[name="tahun_edit"]').val(tahun);
-          $('[name="asal_referensi_edit"]').val(asal_referensi);
+          $('[name="id_surat_edit"]').val(id_surat);
+          $('[name="no_surat_edit"]').val(no_surat);
+          $('[name="tgl_surat_edit"]').val(tgl_surat);
+          $('[name="pengirim_edit"]').val(pengirim);
+          $('[name="perihal_edit"]').val(perihal);
       });
       //update record to database
        $('#btn_update').on('click',function(){
-         var id_referensi = $('#id_referensi_edit').val();
-         var judul_ta = $('#judul_ta_edit').val();
-         var penulis = $('#penulis_edit').val();
-         var tahun = $('#tahun_edit').val();
-         var asal_referensi = $('#asal_referensi_edit').val();
+         var id_surat = $('#id_surat_edit').val();
+         var no_surat = $('#no_surat_edit').val();
+         var tgl_surat = $('#tgl_surat_edit').val();
+         var pengirim = $('#pengirim_edit').val();
+         var perihal = $('#perihal_edit').val();
           $.ajax({
               type : "POST",
-              url  : "<?php echo site_url('admin/referensi/update')?>",
+              url  : "<?php echo site_url('admin/suratmu/update')?>",
               dataType : "JSON",
-              data : {id_referensi:id_referensi , judul_ta:judul_ta, penulis:penulis, tahun:tahun, asal_referensi:asal_referensi},
+              data : {id_surat:id_surat , no_surat:no_surat, tgl_surat:tgl_surat, pengirim:pengirim, perihal:perihal},
               success: function(data){
-                  $('[name="id_referensi_edit"]').val("");
-                  $('[name="judul_ta_edit"]').val("");
-                  $('[name="penulis_edit"]').val("");
-                  $('[name="tahun_edit"]').val("");
-                  $('[name="asal_referensi_edit"]').val("");
+                  $('[name="id_surat_edit"]').val("");
+                  $('[name="no_surat_edit"]').val("");
+                  $('[name="tgl_surat_edit"]').val("");
+                  $('[name="pengirim_edit"]').val("");
+                  $('[name="perihal_edit"]').val("");
                   $('#Modal_Edit').modal('hide');
-                  show_referensi();
+                  show_suratmu();
               }
           });
           return false;
       });
       //get data for delete record
       $('#show_data').on('click','.item_delete',function(){
-          var id_referensi = $(this).data('id_referensi');
+          var id_surat = $(this).data('id_surat');
           $('#Modal_Delete').modal('show');
-          $('[name="id_referensi_delete"]').val(id_referensi);
+          $('[name="id_surat_delete"]').val(id_surat);
       });
       //delete record to database
        $('#btn_delete').on('click',function(){
-          var id_referensi = $('#id_referensi_delete').val();
+          var id_surat = $('#id_surat_delete').val();
           $.ajax({
               type : "POST",
-              url  : "<?php echo site_url('admin/referensi/delete')?>",
+              url  : "<?php echo site_url('admin/suratmu/delete')?>",
               dataType : "JSON",
-              data : {id_referensi:id_referensi},
+              data : {id_surat:id_surat},
               success: function(data){
-                  $('[name="id_referensi_delete"]').val("");
+                  $('[name="id_surat_delete"]').val("");
                   $('#Modal_Delete').modal('hide');
-                  show_referensi();
+                  show_smu();
               }
           });
           return false;

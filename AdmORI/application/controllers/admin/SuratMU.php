@@ -35,7 +35,7 @@ class SuratMU extends CI_Controller{
 	}
 
 	function upload(){
-		$config['upload_path']="./assets/upload/suratmu/"; //file yg diupload akan disimpan
+		$config['upload_path']="./assets/upload/referensi/"; //file yg diupload akan disimpan
 		$config['allowed_types']='doc|docx|pdf'; // tipe file yang boleh di upload
 
 		$this->load->library('upload',$config);
