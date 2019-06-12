@@ -1,8 +1,8 @@
 <?php
-class SuratMU extends CI_Controller{
+class Suratmu extends CI_Controller{
 	function __construct(){
 		parent::__construct();
-		$this->load->model('referensi_model');
+		
 		//Start Untuk mengecek kalau yg akses adalah admin
 		if($this->session->userdata('akses') != "Admin") {
 			if($this->session->userdata('akses') == "Dosen") {// Jika Dosen berusaha akses maka akan di redirect ke halaman dosen
@@ -14,6 +14,7 @@ class SuratMU extends CI_Controller{
 			}
 		}
 		//END Untuk mengecek kalau yg akses adalahadmin
+		$this->load->model('suratmu_model');
 	}
 	function index(){
 		$isi['konten'] = 'admin/smu';
@@ -24,18 +25,18 @@ class SuratMU extends CI_Controller{
 		$this->load->view('lihatreferensi_view');
 	}
 
-	function referensi_data(){
-		$data=$this->referensi_model->referensi_list();
+	function suratmu_data(){
+		$data=$this->suratmu_model->suratmu_list();
 		echo json_encode($data);
 	}
 
 	function save(){
-		$data=$this->referensi_model->save_referensi();
+		$data=$this->suratmu_model->save_suratmu();
 		echo json_encode($data);
 	}
 
 	function upload(){
-		$config['upload_path']="./assets/upload/referensi/"; //file yg diupload akan disimpan
+		$config['upload_path']="./assets/upload/Surat masuk umum/"; //file yg diupload akan disimpan
 		$config['allowed_types']='doc|docx|pdf'; // tipe file yang boleh di upload
 
 		$this->load->library('upload',$config);
@@ -43,14 +44,14 @@ class SuratMU extends CI_Controller{
 		$data = array('upload_data' => $this->upload->data()); //ambil nama file yang diupload
 
 		$file= $data['upload_data']['file_name'];
-		$id_referensi=$this->input->post('id_referensi');
-		$judul_ta=$this->input->post('judul_ta');
-		$penulis=$this->input->post('penulis');
-    $tahun=$this->input->post('tahun');
-    $asal_referensi=$this->input->post('asal_referensi');
-    $id_admin=$this->session->userdata('ses_id');
+		$id_surat=$this->input->post('id_surat');
+		$no_surat=$this->input->post('no_surat');
+		$tgl_surat=$this->input->post('tgl_surat');
+    	$pengirim=$this->input->post('pengirim');
+   		$perihal=$this->input->post('perihal');
+    	
 
-		$result= $this->referensi_model->tambah_referensi($id_referensi,$judul_ta,$penulis,$tahun,$asal_referensi,$file,$id_admin);
+		$result= $this->suratmu_model->tambah_suratmu($id_surat,$no_surat,$tgl_surat,$pengirim,$perihal,$file);
 		echo json_decode($result);
 		}
 	}

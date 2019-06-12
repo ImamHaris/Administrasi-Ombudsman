@@ -23,10 +23,10 @@
                 <thead>
                   <tr>
                       <th>No</th>
-                      <th>Judul TA</th>
-                      <th>Penulis</th>
-                      <th>Tahun</th>
-                      <th>Asal Referensi</th>
+                      <th>Nomor Surat</th>
+                      <th>Tanggal</th>
+                      <th>Pengirim</th>
+                      <th>Perihal</th>
                       <th>File</th>
                       <th style="text-align: right;">Actions</th>
                   </tr>
@@ -56,27 +56,27 @@
               </div>
               <div class="modal-body">
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label">Judul TA</label>
+                        <label class="col-md-2 col-form-label">Surat Masuk Umum</label>
                         <div class="col-md-10">
-                          <input type="text" name="judul_ta" id="judul_ta" class="form-control" placeholder="Judul TA" required>
+                          <input type="text" name="no_surat" id="no_surat" class="form-control" placeholder="Nomor Surat" required>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label">Penulis</label>
+                        <label class="col-md-2 col-form-label">Tanggal</label>
                         <div class="col-md-10">
-                          <input type="text" name="penulis" id="penulis" class="form-control" placeholder="Penulis"required>
+                          <input type="text" name="tgl_surat" id="tgl_surat" class="form-control" placeholder="tgl_surat"required>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label">Tahun</label>
+                        <label class="col-md-2 col-form-label">pengirim</label>
                         <div class="col-md-10">
-                          <input type="text" name="tahun" id="tahun" class="form-control" placeholder="Tahun"required>
+                          <input type="text" name="pengirim" id="pengirim" class="form-control" placeholder="pengirim"required>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label">Asal Referensi</label>
+                        <label class="col-md-2 col-form-label">perihal</label>
                         <div class="col-md-10">
-                          <input type="text" name="asal_referensi" id="asal_referensi" class="form-control" placeholder="Asal Referensi"required>
+                          <input type="text" name="perihal" id="perihal" class="form-control" placeholder="perihal"required>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -182,22 +182,22 @@
       function show_referensi(){
           $.ajax({
               type  : 'ajax',
-              url   : '<?php echo site_url('admin/referensi/referensi_data')?>',
+              url   : '<?php echo site_url('admin/suratmu/suratmu_data')?>',
               async : false,
               dataType : 'json',
               success : function(data){
                   var html = '';
                   var i,nomor;
                   for(i=0; i<data.length; i++){
-                    var link_file = '<?php echo site_url('assets/upload/referensi/')?>'+data[i].file;
+                    var link_file = '<?php echo site_url('assets/upload/Surat masuk umum/')?>'+data[i].file;
                     var download = 'Download';
                     nomor = i+1;
                       html += '<tr>'+
                             '<td>'+nomor+'</td>'+
-                              '<td>'+data[i].Judul_TA+'</td>'+
-                              '<td>'+data[i].Penulis+'</td>'+
-                              '<td>'+data[i].Tahun+'</td>'+
-                              '<td>'+data[i].Asal_Referensi+'</td>'+
+                              '<td>'+data[i].no_surat+'</td>'+
+                              '<td>'+data[i].tgl_surat+'</td>'+
+                              '<td>'+data[i].pengirim+'</td>'+
+                              '<td>'+data[i].perihal+'</td>'+
                               '<td>'+'<a href="'+link_file+'" target="_blank">'+download+'</a>'+'</td>'+
                               '<td style="text-align:right;">'+
                                       '<a href="javascript:void(0);" class="btn btn-info btn-sm item_edit" data-id_referensi="'+data[i].Id_Referensi+'" data-judul_ta="'+data[i].Judul_TA+'" data-penulis="'+data[i].Penulis+'" data-tahun="'+data[i].Tahun+'" data-asal_referensi="'+data[i].Asal_Referensi+'" >Edit</a>'+' '+
@@ -214,7 +214,7 @@
       $('#submit').submit(function(e){
             e.preventDefault();
                  $.ajax({
-                     url:'<?php echo base_url();?>admin/referensi/upload',
+                     url:'<?php echo base_url();?>admin/suratmu/upload',
                      type:"post",
                      data:new FormData(this),
                      processData:false,
@@ -223,11 +223,10 @@
                      async:false,
                       success: function(data){
                           $('#Modal_Add').modal('hide');
-                          $('[name="id_referensi"]').val("");
-                          $('[name="judul_ta"]').val("");
-                          $('[name="penulis"]').val("");
-                          $('[name="tahun"]').val("");
-                          $('[name="asal_referensi"]').val("");
+                          $('[name="no_surat"]').val("");
+                          $('[name="tgl_surat"]').val("");
+                          $('[name="pengirim"]').val("");
+                          $('[name="perihal"]').val("");
                           $('[name="file"]').val("");
                           show_referensi();
                    }
@@ -236,11 +235,10 @@
 
       //get data for update record
       $('#show_data').on('click','.item_edit',function(){
-          var id_referensi = $(this).data('id_referensi');
-          var judul_ta = $(this).data('judul_ta');
-          var penulis  = $(this).data('penulis');
-          var tahun = $(this).data('tahun');
-          var asal_referensi = $(this).data('asal_referensi');
+          var no_surat = $(this).data('no_surat');
+          var tgl_surat = $(this).data('tgl_surat');
+          var pengirim  = $(this).data('pengirim');
+          var perihal = $(this).data('perihal');
           $('#Modal_Edit').modal('show');
           $('[name="id_referensi_edit"]').val(id_referensi);
           $('[name="judul_ta_edit"]').val(judul_ta);
