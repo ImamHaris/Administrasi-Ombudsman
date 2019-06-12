@@ -2,7 +2,7 @@
 class SuratMU extends CI_Controller{
 	function __construct(){
 		parent::__construct();
-		$this->load->model('referensi_model');
+		$this->load->model('suratmu_model');
 		//Start Untuk mengecek kalau yg akses adalah admin
 		if($this->session->userdata('akses') != "Admin") {
 			if($this->session->userdata('akses') == "Dosen") {// Jika Dosen berusaha akses maka akan di redirect ke halaman dosen

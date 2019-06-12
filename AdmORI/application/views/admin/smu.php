@@ -4,7 +4,7 @@
   <div class="content-wrapper">
     <div id="header">
             <h1><b>
-        <font color=#12688D> KELOLA REFERENSI</font></h1></b>
+        <font color=#12688D> KELOLA SURAT KELUAR UMUM</font></h1></b>
         <hr width=100% size=8 NOSHADE class="hr hr-prmary" style="height: 10px; background-color: #12688D">
     </div>
 
@@ -22,11 +22,11 @@
               <table id="tabelREF" class="table table-striped">
                 <thead>
                   <tr>
-                      <th>No</th>
-                      <th>Judul TA</th>
-                      <th>Penulis</th>
-                      <th>Tahun</th>
-                      <th>Asal Referensi</th>
+                      <th>ID</th>
+                      <th>No Surat</th>
+                      <th>Tanggal Surat</th>
+                      <th>Tujuan</th>
+                      <th>Perihal</th>
                       <th>File</th>
                       <th style="text-align: right;">Actions</th>
                   </tr>
@@ -42,7 +42,6 @@
     </div>
     </div>
 <!-- main-panel ends -->
-<link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/bootstrap.css'?>">
 <!-- MODAL ADD -->
         <form id="submit">
         <div class="modal fade" id="Modal_Add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
