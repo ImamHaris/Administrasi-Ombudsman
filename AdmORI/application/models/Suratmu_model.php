@@ -1,60 +1,58 @@
 <?php
-class SuratMU_model extends CI_Model {
+class Suratmu_model extends CI_Model {
 
-  function smu_list(){
-		$hasil=$this->db->get('suratmu');
+  function suratmu_list(){
+		$hasil=$this->db->get('surat_masuk_umum');
 		return $hasil->result();
 	}
 
-	function save_smu(){
+	function save_suratmu(){
 		$data = array(
-			'id_surat' 	=> $this->input->post('id_surat'),
-			'no_surat' 	=> $this->input->post('no_surat'),
-			'tgl_surat' => $this->input->post('tgl_surat'),
-        	'pengirim' => $this->input->post('pengirim'),
-        	'perihal' => $this->input->post('perihal'),
-        	'Id_admin' => $this->session->userdata('ses_id')
-		);
-		$result=$this->db->insert('suratmu',$data);
+				'id_surat' 	=> $this->input->post('id_surat'),
+				'no_surat' 	=> $this->input->post('no_surat'),
+				'tgl_surat' => $this->input->post('tgl_surat'),
+                'pengirim' => $this->input->post('pengirim'),
+                'perihal' => $this->input->post('perihal')
+			);
+		$result=$this->db->insert('surat_masuk_umum',$data);
 		return $result;
 	}
 
-  function tambah_smu($id_surat,$no_surat,$tgl_surat,$pengirim,$perihal,$file,$id_admin){
+  function tambah_suratmu($id_surat,$no_surat,$tgl_surat,$pengirim,$perihal,$file){
     $data = array(
       'id_surat' 	=> $id_surat,
       'no_surat' 	=> $no_surat,
       'tgl_surat' => $tgl_surat,
       'pengirim' => $pengirim,
       'perihal' => $perihal,
-      'file' => $file,
-      'Id_admin' => $id_admin
+      'file' => $file
     );
-    $result = $this->db->insert('suratmu',$data);
+    $result = $this->db->insert('surat_masuk_umum',$data);
     return $result;
   }
 
-	function update_smu(){
-    	$id_surat=$this->input->post('id_surat');
-		$no_surat=$this->input->post('no_surat');
-		$tgl_surat=$this->input->post('tgl_surat');
-    	$pengirim=$this->input->post('pengirim');
-    	$perihal=$this->input->post('perihal');
-    	$id_admin=$this->input->post('id_admin');
+	function update_referensi(){
+    $id_referensi=$this->input->post('id_referensi');
+		$judul_ta=$this->input->post('judul_ta');
+		$penulis=$this->input->post('penulis');
+    $tahun=$this->input->post('tahun');
+    $asal_referensi=$this->input->post('asal_referensi');
+    $id_admin=$this->input->post('id_admin');
 
-		$this->db->set('perihal', $perihal);
-		$this->db->set('no_surat', $no_surat);
-		$this->db->set('tgl_surat', $tgl_surat);
-    	$this->db->set('pengirim', $pengirim);
-    	$this->db->set('Id_admin', $id_admin);
-    	$this->db->where('id_surat', $id_surat);
-		$result=$this->db->update('suratmu');
+		$this->db->set('Judul_TA', $judul_ta);
+		$this->db->set('Penulis', $penulis);
+		$this->db->set('Tahun', $tahun);
+    $this->db->set('Asal_Referensi', $asal_referensi);
+    $this->db->set('Id_admin', $id_admin);
+    $this->db->where('Id_Referensi', $id_referensi);
+		$result=$this->db->update('referensi');
 		return $result;
 	}
 
-	function delete_smu(){
-		$id_referensi=$this->input->post('id_surat');
-		$this->db->where('id_surat', $id_surat);
-		$result=$this->db->delete('suratmu');
+	function delete_referensi(){
+		$id_referensi=$this->input->post('id_referensi');
+		$this->db->where('Id_referensi', $id_referensi);
+		$result=$this->db->delete('referensi');
 		return $result;
 	}
 
