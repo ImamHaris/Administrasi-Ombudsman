@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="<?php base_url() ?>assets/iconfonts/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="<?php base_url() ?>assets/css/vendor.bundle.base.css">
   <link rel="stylesheet" href="<?php base_url() ?>assets/css/vendor.bundle.addons.css">
+  <link rel="stylesheet" href="<?php base_url() ?>assets/font-awesome/css/font-awesome.min.css">
   <!-- endinject -->
   <!-- plugin css for this page -->
   <!-- End plugin css for this page -->
