@@ -2,7 +2,6 @@
 class Suratmu extends CI_Controller{
 	function __construct(){
 		parent::__construct();
-		
 		//Start Untuk mengecek kalau yg akses adalah admin
 		if($this->session->userdata('akses') != "Admin") {
 			if($this->session->userdata('akses') == "Dosen") {// Jika Dosen berusaha akses maka akan di redirect ke halaman dosen
@@ -21,8 +20,8 @@ class Suratmu extends CI_Controller{
 		$this->load->view('admin/template', $isi);
 	}
 
-	function lihat_referensi(){
-		$this->load->view('lihatreferensi_view');
+	function lihat_smu(){
+		$this->load->view('lihatsmu_view');
 	}
 
 	function suratmu_data(){
@@ -57,12 +56,12 @@ class Suratmu extends CI_Controller{
 	}
 
 	function update(){
-		$data=$this->referensi_model->update_referensi();
+		$data=$this->suratmu_model->update_smu();
 		echo json_encode($data);
 	}
 
 	function delete(){
-		$data=$this->referensi_model->delete_referensi();
+		$data=$this->suratmu_model->delete_smu();
 		echo json_encode($data);
 	}
 
