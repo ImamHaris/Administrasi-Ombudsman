@@ -20,22 +20,22 @@ class SuratMU extends CI_Controller{
 		$this->load->view('admin/template', $isi);
 	}
 
-	function lihat_referensi(){
-		$this->load->view('lihatreferensi_view');
+	function lihat_smu(){
+		$this->load->view('lihatsmu_view');
 	}
 
-	function referensi_data(){
-		$data=$this->referensi_model->referensi_list();
+	function smu_data(){
+		$data=$this->smu_model->smu_list();
 		echo json_encode($data);
 	}
 
 	function save(){
-		$data=$this->referensi_model->save_referensi();
+		$data=$this->suratmu_model->save_smu();
 		echo json_encode($data);
 	}
 
 	function upload(){
-		$config['upload_path']="./assets/upload/referensi/"; //file yg diupload akan disimpan
+		$config['upload_path']="./assets/upload/suratmu/"; //file yg diupload akan disimpan
 		$config['allowed_types']='doc|docx|pdf'; // tipe file yang boleh di upload
 
 		$this->load->library('upload',$config);
@@ -43,25 +43,25 @@ class SuratMU extends CI_Controller{
 		$data = array('upload_data' => $this->upload->data()); //ambil nama file yang diupload
 
 		$file= $data['upload_data']['file_name'];
-		$id_referensi=$this->input->post('id_referensi');
-		$judul_ta=$this->input->post('judul_ta');
-		$penulis=$this->input->post('penulis');
-    $tahun=$this->input->post('tahun');
-    $asal_referensi=$this->input->post('asal_referensi');
-    $id_admin=$this->session->userdata('ses_id');
+		$id_surat=$this->input->post('id_surat');
+		$no_surat=$this->input->post('no_surat');
+		$tgl_surat=$this->input->post('tgl_surat');
+    	$pengirim=$this->input->post('pengirim');
+    	$perihal=$this->input->post('perihal');
+    	$id_admin=$this->session->userdata('ses_id');
 
-		$result= $this->referensi_model->tambah_referensi($id_referensi,$judul_ta,$penulis,$tahun,$asal_referensi,$file,$id_admin);
+		$result= $this->suratmu_model->tambah_smu($id_surat,$no_surat,$tgl_surat,$pengirim,$perihal,$file,$id_admin);
 		echo json_decode($result);
 		}
 	}
 
 	function update(){
-		$data=$this->referensi_model->update_referensi();
+		$data=$this->suratmu_model->update_smu();
 		echo json_encode($data);
 	}
 
 	function delete(){
-		$data=$this->referensi_model->delete_referensi();
+		$data=$this->suratmu_model->delete_smu();
 		echo json_encode($data);
 	}
 
