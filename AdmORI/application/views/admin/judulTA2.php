@@ -1,55 +1,48 @@
 <!-- partial -->
-<link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/graph.css'?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/dataTables.bootstrap4.css'?>">
 <div class="main-panel">
   <div class="content-wrapper">
     <div id="header">
             <h1><b>
-        <font color=#12688D> KELOLA BERKAS LAPORAN</font></h1></b>
+        <font color=#12688D> KELOLA REFERENSI</font></h1></b>
         <hr width=100% size=8 NOSHADE class="hr hr-prmary" style="height: 10px; background-color: #12688D">
     </div>
 
    <!-- tabel referensi -->
 
-   <div class="row placeholders">
-    <div class="col-xs-6 col-sm-3 placeholder">
-      <a class="nav-link" href=<?php echo base_url('admin/kelolaadmin') ?>>
-        <button class='btn btn-lg '  style='background-color:transparent;'>
-          <img src="<?php echo base_url().'assets/images/icons/suratmasuk.png'?>" style="height: 100px; width: 100px" class="img-responsive" alt="Generic placeholder thumbnail">
-          <h4>Surat Masuk</h4>
-          <span class="text-bold">0</span>
-        </button>
-      </a>
-      
-      
+    <div class="row">
+      <div class="col-lg-12 grid-margin">
+        <div class="card">
+          <div class="card-body">
+            <div class="col-md-12">
+              <div class="float-left"><a href="javascript:void(0);" class="btn btn-primary" data-toggle="modal" data-target="#Modal_Add"><span class="fa fa-plus mdi mdi-plus-circle"></span>Tambah</a></div>
+              <br><br>
+            </div>
+            <div class="table-responsive">
+              <table id="tabelREF" class="table table-striped">
+                <thead>
+                  <tr>
+                      <th>No</th>
+                      <th>Judul TA</th>
+                      <th>Penulis</th>
+                      <th>Tahun</th>
+                      <th>Asal Referensi</th>
+                      <th>File</th>
+                      <th style="text-align: right;">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="show_data">
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col-xs-6 col-sm-3 placeholder">
-    <a href="tambah_artikel.php"> <button class='btn btn-lg '  style='background-color:transparent;'>
-    <img src="<?php echo base_url().'assets/images/icons/suratkeluar.png'?>" style="height: 100px; width: 100px" class="img-responsive" alt="Generic placeholder thumbnail">
-
-    <h4>Surat Keluar</h4>
-    <span class="text-bold">0</span>
-  </button>
-</a>
-    </div>
-    <div class="col-xs-6 col-sm-3 placeholder">
-    <a href="tambah_artikel.php"> <button class='btn btn-lg '  style='background-color:transparent;'>
-    <img src="<?php echo base_url().'assets/images/icons/suratmasuk.png'?>" style="height: 100px; width: 100px" class="img-responsive" alt="Generic placeholder thumbnail">
-
-    <h4>Surat Cinta</h4>
-    <span class="text-bold">0</span>
-  </button>
-</a>
-</div>
-				
-
-
-		<!-- //switches -->
-	
-			
-		</div>
     </div>
 <!-- main-panel ends -->
+<link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/bootstrap.css'?>">
 <!-- MODAL ADD -->
         <form id="submit">
         <div class="modal fade" id="Modal_Add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -197,14 +190,16 @@
                   var i,nomor;
                   for(i=0; i<data.length; i++){
                     var link_file = '<?php echo site_url('assets/upload/referensi/')?>'+data[i].file;
-                    var download = ' Download';
+                    var download = 'Download';
                     nomor = i+1;
                       html += '<tr>'+
                             '<td>'+nomor+'</td>'+
                               '<td>'+data[i].Judul_TA+'</td>'+
                               '<td>'+data[i].Penulis+'</td>'+
+                              '<td>'+data[i].Tahun+'</td>'+
+                              '<td>'+data[i].Asal_Referensi+'</td>'+
+                              '<td>'+'<a href="'+link_file+'" target="_blank">'+download+'</a>'+'</td>'+
                               '<td style="text-align:right;">'+
-                                      '<a href="'+link_file+'" class="btn btn-info btn-sm glyphicon glyphicon-download-alt " target="_blank">'+download+'</a>'+' '+
                                       '<a href="javascript:void(0);" class="btn btn-info btn-sm item_edit" data-id_referensi="'+data[i].Id_Referensi+'" data-judul_ta="'+data[i].Judul_TA+'" data-penulis="'+data[i].Penulis+'" data-tahun="'+data[i].Tahun+'" data-asal_referensi="'+data[i].Asal_Referensi+'" >Edit</a>'+' '+
                                       '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id_referensi="'+data[i].Id_Referensi+'">Delete</a>'+
                                   '</td>'+
