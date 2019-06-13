@@ -36,11 +36,12 @@
     <a href="tambah_artikel.php"> <button class='btn btn-lg '  style='background-color:transparent;'>
     <img src="<?php echo base_url().'assets/images/icons/suratmasuk.png'?>" style="height: 100px; width: 100px" class="img-responsive" alt="Generic placeholder thumbnail">
 
-    <h4>Surat Cinta</h4>
+    <h4>Surat Tugas</h4>
     <span class="text-bold">0</span>
   </button>
 </a>
 </div>
+
 				
 
 
