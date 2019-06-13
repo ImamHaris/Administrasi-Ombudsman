@@ -4,7 +4,7 @@
   <div class="content-wrapper">
     <div id="header">
             <h1><b>
-        <font color=#12688D> KELOLA REFERENSI</font></h1></b>
+        <font color=#12688D> KELOLA ADMINISTRASI</font></h1></b>
         <hr width=100% size=8 NOSHADE class="hr hr-prmary" style="height: 10px; background-color: #12688D">
     </div>
 
@@ -49,14 +49,14 @@
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tambah Referensi Baru</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Tambah Surat Masuk Baru</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label">Surat Masuk Umum</label>
+                        <label class="col-md-2 col-form-label">No Surat</label>
                         <div class="col-md-10">
                           <input type="text" name="no_surat" id="no_surat" class="form-control" placeholder="Nomor Surat" required>
                         </div>
