@@ -13,7 +13,7 @@
 
    <div class="row placeholders">
     <div class="col-xs-6 col-sm-3 placeholder">
-      <a class="nav-link" href=<?php echo base_url('admin/kelolaadmin') ?>>
+      <a class="nav-link" href=<?php echo base_url('admin/suratmu') ?>>
         <button class='btn btn-lg '  style='background-color:transparent;'>
           <img src="<?php echo base_url().'assets/images/icons/suratmasuk.png'?>" style="height: 100px; width: 100px" class="img-responsive" alt="Generic placeholder thumbnail">
           <h4>Surat Masuk</h4>
