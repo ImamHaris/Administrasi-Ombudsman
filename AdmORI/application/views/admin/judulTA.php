@@ -5,41 +5,103 @@
   <div class="content-wrapper">
     <div id="header">
             <h1><b>
-        <font color=#12688D> KELOLA BERKAS LAPORAN</font></h1></b>
+        <font color=#12688D> KELOLA BERKAS ADMINISTRASI</font></h1></b>
         <hr width=100% size=8 NOSHADE class="hr hr-prmary" style="height: 10px; background-color: #12688D">
     </div>
 
    <!-- tabel referensi -->
 
    <div class="row placeholders">
+    
     <div class="col-xs-6 col-sm-3 placeholder">
       <a class="nav-link" href=<?php echo base_url('admin/suratmu') ?>>
         <button class='btn btn-lg '  style='background-color:transparent;'>
-          <img src="<?php echo base_url().'assets/images/icons/suratmasuk.png'?>" style="height: 100px; width: 100px" class="img-responsive" alt="Generic placeholder thumbnail">
-          <h4>Surat Masuk</h4>
+          <img src="<?php echo base_url().'assets/images/icons/suratmasukumum.png'?>" style="height: 100px; width: 100px" class="img-responsive" alt="Generic placeholder thumbnail">
+          <h4>Surat Masuk Umum</h4>
           <span class="text-bold">0</span>
         </button>
       </a>
-      
-      
     </div>
+
+    <div class="col-xs-6 col-sm-3 placeholder">
+      <a class="nav-link" href=<?php echo base_url('admin/suratmu') ?>>
+        <button class='btn btn-lg '  style='background-color:transparent;'>
+          <img src="<?php echo base_url().'assets/images/icons/suratkeluarumum.png'?>" style="height: 100px; width: 100px" class="img-responsive" alt="Generic placeholder thumbnail">
+          <h4>Surat Keluar Umum</h4>
+          <span class="text-bold">0</span>
+        </button>
+      </a>
+    </div>
+
+    <div class="col-xs-6 col-sm-3 placeholder">
+      <a class="nav-link" href=<?php echo base_url('admin/suratmu') ?>>
+        <button class='btn btn-lg '  style='background-color:transparent;'>
+          <img src="<?php echo base_url().'assets/images/icons/suratkeluarlaporan.png'?>" style="height: 100px; width: 100px" class="img-responsive" alt="Generic placeholder thumbnail">
+          <h4>Surat Keluar Laporan</h4>
+          <span class="text-bold">0</span>
+        </button>
+      </a>
+    </div>
+
+    <div class="col-xs-6 col-sm-3 placeholder">
+      <a class="nav-link" href=<?php echo base_url('admin/suratmu') ?>>
+        <button class='btn btn-lg '  style='background-color:transparent;'>
+          <img src="<?php echo base_url().'assets/images/icons/surattembusan.png'?>" style="height: 100px; width: 100px" class="img-responsive" alt="Generic placeholder thumbnail">
+          <h4>Surat Tembusan</h4>
+          <span class="text-bold">0</span>
+        </button>
+      </a>
+    </div>
+
+    <div class="col-xs-6 col-sm-3 placeholder">
+      <a class="nav-link" href=<?php echo base_url('admin/suratmu') ?>>
+        <button class='btn btn-lg '  style='background-color:transparent;'>
+          <img src="<?php echo base_url().'assets/images/icons/suratkarifikasimasuk.png'?>" style="height: 100px; width: 100px" class="img-responsive" alt="Generic placeholder thumbnail">
+          <h4>Surat Klarifikasi Masuk</h4>
+          <span class="text-bold">0</span>
+        </button>
+      </a>
+    </div>
+
+    <div class="col-xs-6 col-sm-3 placeholder">
+      <a class="nav-link" href=<?php echo base_url('admin/suratmu') ?>>
+        <button class='btn btn-lg '  style='background-color:transparent;'>
+          <img src="<?php echo base_url().'assets/images/icons/suratklarifikasikeluar.png'?>" style="height: 100px; width: 100px" class="img-responsive" alt="Generic placeholder thumbnail">
+          <h4>Surat Klarifikasi Keluar</h4>
+          <span class="text-bold">0</span>
+        </button>
+      </a>
+    </div>
+
+    <div class="col-xs-6 col-sm-3 placeholder">
+      <a class="nav-link" href=<?php echo base_url('admin/suratmu') ?>>
+        <button class='btn btn-lg '  style='background-color:transparent;'>
+          <img src="<?php echo base_url().'assets/images/icons/suratklarifikasikeluarII.png'?>" style="height: 100px; width: 100px" class="img-responsive" alt="Generic placeholder thumbnail">
+          <h4>Surat Klarifikasi Keluar II</h4>
+          <span class="text-bold">0</span>
+        </button>
+      </a>
+    </div>
+
+    <div class="col-xs-6 col-sm-3 placeholder">
+      <a class="nav-link" href=<?php echo base_url('admin/suratmu') ?>>
+        <button class='btn btn-lg '  style='background-color:transparent;'>
+          <img src="<?php echo base_url().'assets/images/icons/surattugas.png'?>" style="height: 100px; width: 100px" class="img-responsive" alt="Generic placeholder thumbnail">
+          <h4>Surat Tugas</h4>
+          <span class="text-bold">0</span>
+        </button>
+      </a>
+    </div>
+    
     <div class="col-xs-6 col-sm-3 placeholder">
     <a href="admin/suratmu"> <button class='btn btn-lg '  style='background-color:transparent;'>
-    <img src="<?php echo base_url().'assets/images/icons/suratkeluar.png'?>" style="height: 100px; width: 100px" class="img-responsive" alt="Generic placeholder thumbnail">
+    <img src="<?php echo base_url().'assets/images/icons/suratkeputusan.png'?>" style="height: 100px; width: 100px" class="img-responsive" alt="Generic placeholder thumbnail">
 
-    <h4>Surat Keluar</h4>
+    <h4>Surat Keputusan (SK)</h4>
     <span class="text-bold">0</span>
   </button>
 </a>
-    </div>
-    <div class="col-xs-6 col-sm-3 placeholder">
-    <a href="tambah_artikel.php"> <button class='btn btn-lg '  style='background-color:transparent;'>
-    <img src="<?php echo base_url().'assets/images/icons/suratmasuk.png'?>" style="height: 100px; width: 100px" class="img-responsive" alt="Generic placeholder thumbnail">
 
-    <h4>Surat Tugas</h4>
-    <span class="text-bold">0</span>
-  </button>
-</a>
 </div>
 
 				
