@@ -56,35 +56,30 @@
 
               <div class="modal-body mx-5">
                 <div class="md-form mb-4">
-                  <i class="fas fa-user prefix grey-text"></i>
                   <label data-error="wrong" data-success="right" for="orangeForm-name">No Surat</label>
                   <input type="text" name="no_surat" id="no_surat" class="form-control" placeholder="No Surat" required>   
                 </div>
                 <div class="md-form mb-4">
-                  <i class="fas fa-envelope prefix grey-text"></i>
                   <label data-error="wrong" data-success="right" for="orangeForm-email">Tanggal Surat</label>
                   <input type="date" name="tgl_surat" id="tgl_surat" class="form-control" placeholder="Tanggal Surat" required>
                 </div>
                 <div class="md-form mb-4">
-                  <i class="fas fa-lock prefix grey-text"></i>
                   <label data-error="wrong" data-success="right" for="orangeForm-pass">Pengirim</label>
                   <input type="text" name="pengirim" id="pengirim" class="form-control" placeholder="Pengirim" required>
                 </div>
                 <div class="md-form mb-4">
-                  <i class="fas fa-lock prefix grey-text"></i>
                   <label data-error="wrong" data-success="right" for="orangeForm-pass">Perihal</label>
                   <input type="text" name="perihal" id="perihal" class="form-control" placeholder="Perihal" required>
                 </div>
                 <div class="md-form mb-4">
-                  <i class="fas fa-lock prefix grey-text"></i>
                   <label data-error="wrong" data-success="right" for="orangeForm-pass">File</label>
                   <input type="file" name="file" id="file" class="form-control" placeholder="File" required>
                 </div>
               </div>
 
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit " type="submit" id="btn_save" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                <button type="submit " type="submit" id="btn_save" class="btn btn-primary">Simpan</button>
               </div>
             </div>
           </div>
@@ -206,7 +201,6 @@
               }
           });
       }
-
       $('#submit').submit(function(e){
             e.preventDefault();
                  $.ajax({
