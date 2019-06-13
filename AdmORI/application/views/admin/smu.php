@@ -42,7 +42,6 @@
     </div>
     </div>
 <!-- main-panel ends -->
-<link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/css/bootstrap.css'?>">
 <!-- MODAL ADD -->
         <form id="submit">
         <div class="modal fade" id="Modal_Add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
