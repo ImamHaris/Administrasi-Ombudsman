@@ -38,7 +38,7 @@ class Suratmu_model extends CI_Model {
     $tahun=$this->input->post('tahun');
     $asal_referensi=$this->input->post('asal_referensi');
     $id_admin=$this->input->post('id_admin');
-
+   
 		$this->db->set('Judul_TA', $judul_ta);
 		$this->db->set('Penulis', $penulis);
 		$this->db->set('Tahun', $tahun);
