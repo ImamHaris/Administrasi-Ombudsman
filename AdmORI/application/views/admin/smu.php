@@ -64,7 +64,7 @@
                     <div class="form-group row">
                         <label class="col-md-2 col-form-label">Tanggal</label>
                         <div class="col-md-10">
-                          <input type="text" name="tgl_surat" id="tgl_surat" class="form-control" placeholder="tgl_surat"required>
+                          <input type="date" name="tgl_surat" id="tgl_surat" class="form-control" placeholder="tgl_surat"required>
                         </div>
                     </div>
                     <div class="form-group row">
