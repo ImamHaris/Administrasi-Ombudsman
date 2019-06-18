@@ -62,7 +62,7 @@ class Suratmu extends CI_Controller{
 	}
 
 	function delete(){
-		$data=$this->referensi_model->delete_referensi();
+		$data=$this->surat_model->delete_smu();
 		echo json_encode($data);
 	}
 
