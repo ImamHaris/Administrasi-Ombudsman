@@ -15,9 +15,10 @@ http://vladimirkudinov.com
 .button-flat-outline {
 	border: 2px solid #12688D;        /* border: tebal[px] tipe[solid,dashed,dotted] warna[#hex, rgb()]; */
 	background: transparent;          /* set warna background menjadi transparan */
+	height: 180px;
+	width: 300px;
 	color: #12688D;                   /* ubah warna font */
-	font-size: 16px;                  /* ubah ukuran font */
-	padding: 0.5em 1em 0.5em 1em;     /* padding: top right bottom left; */
+	font-size: 16px;     /* padding: top right bottom left; */
 }
 .button-flat-outline:hover {
 	opacity: 0.8;                     /* ubah tingkat transparansi saat cursor menuju button. 0.0 s.d 1.0 */
