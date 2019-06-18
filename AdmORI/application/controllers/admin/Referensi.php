@@ -3,6 +3,7 @@ class Referensi extends CI_Controller{
 	function __construct(){
 		parent::__construct();
 		$this->load->model('referensi_model');
+		$this->load->model('surat_model');
 		//Start Untuk mengecek kalau yg akses adalah admin
 		if($this->session->userdata('akses') != "Admin") {
 			if($this->session->userdata('akses') == "Dosen") {// Jika Dosen berusaha akses maka akan di redirect ke halaman dosen
@@ -16,8 +17,10 @@ class Referensi extends CI_Controller{
 		//END Untuk mengecek kalau yg akses adalahadmin
 	}
 	function index(){
+		$isi['data_dashboard'] = $this->surat_model->get_data_dashboard();
 		$isi['konten'] = 'admin/judulTA';
 		$this->load->view('admin/template', $isi);
+		
 	}
 
 	function lihat_referensi(){
