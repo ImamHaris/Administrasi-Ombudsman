@@ -11,8 +11,17 @@
 
    <!-- tabel referensi -->
 
+
+
+
    <div class="row placeholders">
     
+    <button class="button-flat-outline"><a class="nav-link" href=<?php echo base_url('admin/suratmu') ?>><img src="<?php echo base_url().'assets/images/icons/suratmasukumum.png'?>" style="height: 100px; width: 100px" class="img-responsive" alt="Generic placeholder thumbnail">Surat Masuk Umum</button>
+
+    <button class="button-flat-outline"><a class="nav-link" href=<?php echo base_url('admin/suratmu') ?>><img src="<?php echo base_url().'assets/images/icons/suratkeluarumum.png'?>" style="height: 100px; width: 100px" class="img-responsive" alt="Generic placeholder thumbnail">Surat Keluar Umum</button>
+
+    <button class="button-flat-outline"><a class="nav-link" href=<?php echo base_url('admin/suratmu') ?>><img src="<?php echo base_url().'assets/images/icons/suratkeluarlaporan.png'?>" style="height: 100px; width: 100px" class="img-responsive" alt="Generic placeholder thumbnail">Surat Keluar Laporan</button>
+
     <div class="col-xs-6 col-sm-3 placeholder">
       <a class="nav-link" href=<?php echo base_url('admin/suratmu') ?>>
         <button class='btn btn-lg '  style='background-color:transparent;'>
