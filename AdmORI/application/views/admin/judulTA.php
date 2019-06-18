@@ -27,7 +27,7 @@
         <button class='btn btn-lg '  style='background-color:transparent;'>
           <img src="<?php echo base_url().'assets/images/icons/suratmasukumum.png'?>" style="height: 100px; width: 100px" class="img-responsive" alt="Generic placeholder thumbnail">
           <h4>Surat Masuk Umum</h4>
-          <span class="text-bold">0</span>
+          <span class="text-bold"><?php echo $data_dashboard['surat_masuk_umum']; ?></span>
         </button>
       </a>
     </div>
@@ -37,7 +37,7 @@
         <button class='btn btn-lg '  style='background-color:transparent;'>
           <img src="<?php echo base_url().'assets/images/icons/suratkeluarumum.png'?>" style="height: 100px; width: 100px" class="img-responsive" alt="Generic placeholder thumbnail">
           <h4>Surat Keluar Umum</h>
-          <span class="text-bold">0</span>
+          <span class="text-bold"></span>
         </button>
       </a>
     </div>
