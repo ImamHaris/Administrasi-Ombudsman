@@ -16,12 +16,9 @@
 
    <div class="row placeholders">
     
-<<<<<<< HEAD
     <button class="button-flat-outline"><a class="nav-link" href=<?php echo base_url('admin/suratmu') ?>><img src="<?php echo base_url().'assets/images/icons/suratmasukumum.png'?>" style="height: 100px; width: 100px" class="img-responsive" alt="Generic placeholder thumbnail">
       <h4>Surat Masuk Umum</h4>
       <span class="text-bold"><?php echo $data_dashboard['surat_masuk_umum']; ?></span></button>
-=======
->>>>>>> cb875bafa17557b9ca3d569ad8c1b8f6ef087680
 
    <button class="button-flat-outline"><a class="nav-link" href=<?php echo base_url('admin/suratmu') ?>><img src="<?php echo base_url().'assets/images/icons/suratmasukumum.png'?>" style="height: 100px; width: 100px" class="img-responsive" alt="Generic placeholder thumbnail">Surat Masuk Umum</button>
 
