@@ -42,6 +42,13 @@ class Surat_model extends CI_Model {
 			return FALSE;
 		}
 	}
+
+	function delete_smu(){
+		$id_surat=$this->input->post('id_surat');
+		$this->db->where('id_surat', $id_surat);
+		$result=$this->db->delete('surat_masuk_umum');
+		return $result;
+	}
 }
 
 /* End of file surat_model.php */

@@ -141,16 +141,16 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Delete Referensi</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Delete Surat Masuk Umum</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-                   <strong>Delete Referensi Ini?</strong>
+                   <strong>Delete Surat Ini?</strong>
               </div>
               <div class="modal-footer">
-                <input type="hidden" name="id_referensi_delete" id="id_referensi_delete" class="form-control">
+                <input type="hidden" name="id_smu_delete" id="id_smu_delete" class="form-control">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
                 <button type="button" type="submit" id="btn_delete" class="btn btn-primary">Ya</button>
               </div>
@@ -192,7 +192,7 @@
                               '<td>'+'<a href="'+link_file+'" target="_blank">'+download+'</a>'+'</td>'+
                               '<td style="text-align:right;">'+
                                       '<a href="javascript:void(0);" class="btn btn-info btn-sm item_edit" data-id_referensi="'+data[i].Id_Referensi+'" data-judul_ta="'+data[i].Judul_TA+'" data-penulis="'+data[i].Penulis+'" data-tahun="'+data[i].Tahun+'" data-asal_referensi="'+data[i].Asal_Referensi+'" >Edit</a>'+' '+
-                                      '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id_referensi="'+data[i].Id_Referensi+'">Delete</a>'+
+                                      '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete"="'+data[i].id_surat+'">Delete</a>'+
                                   '</td>'+
                               '</tr>';
 
@@ -262,20 +262,20 @@
       });
       //get data for delete record
       $('#show_data').on('click','.item_delete',function(){
-          var id_referensi = $(this).data('id_referensi');
+          var id_surat = $(this).data('id_surat');
           $('#Modal_Delete').modal('show');
-          $('[name="id_referensi_delete"]').val(id_referensi);
+          $('[name="id_smu_delete"]').val(id_surat);
       });
       //delete record to database
        $('#btn_delete').on('click',function(){
-          var id_referensi = $('#id_referensi_delete').val();
+          var id_surat = $('#id_smu_delete').val();
           $.ajax({
               type : "POST",
-              url  : "<?php echo site_url('admin/referensi/delete')?>",
+              url  : "<?php echo site_url('admin/suratmu/delete')?>",
               dataType : "JSON",
-              data : {id_referensi:id_referensi},
+              data : {id_surat:id_surat},
               success: function(data){
-                  $('[name="id_referensi_delete"]').val("");
+                  $('[name="id_smu_delete"]').val("");
                   $('#Modal_Delete').modal('hide');
                   show_referensi();
               }
