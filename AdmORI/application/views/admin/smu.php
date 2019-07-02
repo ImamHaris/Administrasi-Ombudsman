@@ -191,8 +191,8 @@
                               '<td>'+data[i].perihal+'</td>'+
                               '<td>'+'<a href="'+link_file+'" target="_blank">'+download+'</a>'+'</td>'+
                               '<td style="text-align:right;">'+
-                                      '<a href="javascript:void(0);" class="btn btn-info btn-sm item_edit" data-id_referensi="'+data[i].Id_Referensi+'" data-judul_ta="'+data[i].Judul_TA+'" data-penulis="'+data[i].Penulis+'" data-tahun="'+data[i].Tahun+'" data-asal_referensi="'+data[i].Asal_Referensi+'" >Edit</a>'+' '+
-                                      '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete"="'+data[i].id_surat+'">Delete</a>'+
+                                      '<a href="javascript:void(0);" class="btn btn-info btn-sm item_edit" data-id_referensi="'+data[i].id_surat+'" data-judul_ta="'+data[i].no_surat+'" data-penulis="'+data[i].tgl_surat+'" data-tahun="'+data[i].pengirim+'" data-asal_referensi="'+data[i].perihal+'" >Edit</a>'+' '+
+                                      '<a href="javascript:void(0);" class="btn btn-danger btn-sm item_delete" data-id_surat="'+data[i].id_surat+'">Delete</a>'+
                                   '</td>'+
                               '</tr>';
 
@@ -263,6 +263,7 @@
       //get data for delete record
       $('#show_data').on('click','.item_delete',function(){
           var id_surat = $(this).data('id_surat');
+
           $('#Modal_Delete').modal('show');
           $('[name="id_smu_delete"]').val(id_surat);
       });

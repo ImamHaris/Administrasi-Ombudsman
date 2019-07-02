@@ -49,6 +49,7 @@ class Surat_model extends CI_Model {
 		$result=$this->db->delete('surat_masuk_umum');
 		return $result;
 	}
+	
 }
 
 /* End of file surat_model.php */
