@@ -67,8 +67,8 @@ class Surat_model extends CI_Model {
     }
 
     public function delete_surat_masuk($id_url) {
-        $this->db->where('id', $id_url);
-        $this->db->delete('surat_masuk');
+        $this->db->where('id_surat', $id_url);
+        $this->db->delete('surat_masuk_umum');
     }
 
     public function cari_surat_masuk_tgl($tglcari) {

@@ -18,7 +18,7 @@
                 <div class="small-box bg-green">
                     <div class="inner">
                         <h3><?php echo (int) $total_surat_masuk; ?></h3>
-                        <p>Total Surat Masuk</p>
+                        <p>Total Surat Masuk Umum</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-android-mail"></i>
@@ -32,7 +32,7 @@
                 <div class="small-box bg-orange">
                     <div class="inner">
                         <h3><?php echo (int) $total_surat_keluar; ?></h3>
-                        <p>Total Surat Keluar</p>
+                        <p>Total Surat Keluar Umum</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-android-mail"></i>

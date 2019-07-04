@@ -2,7 +2,7 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>Surat Masuk</h1>
+        <h1>Surat Masuk Umum</h1>
         <ol class="breadcrumb">
             <li><a href="<?php echo site_url('simak'); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
             <li class="active">Surat Masuk</li>
@@ -64,7 +64,7 @@
                                                     <a href="<?php echo site_url('surat/surat_masuk/edit'); ?>/<?php echo $b->id_surat ?>"
                                                        data-toggle="tooltip" class="btn btn-success btn-sm" title="Edit Data"><i class="fa fa-pencil"> </i></a>
                                                     <a href="<?php echo site_url('surat/surat_masuk/del'); ?>/<?php echo $b->id_surat ?>"
-                                                       data-toggle="tooltip" class="btn btn-danger btn-sm" title="Hapus Data" onclick="return confirm('Anda Yakin..?')"><i class="fa fa-remove"></i></a>			
+                                                       data-toggle="tooltip" class="btn btn-danger btn-sm" title="Hapus Data" onclick="return confirm('Anda Yakin ..?')"><i class="fa fa-remove"></i></a>			
                                                     <a href="<?php echo site_url('surat/surat_disposisi'); ?>/<?php echo $b->id_surat ?>"
                                                        data-toggle="tooltip" class="btn btn-warning btn-sm"  title="Disposisi Surat"><i class="fa fa-check"></i></a>
                                                     <a href="<?php echo site_url('cetak/cetak_disposisi'); ?>/<?php echo $b->id_surat ?>"
