@@ -19,11 +19,12 @@
         ?>
     </head>
     <body class="hold-transition login-page">
+        <img src="<?php echo base_url('assets/foto/bg.jpg');?>" alt="gambar" class="bg" />
         <div class="login-box">
             <div class="login-logo">
                 <div class="row text-bold" style="color: green;">
                     <div class="col-xs-5 text-right">
-                        <p>SIMAK</p>
+                        <p>SIBER</p>
                     </div>
                     <div class="col-xs-7 text-left">
                         <p style="font-size: medium">SISTEM INFORMASI SURAT MASUK DAN KELUAR</p>
@@ -34,13 +35,11 @@
 
             <!--logo kementerian-->
             <div class="login-box-body box box-solid box-success">
-                <div style="padding-bottom: 10px;">
+                <div>
                     <?php
                     $q_instansi = $this->simak_model->get_instansi();
                     ?>
-                    <div><img src="<?php echo base_url(); ?>upload/<?php echo $q_instansi->logo; ?>" class="img-thumbnail " style="display: inline; float: left; margin-right: 15px; width: 70px; height: 70px"></div>
-                    <div style="color: green; font-size: 20px;"><?php echo $q_instansi->nama; ?></div>
-                    <div style=" font-size: 10px;"><?php echo $q_instansi->alamat; ?></div>
+                    <div><img src="<?php echo base_url().'assets/foto/surat2.png'?>" style="height: 150px"></div>
                 </div>
             </div>
 
