@@ -39,25 +39,26 @@
                         <table class="table table-hover" style="width: 100%;">
                             <tr>
                                 <th style="width: 4%;">No.</th>
-                                <th style="width: 30%;">Isi Ringkas, File</th>
-                                <th style="width: 6%;">Kode</th>
-                                <th style="width: 25%;">Asal Surat</th>
                                 <th style="width: 20%;">Nomor, Tgl. Surat</th>
-                                <th style="width: 15%;">Aksi</th>
+                                <th style="width: 30%;">Tujuan</th>
+                                <th style="width: 40%;">Perihal</th>
+                                <th style="width: 6%;">Aksi</th>
                             </tr>
                             <?php
                             if (empty($data)) {
                                 echo "<tr><td colspan='6'  style='text-align: center; font-weight: bold'>--Data tidak ditemukan--</td></tr>";
                             } else {
+                                $nomor=0;
                                 $no = ($this->uri->segment(4) + 1);
                                 foreach ($data as $b) {
+                                    $nomor++;
                                     ?>
                                     <tr>
-                                        <td ><?php echo $b->no_agenda; ?></td>
-                                        <td ><?php echo limit_word($b->isi_ringkas, 50, 0) . "<br><b>File : </b><i><a href='" . base_URL() . "assets/upload/surat_masuk_umum/" . $b->file . "' target='_blank'>" . limit_word($b->file, 50, 1) . "</a>"; ?></td>
-                                        <td><?php echo $b->kode; ?></td>
-                                        <td><?php echo limit_word($b->tujuan, 50, 0); ?></td>
-                                        <td ><?php echo $b->no_surat . "<br><i>" . tgl_jam_sql($b->tgl_surat) . "</i>"; ?></td>
+                                        <td ><?php echo $nomor; ?></td>
+                                        <td ><?php echo $b->no_surat . "<br><i>" . $b->tgl_surat . "</i>"; ?></td>
+                                        <td ><?php echo limit_word($b->tujuan, 50, 0) . "<br><b>File : </b><i><a href='" . base_URL() . "assets/upload/surat_masuk_umum/" . $b->file . "' target='_blank'>" . limit_word($b->file, 50, 1) . "</a>"; ?></td>
+                                        <td><?php echo $b->perihal; ?></td>
+                                        
                                         <td>
                                             <?php
                                             if ($b->pengolah == $this->session->user_id) {

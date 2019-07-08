@@ -269,7 +269,7 @@ class Surat_model extends CI_Model {
 
     public function select_surat_keluar_limit($awal, $akhir) {
         $this->db->limit($akhir, $awal);
-        $query = $this->db->get('surat_keluar');
+        $query = $this->db->get('surat_keluar_umum');
         return $query->result();
     }
 

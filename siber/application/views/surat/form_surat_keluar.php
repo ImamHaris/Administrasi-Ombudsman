@@ -14,7 +14,7 @@ if ($mode == "edit" || $mode == "act_edit") {
     $no_agenda = gli("surat_masuk", "no_agenda", 4);
     $indek_berkas = "";
     $kode = "";
-    $pengirim = "";
+    $tujuan = "";
     $no_surat = "";
     $tgl_surat = "";
     $perihal = "";
@@ -49,45 +49,25 @@ if ($mode == "edit" || $mode == "act_edit") {
                         <div class="col-md-6 box-body">
                             <input type="hidden" name="id_post" value="<?php echo $id_post; ?>">
                             <div class="form-group">
-                                <label for="noAgenda">No. Agenda</label>
+                                <label for="noAgenda">Nomor Surat</label>
                                 <input type="text" value="<?php echo $no_agenda; ?>" name="no_agenda"
-                                       class="form-control" id="noAgenda" placeholder="No. Agenda" autofocus required>
+                                       class="form-control" id="no_surat" placeholder="Nomor Surat" autofocus required>
                             </div>
                             <div class="form-group">
-                                <label for="noSurat">Nomor Surat</label>
+                                <label for="noSurat">Tujuan Surat</label>
                                 <input type="text" value="<?php echo $no_surat; ?>" name="no_surat"
                                        class="form-control" id="noSurat" placeholder="Nomor Surat" required>
                             </div>
                             <div class="form-group">
-                                <label for="dari">Tujuan Surat</label>
-                                <input type="text" value="<?php echo $dari; ?>" name="dari"
+                                <label for="dari">Perihal</label>
+                                <input type="text" value="<?php echo $tujuan; ?>" name="dari"
                                        class="form-control" id="dari" placeholder="Tujuan Surat" required>
                             </div>
                             <div class="form-group">
-                                <label>Isi Ringkas</label>
-                                <textarea name="uraian" class="form-control" rows="3" required><?php echo $uraian; ?></textarea>
-                            </div>
+                                                            </div>
                         </div>
                         <!-- /.box-body -->
                         <div class="col-md-6 box-body">
-                            <div class="form-group">
-                                <label>Kode Klasifikasi</label>
-                                <div class="row">
-                                    <div class="col-md-7">
-                                        <select name="kode" id="kode_surat" class="form-control">
-                                            <option value="">Pilih Divisi</option>   
-                                            <?php foreach ($data as $row) { ?>
-                                                <option value="<?php echo $row->divisi ?>"><?php echo $row->divisi ?></option>
-                                            <?php } ?>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <select name="kode" id="kode" class="form-control">   
-                                            <option value="">Pilih Kode</option>   
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="form-group">
                                 <label for="tglSurat">Tanggal Surat</label>
                                 <input type="text" value="<?php echo $tgl_surat; ?>" name="tgl_surat"
@@ -98,11 +78,7 @@ if ($mode == "edit" || $mode == "act_edit") {
                                 <input type="file" id="fileSurat" name="file_surat">
                                 <p class="help-block">File harus berekstensi .pdf/ .jpg/.jpeg/.png</p>
                             </div>
-                            <div class="form-group">
-                                <label for="keterangan">Keterangan</label>
-                                <input type="text" value="<?php echo $ket; ?>" name="ket"
-                                       class="form-control" id="keterangan" placeholder="Keterangan">
-                            </div>
+                            
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer">
