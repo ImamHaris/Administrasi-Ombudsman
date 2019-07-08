@@ -27,11 +27,10 @@
                         <table class="table table-bordered" style="width: 100%;">
                             <thead>
                                 <?php $q_instansi = $this->simak_model->get_instansi(); ?>
-                                <tr class="box box-widget widget-user-2 widget-user-header">
+                                <tr border-style: none; class="box box-widget widget-user-2 widget-user-header">
                                     <th colspan="2" class="widget-user-image">
-                                        <img src="<?php echo base_url(); ?>upload/<?php echo $q_instansi->logo; ?>" alt="Gambar Instansi">
-                            <h3 class="widget-user-username"><?php echo $q_instansi->nama; ?></h3>
-                            <h5 class="widget-user-desc"><?php echo $q_instansi->alamat; ?></h5>
+                                    <center><img  src="<?php echo base_url(); ?>assets/upload/logo/logo.png" width="280px" height="240px"  alt="Gambar Instansi">
+</center>
                             </th>
                             </tr>
                             </thead>
@@ -54,10 +53,9 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">Diterima Tanggal: <?php echo tgl_jam_sql($datpil1->tgl_diterima); ?></td>
+                                    
                                 </tr>
                                 <tr>
-                                    <td colspan="2">No. Agenda: <?php echo $datpil1->no_agenda; ?></td>
                                 </tr>
                                 <tr>
                                     <td colspan="2">Dari: <?php echo $datpil1->dari; ?></td>

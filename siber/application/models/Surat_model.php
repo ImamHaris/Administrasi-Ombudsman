@@ -8,6 +8,11 @@ class Surat_model extends CI_Model {
         parent::__construct();
     }
 
+    public function download($id_surat){
+        $query = $this->db->get_where('surat_masuk_umum',array('id_surat'=>$id_surat));
+        return $query->row_array();
+       }
+
     //klas_surat
     public function get_total_row() {
         $query = $this->db->get('klasifikasi');
@@ -158,7 +163,7 @@ class Surat_model extends CI_Model {
 
     //surat_keluar
     public function get_total_row_surat_keluar() {
-        $query = $this->db->get('surat_keluar');
+        $query = $this->db->get('surat_keluar_umum');
         return $query->num_rows();
     }
 

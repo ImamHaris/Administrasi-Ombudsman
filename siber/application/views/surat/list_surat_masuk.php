@@ -39,8 +39,8 @@
                         <table class="table table-hover" style="width: 100%;">
                             <tr>
                                 <th style="width: 4%;">No.</th>
-                                <th style="width: 36%;">Isi Ringkas, File</th>
-                                <th style="width: 25%;">Asal Surat</th>
+                                <th style="width: 36%;">Asal Surat/Pengirim</th>
+                                <th style="width: 25%;">Perihal</th>
                                 <th style="width: 20%;">Nomor, Tgl. Surat</th>
                                 <th style="width: 15%;">Aksi</th>
                             </tr>
@@ -48,13 +48,15 @@
                             if (empty($data)) {
                                 echo "<tr><td colspan='5'  style='text-align: center; font-weight: bold'>--Data tidak ditemukan--</td></tr>";
                             } else {
+                                $nomor=0;
                                 $no = ($this->uri->segment(4) + 1);
                                 foreach ($data as $b) {
+                                    $nomor++;
                                     ?>
                                     <tr>
-                                        <td ><?php echo $b->no_surat; ?></td>
-                                        <td ><?php echo $b->tgl_surat; "<br><b>File : </b><i><a href='" . base_URL() . "upload/surat_masuk/" . $b->file . "' target='_blank'>" . limit_word($b->file, 50, 1) . "</a>"; ?></td>
-                                        <td><?php echo $b->pengirim;  ?></td>
+                                        <td ><?php echo $nomor; ?></td>
+                                        <td ><?php echo $b->pengirim; ?> </td> 
+                                        <td ><?php echo limit_word($b->perihal, 50, 0) . "<br><b>File : </b><i><a href='"  . base_URL() . "assets/upload/surat_masuk_umum/" . $b->file . "' target='_blank'>" . limit_word($b->file, 50, 1) . "</a>"; ?></td>
                                         <td ><?php echo $b->no_surat . "<br><i>" . tgl_jam_sql($b->tgl_surat) . "</i>"; ?></td>
                                         <td>
                                             <?php

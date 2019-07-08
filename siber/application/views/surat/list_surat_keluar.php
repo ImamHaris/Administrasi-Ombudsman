@@ -54,7 +54,7 @@
                                     ?>
                                     <tr>
                                         <td ><?php echo $b->no_agenda; ?></td>
-                                        <td ><?php echo limit_word($b->isi_ringkas, 50, 0) . "<br><b>File : </b><i><a href='" . base_URL() . "upload/surat_keluar/" . $b->file . "' target='_blank'>" . limit_word($b->file, 50, 1) . "</a>"; ?></td>
+                                        <td ><?php echo limit_word($b->isi_ringkas, 50, 0) . "<br><b>File : </b><i><a href='" . base_URL() . "assets/upload/surat_masuk_umum/" . $b->file . "' target='_blank'>" . limit_word($b->file, 50, 1) . "</a>"; ?></td>
                                         <td><?php echo $b->kode; ?></td>
                                         <td><?php echo limit_word($b->tujuan, 50, 0); ?></td>
                                         <td ><?php echo $b->no_surat . "<br><i>" . tgl_jam_sql($b->tgl_surat) . "</i>"; ?></td>

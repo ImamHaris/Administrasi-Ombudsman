@@ -17,7 +17,7 @@ if ($mode == "edit" || $mode == "act_edit") {
     $pengirim = "";
     $no_surat = "";
     $tgl_surat = "";
-    $uraian = "";
+    $perihal = "";
     $ket = "";
 }
 ?>

@@ -8,8 +8,14 @@ class Surat extends CI_Controller {
         parent::__construct();
         $this->load->database();
         $this->load->library('session');
-        $this->load->helper(array('url', 'html', 'date', 'MY_helper'));
+        $this->load->helper(array('url', 'html', 'date', 'MY_helper','download'));
         $this->load->model(array('simak_model', 'surat_model'));
+    }
+
+    public function download($id_surat){
+        $fileinfo = $this->surat_model->download($id_surat);
+        $file = 'assets/upload/surat_masuk_umum'.$fileinfo['file'];
+        force_download($file, NULL);
     }
 
     public function klas_surat() {

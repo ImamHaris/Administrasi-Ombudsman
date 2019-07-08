@@ -3,23 +3,21 @@ $mode = $this->uri->segment(3);
 
 if ($mode == "edit" || $mode == "act_edit") {
     $act = "act_edit";
-    $id_post = $datpil->id;
-    $no_agenda = $datpil->no_agenda;
-    $kode = $datpil->kode;
-    $dari = $datpil->tujuan;
+    $id_post = $datpil->id_surat;
+    $pengirim = $datpil->pengirim;
     $no_surat = $datpil->no_surat;
+    $perihal = $datpil->perihal;
     $tgl_surat = $datpil->tgl_surat;
-    $uraian = $datpil->isi_ringkas;
-    $ket = $datpil->keterangan;
 } else {
     $act = "act_add";
     $id_post = "";
-    $no_agenda = gli("surat_keluar", "no_agenda", 4);
+    $no_agenda = gli("surat_masuk", "no_agenda", 4);
+    $indek_berkas = "";
     $kode = "";
-    $dari = "";
+    $pengirim = "";
     $no_surat = "";
     $tgl_surat = "";
-    $uraian = "";
+    $perihal = "";
     $ket = "";
 }
 ?>
@@ -43,7 +41,7 @@ if ($mode == "edit" || $mode == "act_edit") {
                 <!-- general form elements -->
                 <div class="box box-success">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Data Surat Keluar</h3>
+                        <h3 class="box-title">Data Surat Keluar Umum</h3>
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
