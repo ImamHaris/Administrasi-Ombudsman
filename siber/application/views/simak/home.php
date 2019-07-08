@@ -51,7 +51,7 @@
                     <div class="icon">
                         <i class="ion ion-android-checkbox"></i>
                     </div>
-                    <p class="small-box-footer"><i class="fa"></i></p>
+                    <a href="<?php echo site_url('surat/surat_disposisi'); ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
