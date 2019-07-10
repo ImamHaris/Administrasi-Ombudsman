@@ -17,7 +17,7 @@ class Surat extends CI_Controller {
         $file = 'assets/upload/surat_masuk_umum'.$fileinfo['file'];
         force_download($file, NULL);
     }
-
+ 
     public function klas_surat() {
         if ($this->session->user_valid == FALSE && $this->session->user_id == "") {
             redirect("simak/login");
