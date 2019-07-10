@@ -23,7 +23,7 @@
                     <div class="icon">
                         <i class="ion ion-android-mail"></i>
                     </div>
-                    <a href="<?php echo site_url('surat/surat_masuk'); ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="<?php echo site_url('surat/surat_masuk'); ?>" class="small-box-footer">Selengkapnya.. <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
@@ -37,7 +37,7 @@
                     <div class="icon">
                         <i class="ion ion-android-mail"></i>
                     </div>
-                    <a href="<?php echo site_url('surat/surat_keluar'); ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="<?php echo site_url('surat/surat_keluar'); ?>" class="small-box-footer">Selengkapnya.. <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
@@ -51,7 +51,7 @@
                     <div class="icon">
                         <i class="ion ion-android-checkbox"></i>
                     </div>
-                    <a href="<?php echo site_url('surat/surat_disposisi'); ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="<?php echo site_url('surat/surat_disposisi'); ?>" class="small-box-footer">Selengkapnya.. <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
