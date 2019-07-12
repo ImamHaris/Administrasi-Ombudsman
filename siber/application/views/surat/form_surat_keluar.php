@@ -10,15 +10,10 @@ if ($mode == "edit" || $mode == "act_edit") {
     $tgl_surat = $datpil->tgl_surat;
 } else {
     $act = "act_add";
-    $id_post = "";
-    $no_agenda = gli("surat_keluar", "no_agenda", 4);
-    $indek_berkas = "";
-    $kode = "";
     $tujuan = "";
     $no_surat = "";
     $tgl_surat = "";
     $perihal = "";
-    $ket = "";
 }
 ?>
 <!-- Content Wrapper. Contains page content -->
@@ -46,7 +41,6 @@ if ($mode == "edit" || $mode == "act_edit") {
                     <!-- form start -->
                     <form role="form" action="<?php echo site_url('surat/surat_keluar'); ?>/<?php echo $act; ?>" method="post" enctype="multipart/form-data">
                         <div class="col-md-6 box-body">
-                            <input type="hidden" name="id_post" value="<?php echo $id_post; ?>">
                             <div class="form-group">
                                 <label for="noSurat">Nomor Surat</label>
                                 <input type="text" value="<?php echo $no_surat; ?>" name="no_surat"

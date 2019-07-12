@@ -202,8 +202,8 @@ class Surat_model extends CI_Model {
     }
 
     public function select_surat_keluar_id($id_url) {
-        $this->db->where('id', $id_url);
-        $query = $this->db->get('surat_keluar');
+        $this->db->where('id_surat', $id_url);
+        $query = $this->db->get('surat_keluar_umum');
         return $query->row();
     }
 
@@ -216,7 +216,7 @@ class Surat_model extends CI_Model {
             'file' => $up_data,
             'pengolah' => $this->session->user_id
         );
-        $this->db->insert('surat_keluar_umum', $data);
+        $this->db->insert('surat_masuk_umum', $data);
     }
 
     public function insert_surat_keluar($kode, $no_agenda, $uraian, $dari, $no_surat, $tgl_surat, $ket) {
@@ -231,7 +231,7 @@ class Surat_model extends CI_Model {
             'keterangan' => $ket,
             'pengolah' => $this->session->user_id
         );
-        $this->db->insert('surat_keluar', $data);
+        $this->db->insert('surat_keluar_umum', $data);
     }
 
     public function update_surat_keluar_with_file($no_agenda, $kode, $uraian, $dari, $no_surat, $tgl_surat, $ket, $up_data, $id_post) {
