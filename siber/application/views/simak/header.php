@@ -136,7 +136,7 @@
 
             <!--============================================-->
             <footer class="main-footer">
-                <b>&copy; 2016 </b><?php echo $this->simak_model->get_instansi()->nama; ?>
+                <b>&copy; 2019 </b>
                 <div class="pull-right hidden-sm hidden-xs">
                     Waktu Eksekusi: <strong>{elapsed_time}</strong>, Penggunaan Memori: <strong>{memory_usage}</strong>
                 </div>

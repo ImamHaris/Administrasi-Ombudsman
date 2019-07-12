@@ -27,7 +27,7 @@
                         <p>SIBER</p>
                     </div>
                     <div class="col-xs-7 text-left">
-                        <p style="font-size: medium">SISTEM INFORMASI SURAT MASUK DAN KELUAR</p>
+                        <p style="font-size: medium">SISTEM INFORMASI BERKAS OMBUDSMAN LAMPUNG</p>
                     </div>
                 </div>
             </div>
@@ -36,9 +36,6 @@
             <!--logo kementerian-->
             <div class="login-box-body box box-solid box-success">
                 <div>
-                    <?php
-                    $q_instansi = $this->simak_model->get_instansi();
-                    ?>
                     <div><img src="<?php echo base_url().'assets/foto/surat2.png'?>" style="height: 150px"></div>
                 </div>
             </div>

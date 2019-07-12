@@ -25,7 +25,7 @@
                     </div>
                     <a href="<?php echo site_url('surat/surat_masuk'); ?>" class="small-box-footer">Selengkapnya.. <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
-            </div>
+            </div> 
             <!-- ./col -->
             <div class="col-lg-4 col-xs-6">
                 <!-- small box -->
