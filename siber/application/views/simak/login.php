@@ -19,7 +19,7 @@
         ?>
     </head>
     <body class="hold-transition login-page">
-        <img src="<?php echo base_url('assets/foto/bg.jpg');?>" alt="gambar" class="bg" />
+        
         <div class="login-box">
             <div class="login-logo">
                 <div class="row text-bold" style="color: green;">

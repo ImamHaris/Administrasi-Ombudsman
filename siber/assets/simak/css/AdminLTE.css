@@ -4395,6 +4395,17 @@ table.text-center th {
 .description-block > .description-text {
     text-transform: uppercase;
 }
+img.tengah {
+    float: center;
+    padding: center;
+}
+.bg1 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    filter: blur(0px); 
+}
 .bg-red,
 .bg-yellow,
 .bg-aqua,

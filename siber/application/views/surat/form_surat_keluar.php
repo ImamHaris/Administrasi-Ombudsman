@@ -4,14 +4,14 @@ $mode = $this->uri->segment(3);
 if ($mode == "edit" || $mode == "act_edit") {
     $act = "act_edit";
     $id_post = $datpil->id_surat;
-    $pengirim = $datpil->pengirim;
+    $tujuan = $datpil->tujuan;
     $no_surat = $datpil->no_surat;
     $perihal = $datpil->perihal;
     $tgl_surat = $datpil->tgl_surat;
 } else {
     $act = "act_add";
     $id_post = "";
-    $no_agenda = gli("surat_masuk", "no_agenda", 4);
+    $no_agenda = gli("surat_keluar", "no_agenda", 4);
     $indek_berkas = "";
     $kode = "";
     $tujuan = "";
@@ -25,16 +25,15 @@ if ($mode == "edit" || $mode == "act_edit") {
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>Surat Keluar</h1>
+        <h1>Surat Keluar Umum</h1>
         <ol class="breadcrumb">
             <li><a href="<?php echo site_url('simak'); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Surat Keluar</li>
+            <li class="active">Surat Keluar Umum</li>
         </ol>
     </section>
 
     <!-- Main content -->
     <section class="content">
-
         <div class="row">
             <!-- left column -->
             <div class="col-md-12">
@@ -49,25 +48,25 @@ if ($mode == "edit" || $mode == "act_edit") {
                         <div class="col-md-6 box-body">
                             <input type="hidden" name="id_post" value="<?php echo $id_post; ?>">
                             <div class="form-group">
-                                <label for="noAgenda">Nomor Surat</label>
-                                <input type="text" value="<?php echo $no_agenda; ?>" name="no_agenda"
-                                       class="form-control" id="no_surat" placeholder="Nomor Surat" autofocus required>
-                            </div>
-                            <div class="form-group">
-                                <label for="noSurat">Tujuan Surat</label>
+                                <label for="noSurat">Nomor Surat</label>
                                 <input type="text" value="<?php echo $no_surat; ?>" name="no_surat"
-                                       class="form-control" id="noSurat" placeholder="Nomor Surat" required>
+                                       class="form-control" id="noSurat" placeholder="Nomor Surat" autofocus required>
                             </div>
                             <div class="form-group">
-                                <label for="dari">Perihal</label>
-                                <input type="text" value="<?php echo $tujuan; ?>" name="dari"
-                                       class="form-control" id="dari" placeholder="Tujuan Surat" required>
+                                <label for="tujuan">tujuan</label>
+                                <input type="text" value="<?php echo $tujuan; ?>" name="tujuan"
+                                       class="form-control" id="tujuan" placeholder="tujuan" required>
                             </div>
                             <div class="form-group">
-                                                            </div>
+                                <label for="perihal">Perihal</label>
+                                <input type="text" value="<?php echo $perihal; ?>" name="perihal"
+                                       class="form-control" id="perihal" placeholder="perihal" required>
+                            </div>
+                        
                         </div>
                         <!-- /.box-body -->
                         <div class="col-md-6 box-body">
+                            <!--<input name="indek_berkas" value="<?php // echo $indek_berkas ?>">-->
                             <div class="form-group">
                                 <label for="tglSurat">Tanggal Surat</label>
                                 <input type="text" value="<?php echo $tgl_surat; ?>" name="tgl_surat"
@@ -78,7 +77,9 @@ if ($mode == "edit" || $mode == "act_edit") {
                                 <input type="file" id="fileSurat" name="file_surat">
                                 <p class="help-block">File harus berekstensi .pdf/ .jpg/.jpeg/.png</p>
                             </div>
-                            
+                            <div class="form-group">
+                                
+                            </div>
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer">
@@ -102,3 +103,9 @@ if ($mode == "edit" || $mode == "act_edit") {
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+<script type="text/javascript">
+    $('#tglSurat').datepicker({
+        format: 'yy-mm-dd',
+        autoclose: true
+    });
+</script>
