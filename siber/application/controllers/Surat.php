@@ -167,6 +167,10 @@ class Surat extends CI_Controller {
         $id_url = $this->uri->segment(4);
 
         //ambil variabel Postingan
+        $id_post = addslashes($this->input->post('id_post'));
+        $no_agenda = addslashes($this->input->post('no_agenda'));
+        $indek_berkas = $no_agenda;
+        //$indek_berkas = addslashes($this->input->post('indek_berkas'));
         $no_surat = addslashes($this->input->post('no_surat'));
         $tgl_surat = addslashes($this->input->post('tgl_surat'));
         $tujuan = addslashes($this->input->post('tujuan'));
@@ -174,7 +178,7 @@ class Surat extends CI_Controller {
 
         //upload config 
         $config['upload_path'] = './assets/upload/surat_keluar_umum';
-        $config['allowed_types'] = 'jpg|png|pdf|jpeg|doc|docx';
+        $config['allowed_types'] = 'jpg|png|jpeg|pdf|doc|docx';
         $config['max_size'] = '10000';
         $config['max_width'] = '10000';
         $config['max_height'] = '10000';
@@ -196,35 +200,33 @@ class Surat extends CI_Controller {
                 $data['page'] = "surat/list_surat_keluar";
             }
         } else if ($mau_ke == "add") {
-            $data['data'] = $this->surat_model->select_surat_keluar_div();
             $data['page'] = "surat/form_surat_keluar";
         } else if ($mau_ke == "edit") {
-            $data['data'] = $this->surat_model->select_surat_keluar_div();
             $data['datpil'] = $this->surat_model->select_surat_keluar_id($id_url);
             $data['page'] = "surat/form_surat_keluar";
         } else if ($mau_ke == "act_add") {
-            if ($this->upload->do_upload('file')) {
-                $up_data = $this->upload->data('file');
+            if ($this->upload->do_upload('file_surat')) {
+                $up_data = $this->upload->data('file_surat');
                 $this->surat_model->insert_surat_keluar_with_file($no_surat, $tgl_surat, $tujuan, $perihal, $up_data);
             } else {
-                $this->surat_model->insert_surat_keluar($kode, $no_agenda, $indek_berkas, $uraian, $dari, $no_surat, $tgl_surat, $ket);
+                $this->surat_model->insert_surat_keluar_with_file($no_surat, $tgl_surat, $tujuan, $perihal, $up_data);
             }
-            $this->session->set_flashdata('message', message_box('Data telah ditambah'));
+            $this->session->set_flashdata('message', message_box('Data telah ditambah. ' . $this->upload->display_errors()));
             redirect('surat/surat_keluar');
         } else if ($mau_ke == "act_edit") {
             if ($this->upload->do_upload('file_surat')) {
-                $up_data = $this->upload->data(file_name);
-                $this->surat_model->update_surat_keluar_with_file($no_agenda, $kode, $uraian, $dari, $no_surat, $tgl_surat, $ket, $up_data, $id_post);
+                $up_data = $this->upload->data('file_name');
+                $this->surat_model->update_surat_keluar_with_file($kode, $no_agenda, $indek_berkas, $uraian, $dari, $no_surat, $tgl_surat, $ket, $up_data, $id_post);
             } else {
-                $this->surat_model->update_surat_keluar($no_agenda, $kode, $uraian, $dari, $no_surat, $tgl_surat, $ket, $id_post);
+                $this->surat_model->update_surat_keluar($kode, $no_agenda, $indek_berkas, $uraian, $dari, $no_surat, $tgl_surat, $ket, $id_post);
             }
-            $this->session->set_flashdata('message', message_box('Data telah diperbaharui' . $this->upload->display_errors()));
+            $this->session->set_flashdata('message', message_box('Data telah diperbaharui. ' . $this->upload->display_errors()));
             redirect('surat/surat_keluar');
         } else {
             $data['data'] = $this->surat_model->select_surat_keluar_limit($awal, $akhir);
             $data['page'] = "surat/list_surat_keluar";
         }
-        $data['title'] = "Surat Keluar";
+        $data['title'] = "Surat keluar";
         $this->load->view('simak/header', $data);
     }
 
