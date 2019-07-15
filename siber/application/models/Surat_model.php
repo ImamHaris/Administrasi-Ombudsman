@@ -79,7 +79,7 @@ class Surat_model extends CI_Model {
     public function cari_surat_masuk_tgl($tglcari) {
         $this->db->like('tgl_surat', $tglcari);
         $this->db->order_by('id', 'DESC');
-        $query = $this->db->get('surat_masuk');
+        $query = $this->db->get('surat_masuk_umum');
         return $query->result();
     }
 
@@ -88,7 +88,7 @@ class Surat_model extends CI_Model {
         $this->db->or_like('no_surat', $cari);
         $this->db->or_like('isi_ringkas', $cari);
         $this->db->order_by('id', 'DESC');
-        $query = $this->db->get('surat_masuk');
+        $query = $this->db->get('surat_masuk_umum');
         return $query->result();
     }
 
@@ -96,7 +96,7 @@ class Surat_model extends CI_Model {
         $this->db->like('tgl_surat', $tglcari);
         $this->db->like('dari', $cari);
         $this->db->order_by('id', 'DESC');
-        $query = $this->db->get('surat_masuk');
+        $query = $this->db->get('surat_masuk_umum');
         return $query->result();
     }
 
@@ -152,7 +152,7 @@ class Surat_model extends CI_Model {
             'keterangan' => $ket
         );
         $this->db->where('id', $id_post);
-        $this->db->update('surat_masuk', $data);
+        $this->db->update('surat_masuk_umum', $data);
     }
 
     public function select_surat_masuk_limit($awal, $akhir) {
@@ -344,7 +344,7 @@ class Surat_model extends CI_Model {
         $this->db->like('dari', $kode, 'after');
         $this->db->group_by("dari");
         $this->db->limit(10);
-        $query = $this->db->get('surat_masuk');
+        $query = $this->db->get('surat_masuk_umum');
         return $query->result();
     }
 

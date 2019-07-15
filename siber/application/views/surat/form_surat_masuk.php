@@ -11,7 +11,6 @@ if ($mode == "edit" || $mode == "act_edit") {
 } else {
     $act = "act_add";
     $id_post = "";
-    $no_agenda = gli("surat_masuk", "no_agenda", 4);
     $indek_berkas = "";
     $kode = "";
     $pengirim = "";
