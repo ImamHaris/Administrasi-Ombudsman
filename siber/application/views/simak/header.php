@@ -45,28 +45,11 @@
                             <!-- Setting -->
                             <?php if ($this->session->user_level == "Admin") { ?>
                                 <li class="dropdown notifications-menu">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <a href="<?php echo site_url('simak/manage_user'); ?>">
                                         <i class="fa fa-gears"></i>
-                                        <span class="hidden-xs">Pengaturan</span>
+                                        <span class="hidden-xs">Manage User</span>
                                     </a>
-                                    <ul class="dropdown-menu" style="width: 180px; max-height: 84px;">
-                                        <li>
-                                            <ul class="menu">
-                                                <li>
-                                                    <a href="<?php echo site_url('simak/manage_user'); ?>">
-                                                        <i class="fa fa-user text-green"></i>
-                                                        <span>Manage User</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="<?php echo site_url('simak/edit_instansi'); ?>">
-                                                        <i class="fa fa-institution text-blue"></i>
-                                                        <span>Setting Instansi</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
+                                    
                                 </li>
                             <?php } ?>
                             <!-- User Menu -->
@@ -108,22 +91,35 @@
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
                         <li class="header">NAVIGASI UTAMA</li>
-                        <li><a href="<?php echo site_url('surat/surat_masuk'); ?>"><i class="fa fa-envelope text-green"></i> <span>Surat Masuk</span></a></li>
-                        <li><a href="<?php echo site_url('surat/surat_keluar'); ?>"><i class="fa fa-envelope text-orange"></i> <span>Surat Keluar</span></a></li>
-                        <li class="header">LAIN</li>
-                        <li><a href="<?php echo site_url('surat/klas_surat'); ?>"><i class="fa fa-cubes text-red"></i> <span>Klasifikasi Surat</span></a></li>
+                        <li><a href="<?php echo site_url('surat/surat_masuk'); ?>"><i class="fa fa-envelope text-green"></i> <span>Surat Masuk Umum</span></a></li>
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-print text-teal"></i> <span>Agenda Surat</span>
+                                <i class="fa fa-print text-teal"></i> <span>Surat Keluar</span>
                                 <span class="pull-right-container">
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="<?php echo site_url('cetak/cetak_agenda_masuk'); ?>"><i class="fa fa-print text-green"></i> Agenda Surat Masuk</a></li>
-                                <li><a href="<?php echo site_url('cetak/cetak_agenda_keluar'); ?>"><i class="fa fa-print text-orange"></i> Agenda Surat Keluar</a></li>
+                                <li><a href="<?php echo site_url('cetak/cetak_agenda_masuk'); ?>"><i class="fa fa-print text-green"></i> Surat Keluar Umum</a></li>
+                                <li><a href="<?php echo site_url('cetak/cetak_agenda_keluar'); ?>"><i class="fa fa-print text-orange"></i> Surat Keluar Laporan</a></li>
                             </ul>
                         </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-print text-teal"></i> <span>Surat Klarifikasi</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="<?php echo site_url('cetak/cetak_agenda_masuk'); ?>"><i class="fa fa-print text-green"></i> Surat Klarifikasi Masuk</a></li>
+                                <li><a href="<?php echo site_url('cetak/cetak_agenda_keluar'); ?>"><i class="fa fa-print text-orange"></i> Surat Klarifikasi Keluar</a></li>
+                                <li><a href="<?php echo site_url('cetak/cetak_agenda_keluar'); ?>"><i class="fa fa-print text-orange"></i> Surat Klarifikasi Keluar II</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="<?php echo site_url('surat/surat_keluar'); ?>"><i class="fa fa-envelope text-orange"></i> <span>Surat Tembusan</span></a></li>
+                        <li><a href="<?php echo site_url('surat/surat_keluar'); ?>"><i class="fa fa-envelope text-orange"></i> <span>Surat Tugas</span></a></li>
+                        <li><a href="<?php echo site_url('surat/surat_keluar'); ?>"><i class="fa fa-envelope text-orange"></i> <span>Surat Keputusan</span></a></li>
                     </ul>
                 </section>
                 <!-- /.sidebar -->
