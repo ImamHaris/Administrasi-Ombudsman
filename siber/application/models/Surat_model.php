@@ -161,6 +161,101 @@ class Surat_model extends CI_Model {
         return $query->result();
     }
 
+        //surat_tugas
+        public function get_total_row_tugas() {
+            $query = $this->db->get('surat_tugas');
+            return $query->num_rows();
+        }
+    
+        public function delete_surat_tugas($id_url) {
+            $this->db->where('id_surat', $id_url);
+            $this->db->delete('surat_tugas');
+        }
+    
+        public function cari_surat_masuk_tgl($tglcari) {
+            $this->db->like('tgl_surat', $tglcari);
+            $this->db->order_by('id_surat', 'DESC');
+            $query = $this->db->get('surat_tugas');
+            return $query->result();
+        }
+    
+        public function cari_surat_tugas_key($cari) {
+            $this->db->like('yang_diberi_tugas', $cari);
+            $this->db->or_like('no_surat', $cari);
+            $this->db->order_by('id_surat', 'DESC');
+            $query = $this->db->get('surat_tugas');
+            return $query->result();
+        }
+    
+        public function cari_surat_tugas_tgl_key($tglcari, $cari) {
+            $this->db->like('tgl_surat', $tglcari);
+            $this->db->like('dari', $cari);
+            $this->db->order_by('id', 'DESC');
+            $query = $this->db->get('surat_tugas');
+            return $query->result();
+        }
+    
+        public function select_surat_tugas_id($id_url) {
+            $this->db->where('id_surat', $id_url);
+            $query = $this->db->get('surat_tugas');
+            return $query->row();
+        }
+    
+        public function insert_surat_tugas_with_file($no_surat, $yang_diberi_tugas, $daerah_tugas, $keterangan, $up_data) {
+            $data = array(
+                'no_surat' => $no_surat,
+                'yang_diberi_tugas' => $yang_diberi_tugas,
+                'daerah_tugas' => $daerah_tugas,
+                'keterangan' => $keterangan,
+                'file' => $up_data,
+                'pengolah' => $this->session->user_id
+            );
+            $this->db->insert('surat_tugas', $data);
+        }
+    
+        public function insert_tuags($no_surat, $tgl_surat, $pengirim, $perihal) {
+            $data = array(
+                'no_surat' => $no_surat,
+                'tgl_surat' => $tgl_surat,
+                'pengirim' => $pengirim,
+                'perihal' => $perihal,
+                'pengolah' => $this->session->user_id
+            );
+            $this->db->insert('surat_tugas', $data);
+        }
+    
+        public function update_surat_masuk_with_file($no_surat, $yang_diberi_tugas, $daerah_tugas, $keterangan, $up_data) {
+            $data = array(
+                'no_surat' => $no_surat,
+                'yang_diberi_tugas' => $yang_diberi_tugas,
+                'daerah_tugas' => $daerah_tugas,
+                'keterangan' => $keterangan,
+                'file' => $up_data
+            );
+            $this->db->update('surat_tugas', $data);
+        }
+    
+        public function update_surat_masuk($kode, $no_agenda, $indek_berkas, $uraian, $dari, $no_surat, $tgl_surat, $ket, $id_post) {
+            $data = array(
+                'kode' => $kode,
+                'no_agenda' => $no_agenda,
+                'indek_berkas' => $indek_berkas,
+                'isi_ringkas' => $uraian,
+                'dari' => $dari,
+                'no_surat' => $no_surat,
+                'tgl_surat' => $tgl_surat,
+                'keterangan' => $ket
+            );
+            $this->db->where('id', $id_post);
+            $this->db->update('surat_masuk_umum', $data);
+        }
+    
+        public function select_surat_tugas_limit($awal, $akhir) {
+            $this->db->limit($akhir, $awal);
+            $query = $this->db->get('surat_tugas');
+            return $query->result();
+        }
+
     //surat_keluar
     public function get_total_row_surat_keluar() {
         $query = $this->db->get('surat_keluar_umum');
