@@ -186,7 +186,6 @@ class Simak extends CI_Controller {
                 $this->session->set_flashdata('message', message_box('Password baru 1 dan 2 tidak cocok', 'danger'));
                 redirect('simak/change_password');
             } else {
-                $id_url = $this->session->user_id;
                 $this->simak_model->change_password($p3);
                 $this->session->set_flashdata('message', message_box('Password berhasil diperbaharui'));
                 redirect('simak/change_password');
