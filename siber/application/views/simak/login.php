@@ -1,73 +1,120 @@
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
+?>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>SIMAK | <?php echo $title; ?></title>
-        <!-- Tell the browser to be responsive to screen width -->
-        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<?php
+if ($this->session->userdata('masuk') == TRUE) {
+    redirect('admin/berandaadmin');
+} ?>
+<html lang="en">
 
-        <?php
-        //Favicon
-        echo link_tag('assets/simak/favicon.ico', 'shortcut icon', 'image/ico');
-        //Bootstrap 3.3.7
-        echo link_tag('assets/bootstrap/css/bootstrap.css');
-        //Font Awesome
-        echo link_tag('assets/font-awesome/css/font-awesome.css');
-        //AdminLTE Theme style
-        echo link_tag('assets/simak/css/AdminLTE.css');
-        ?>
-    </head>
-    <body class="hold-transition login-page">
-        
-        <div class="login-box">
-            <div class="login-logo">
-                <div class="row text-bold" style="color: green;">
-                    <div class="col-xs-5 text-right">
-                        <p>SIBER</p>
-                    </div>
-                    <div class="col-xs-7 text-left">
-                        <p style="font-size: medium">SISTEM INFORMASI BERKAS OMBUDSMAN LAMPUNG</p>
-                    </div>
+<head>
+
+    <title>Login Adm-ORI</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="<?php echo base_url() ?>assets/login/images/icons/favicon.ico" rel="stylesheet">
+    <link href="<?php echo base_url() ?>assets/login/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>assets/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>assets/login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>assets/login/vendor/animate/animate.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>assets/login/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>assets/login/vendor/select2/select2.min.css" rel="stylesheet">
+
+    <!--===============================================================================================-->
+
+    <link href="<?php echo base_url() ?>assets/login/css/util.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>assets/login/css/main.css" rel="stylesheet">
+</head>
+
+<body>
+    
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <div class="login100-pic js-tilt" data-tilt>
+                    <img src="<?php echo base_url() ?>assets/login/images/img-02.png" alt="IMG">
                 </div>
-            </div>
-            <!-- /.login-logo -->
 
-            <!--logo kementerian-->
-            <div class="login-box-body box box-solid box-success">
-                <div>
-                    <div><img src="<?php echo base_url().'assets/foto/surat2.png'?>" style="height: 150px"></div>
-                </div>
-            </div>
+                <form class="login100-form validate-form" action="<?php echo site_url('simak/do_login'); ?>" method="post">
+                    <span class="login100-form-title">
+                        LOGIN
+                    </span>
+                    <div class="text-center">
+                        <span class="txt3">
+                            Selamat Datang, Silahkan Masuk Untuk Melanjutkan
+                        </span>
+                        <?php if ($this->session->flashdata('sukses')){ ?>
+                            <div class="alert alert-success" role="alert">
+                                <?php echo $this->session->flashdata('sukses'); ?>
+                            </div>
+                        <?php }elseif ($this->session->flashdata('error')){ ?>
+                            <div class="alert alert-warning" role="alert">
+                            <?php echo $this->session->flashdata('error') ?>
+                            </div>
+                        <?php }; ?>
+                    </div>
 
-            <div class="login-box-body box box-solid box-success">
-                <p class="login-box-msg">Log in to start your session</p>
-                <form action="<?php echo site_url('simak/do_login'); ?>" method="post">
-                    <div class="form-group has-feedback">
-                        <input type="text" id="username" name="username" class="form-control" placeholder="Username">
-                        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                    <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                        <input class="input100" type="text" name="username" placeholder="Email">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
                     </div>
-                    <div class="form-group has-feedback">
-                        <input type="password" id="password" name="password" class="form-control" placeholder="Password">
-                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+
+                    <div class="wrap-input100 validate-input" data-validate = "Password is required">
+                        <input class="input100" type="password" name="password" placeholder="Password">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
                     </div>
-                    <?php echo $this->session->flashdata("message"); ?>
-                    <div class="row">
-                        <div class="col-xs-7">
-                        </div>
-                        <div class="col-xs-5">
-                            <button type="submit" class="btn btn-primary btn-block btn-flat"><i class="fa fa-unlock"></i> Sign In</button>
-                        </div>
+                    
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn">
+                            Login
+                        </button>
+                    </div>
+
+                    <div class="text-center p-t-12">
+                        <span class="txt1">
+                            Forgot
+                        </span>
+                        <a class="txt2" href="#">
+                            Username / Password?
+                        </a>
+                    </div>
+
+                    <div class="text-center p-t-100">
+                        <a class="txt2" href="#">
+                            Create your Account
+                            <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                        </a>
                     </div>
                 </form>
             </div>
-            <!-- /.login-box-body -->
         </div>
-        <!-- /.login-box -->
+    </div>
+    
+    
 
-        <!--jQuery 2.2.3--> 
-        <script src="<?php echo base_url(); ?>assets/jQuery/jquery-2.2.3.min.js"></script>
-        <!-- Bootstrap 3.3.7 -->
-        <script src="<?php echo base_url(); ?>assets/bootstrap/js/bootstrap.js"></script>
-    </body>
+<script>
+        $('#notifications_berhasil').slideDown('slow').delay(3000).slideUp('slow');
+    </script>
+    <script src="<?= base_url() ?>/assets/login/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="<?= base_url() ?>/assets/login/vendor/bootstrap/js/popper.js"></script>
+    <script src="<?= base_url() ?>/assets/login/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="<?= base_url() ?>/assets/login/vendor/select2/select2.min.js"></script>
+    <script src="<?= base_url() ?>/assets/login/vendor/tilt/tilt.jquery.min.js"></script>
+    <script >
+        $('.js-tilt').tilt({
+            scale: 1.1
+        })
+    </script>
+
+    <script src="<?= base_url() ?>/assets/login/js/main.js"></script>
+
+</body>
+
 </html>
