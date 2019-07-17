@@ -117,7 +117,7 @@
                                 <li><a href="<?php echo site_url('cetak/cetak_agenda_keluar'); ?>"><i class="fa fa-print text-orange"></i> Surat Klarifikasi Keluar II</a></li>
                             </ul>
                         </li>
-                        <li><a href="<?php echo site_url('surat/surat_keluar'); ?>"><i class="fa fa-envelope text-orange"></i> <span>Surat Tembusan</span></a></li>
+                        <li><a href="<?php echo site_url('surat/surat_tembusan'); ?>"><i class="fa fa-envelope text-orange"></i> <span>Surat Tembusan</span></a></li>
                         <li><a href="<?php echo site_url('surat/surat_keluar'); ?>"><i class="fa fa-envelope text-orange"></i> <span>Surat Tugas</span></a></li>
                         <li><a href="<?php echo site_url('surat/surat_keluar'); ?>"><i class="fa fa-envelope text-orange"></i> <span>Surat Keputusan</span></a></li>
                     </ul>

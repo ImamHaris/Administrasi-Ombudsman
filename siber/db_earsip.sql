@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 17, 2019 at 04:39 AM
+-- Generation Time: Jul 17, 2019 at 05:11 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -1315,6 +1315,7 @@ INSERT INTO `disposisi` (`id`, `id_surat`, `kepada`, `isi_disposisi`, `sifat`, `
 CREATE TABLE `surat_keluar_laporan` (
   `id_surat` int(11) NOT NULL,
   `no_surat` varchar(32) NOT NULL,
+  `tgl_surat` date NOT NULL,
   `tujuan` varchar(100) NOT NULL,
   `perihal` varchar(255) NOT NULL,
   `file` varchar(255) DEFAULT NULL
@@ -1344,6 +1345,7 @@ CREATE TABLE `surat_keluar_umum` (
 CREATE TABLE `surat_klarifikasi_keluar` (
   `id_surat` int(11) NOT NULL,
   `no_surat` varchar(32) NOT NULL,
+  `tgl_surat` date NOT NULL,
   `tujuan` varchar(100) NOT NULL,
   `perihal` varchar(256) NOT NULL,
   `file` varchar(255) DEFAULT NULL
@@ -1358,6 +1360,7 @@ CREATE TABLE `surat_klarifikasi_keluar` (
 CREATE TABLE `surat_klarifikasi_keluar2` (
   `id_surat` int(11) NOT NULL,
   `no_surat` varchar(32) NOT NULL,
+  `tgl_surat` date NOT NULL,
   `tujuan` varchar(100) NOT NULL,
   `perihal` varchar(255) NOT NULL,
   `file` varchar(255) DEFAULT NULL
@@ -1372,6 +1375,7 @@ CREATE TABLE `surat_klarifikasi_keluar2` (
 CREATE TABLE `surat_klarifikasi_masuk` (
   `id_surat` int(11) NOT NULL,
   `no_surat` varchar(32) NOT NULL,
+  `tgl_surat` date NOT NULL,
   `pengirim` varchar(100) NOT NULL,
   `perihal` varchar(255) NOT NULL,
   `file` varchar(255) DEFAULT NULL
@@ -1411,6 +1415,7 @@ INSERT INTO `surat_masuk_umum` (`id_surat`, `no_surat`, `tgl_surat`, `pengirim`,
 CREATE TABLE `surat_tembusan` (
   `id_surat` int(11) NOT NULL,
   `no_surat` varchar(32) NOT NULL,
+  `tgl_surat` date NOT NULL,
   `pengirim` varchar(100) NOT NULL,
   `perihal` varchar(255) NOT NULL,
   `file` varchar(255) DEFAULT NULL
@@ -1425,6 +1430,7 @@ CREATE TABLE `surat_tembusan` (
 CREATE TABLE `surat_tugas` (
   `id_surat` int(11) NOT NULL,
   `no_surat` varchar(32) NOT NULL,
+  `tgl_surat` date NOT NULL,
   `yang_diberi_tugas` varchar(100) NOT NULL,
   `daerah_tugas` varchar(100) NOT NULL,
   `keterangan` varchar(255) NOT NULL,
