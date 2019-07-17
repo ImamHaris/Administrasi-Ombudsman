@@ -172,7 +172,7 @@ class Surat_model extends CI_Model {
             $this->db->delete('surat_tugas');
         }
     
-        public function cari_surat_masuk_tgl($tglcari) {
+        public function cari_surat_tugas_tgl($tglcari) {
             $this->db->like('tgl_surat', $tglcari);
             $this->db->order_by('id_surat', 'DESC');
             $query = $this->db->get('surat_tugas');
@@ -224,7 +224,7 @@ class Surat_model extends CI_Model {
             $this->db->insert('surat_tugas', $data);
         }
     
-        public function update_surat_masuk_with_file($no_surat, $yang_diberi_tugas, $daerah_tugas, $keterangan, $up_data) {
+        public function update_surat_tugas_with_file($no_surat, $yang_diberi_tugas, $daerah_tugas, $keterangan, $up_data) {
             $data = array(
                 'no_surat' => $no_surat,
                 'yang_diberi_tugas' => $yang_diberi_tugas,
@@ -235,7 +235,7 @@ class Surat_model extends CI_Model {
             $this->db->update('surat_tugas', $data);
         }
     
-        public function update_surat_masuk($kode, $no_agenda, $indek_berkas, $uraian, $dari, $no_surat, $tgl_surat, $ket, $id_post) {
+        public function update_surat_tugas($kode, $no_agenda, $indek_berkas, $uraian, $dari, $no_surat, $tgl_surat, $ket, $id_post) {
             $data = array(
                 'kode' => $kode,
                 'no_agenda' => $no_agenda,

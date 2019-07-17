@@ -121,7 +121,7 @@ class Simak_model extends CI_Model {
 
     public function change_password($password) {
         $this->db->set('password', $password);
-        $this->db->where('id', 1);
+        $this->db->where('id',1);
         $this->db->update('user');
     }
 
