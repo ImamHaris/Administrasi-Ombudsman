@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 17, 2019 at 04:33 AM
+-- Generation Time: Jul 17, 2019 at 04:39 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -1316,7 +1316,8 @@ CREATE TABLE `surat_keluar_laporan` (
   `id_surat` int(11) NOT NULL,
   `no_surat` varchar(32) NOT NULL,
   `tujuan` varchar(100) NOT NULL,
-  `perihal` varchar(255) NOT NULL
+  `perihal` varchar(255) NOT NULL,
+  `file` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1344,7 +1345,8 @@ CREATE TABLE `surat_klarifikasi_keluar` (
   `id_surat` int(11) NOT NULL,
   `no_surat` varchar(32) NOT NULL,
   `tujuan` varchar(100) NOT NULL,
-  `perihal` varchar(256) NOT NULL
+  `perihal` varchar(256) NOT NULL,
+  `file` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1357,7 +1359,8 @@ CREATE TABLE `surat_klarifikasi_keluar2` (
   `id_surat` int(11) NOT NULL,
   `no_surat` varchar(32) NOT NULL,
   `tujuan` varchar(100) NOT NULL,
-  `perihal` varchar(255) NOT NULL
+  `perihal` varchar(255) NOT NULL,
+  `file` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1370,7 +1373,8 @@ CREATE TABLE `surat_klarifikasi_masuk` (
   `id_surat` int(11) NOT NULL,
   `no_surat` varchar(32) NOT NULL,
   `pengirim` varchar(100) NOT NULL,
-  `perihal` varchar(255) NOT NULL
+  `perihal` varchar(255) NOT NULL,
+  `file` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1408,7 +1412,8 @@ CREATE TABLE `surat_tembusan` (
   `id_surat` int(11) NOT NULL,
   `no_surat` varchar(32) NOT NULL,
   `pengirim` varchar(100) NOT NULL,
-  `perihal` varchar(255) NOT NULL
+  `perihal` varchar(255) NOT NULL,
+  `file` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1422,7 +1427,8 @@ CREATE TABLE `surat_tugas` (
   `no_surat` varchar(32) NOT NULL,
   `yang_diberi_tugas` varchar(100) NOT NULL,
   `daerah_tugas` varchar(100) NOT NULL,
-  `keterangan` varchar(255) NOT NULL
+  `keterangan` varchar(255) NOT NULL,
+  `file` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
