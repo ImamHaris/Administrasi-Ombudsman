@@ -163,7 +163,8 @@ class Surat_model extends CI_Model {
     }
 
         //surat_tugas
-        public function get_total_row_tugas() {
+        
+        public function get_total_row_surat_tugas() {
             $query = $this->db->get('surat_tugas');
             return $query->num_rows();
         }
