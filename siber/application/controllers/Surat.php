@@ -8,7 +8,7 @@ class Surat extends CI_Controller {
         parent::__construct();
         $this->load->database();
         $this->load->library('session');
-        $this->load->helper(array('url', 'html', 'date', 'MY_helper','download'));
+        $this->load->helper(array('url', 'html', 'form', 'date', 'MY_helper','download'));
         $this->load->model(array('simak_model', 'surat_model'));
     }
 
@@ -97,12 +97,10 @@ class Surat extends CI_Controller {
         $perihal = addslashes($this->input->post('perihal'));
 
         //upload config 
-        $config['upload_path'] = './assets/upload/surat_masuk_umum';
-        $config['allowed_types'] = 'jpg|png|jpeg|pdf|doc|docx';
-        $config['max_size'] = '10000';
-        $config['max_width'] = '10000';
-        $config['max_height'] = '10000';
-        $this->load->library('upload', $config);
+        $config['upload_path'] = './assets/upload/surat_masuk_umum';//file yg diupload akan disimpan
+		$config['allowed_types']='doc|docx|pdf'; // tipe file yang boleh di upload
+
+		$this->load->library('upload',$config);
 
         if ($mau_ke == "del") {
             $this->surat_model->delete_surat_masuk($id_url);
@@ -125,17 +123,18 @@ class Surat extends CI_Controller {
             $data['datpil'] = $this->surat_model->select_surat_masuk_id($id_url);
             $data['page'] = "surat/form_surat_masuk";
         } else if ($mau_ke == "act_add") {
-            if ($this->upload->do_upload('file')) {
-                $up_data = $this->upload->data('file');
+            if ($this->upload->do_upload('file_surat')) {
+                $data = array('upload_data' => $this->upload->data()); //ambil nama file yang diupload
+                $up_data= $data['upload_data']['file_name'];
                 $this->surat_model->insert_surat_masuk_with_file($no_surat, $tgl_surat, $pengirim, $perihal, $up_data);
             } else {
-                $this->surat_model->insert_surat_masuk($kode, $no_agenda, $indek_berkas, $uraian, $dari, $no_surat, $tgl_surat, $ket);
+                $this->surat_model->insert_surat_masuk($no_surat, $tgl_surat, $pengirim, $perihal, $up_data);
             }
             $this->session->set_flashdata('message', message_box('Data telah ditambah. ' . $this->upload->display_errors()));
             redirect('surat/surat_masuk');
         } else if ($mau_ke == "act_edit") {
             if ($this->upload->do_upload('file_surat')) {
-                $up_data = $this->upload->data('file_name');
+                $data = array('upload_data' => $this->upload->data());
                 $this->surat_model->update_surat_masuk_with_file($kode, $no_agenda, $indek_berkas, $uraian, $dari, $no_surat, $tgl_surat, $ket, $up_data, $id_post);
             } else {
                 $this->surat_model->update_surat_masuk($kode, $no_agenda, $indek_berkas, $uraian, $dari, $no_surat, $tgl_surat, $ket, $id_post);
@@ -206,7 +205,7 @@ class Surat extends CI_Controller {
             $data['page'] = "surat/form_surat_keluar";
         } else if ($mau_ke == "act_add") {
             if ($this->upload->do_upload('file_surat')) {
-                $up_data = $this->upload->data('file_surat');
+                $up_data = $this->upload->data('file_name');
                 $this->surat_model->insert_surat_keluar_with_file($no_surat, $tgl_surat, $tujuan, $perihal, $up_data);
             } else {
                 $this->surat_model->insert_surat_keluar_with_file($no_surat, $tgl_surat, $tujuan, $perihal, $up_data);
@@ -307,6 +306,86 @@ class Surat extends CI_Controller {
             $data['page'] = "surat/list_surat_tugas";
         }
         $data['title'] = "Surat Tugas";
+        $this->load->view('simak/header', $data);
+    }
+
+    public function surat_tembusan() {
+        if ($this->session->user_valid == FALSE && $this->session->user_id == "") {
+            redirect("simak/login");
+        }
+
+        /* pagination */
+        $total_row = $this->surat_model->get_total_row_surat_tembusan();
+        $per_page = 10;
+        $awal = $this->uri->segment(4, 0);
+        $akhir = $per_page;
+        $data['pagi'] = _page($total_row, $per_page, 4, site_url('surat/surat_tembusan/page'));
+
+        //ambil variabel URL
+        $mau_ke = $this->uri->segment(3);
+        $id_url = $this->uri->segment(4);
+
+        //ambil variabel Postingan
+        $id_post = addslashes($this->input->post('id_post'));
+        $no_agenda = addslashes($this->input->post('no_agenda'));
+        $indek_berkas = $no_agenda;
+        //$indek_berkas = addslashes($this->input->post('indek_berkas'));
+        $no_surat = addslashes($this->input->post('no_surat'));
+        $pengirim = addslashes($this->input->post('pengirim'));
+        $perihal = addslashes($this->input->post('perihal'));
+        
+
+        //upload config 
+        $config['upload_path'] = './assets/upload/surat_tembusan';
+        $config['allowed_types'] = 'jpg|png|jpeg|pdf|doc|docx';
+        $config['max_size'] = '10000';
+        $config['max_width'] = '10000';
+        $config['max_height'] = '10000';
+        $this->load->library('upload', $config);
+
+        if ($mau_ke == "del") {
+            $this->surat_model->delete_surat_tembusan($id_url);
+            $this->session->set_flashdata('message', message_box('Data telah dihapus'));
+            redirect('surat/surat_tembusan');
+        } else if ($mau_ke == "cari") {
+            if ($cari == "") {
+                $data['data'] = $this->surat_model->cari_surat_tembusan_tgl($tglcari);
+                $data['page'] = "surat/list_surat_tembusan";
+            } else if ($tglcari == "") {
+                $data['data'] = $this->surat_model->cari_surat_tembusan_key($cari);
+                $data['page'] = "surat/list_surat_tembusan";
+            } else {
+                $data['data'] = $this->surat_model->cari_surat_tembusan_tgl_key($tglcari, $cari);
+                $data['page'] = "surat/list_surat_tembusan";
+            }
+        } else if ($mau_ke == "add") {
+            $data['page'] = "surat/form_surat_tembusan";
+        } else if ($mau_ke == "edit") {
+            $data['datpil'] = $this->surat_model->select_surat_tembusan_id($id_url);
+            $data['page'] = "surat/form_surat_tembusan";
+        } else if ($mau_ke == "act_add") {
+            if ($this->upload->do_upload('file')) {
+                $up_data = $this->upload->data('file');
+                $this->surat_model->insert_surat_tembusan_with_file($no_surat, $pengirim, $perihal, $up_data);
+            } else {
+                $this->surat_model->insert_surat_tembusan($no_surat, $pengirim, $perihal, $up_data);
+            }
+            $this->session->set_flashdata('message', message_box('Data telah ditambah. ' . $this->upload->display_errors()));
+            redirect('surat/surat_tembusan');
+        } else if ($mau_ke == "act_edit") {
+            if ($this->upload->do_upload('file_surat')) {
+                $up_data = $this->upload->data('file_name');
+                $this->surat_model->update_surat_tembusan_with_file($no_surat, $pengirim, $perihal, $up_data);
+            } else {
+                $this->surat_model->update_surat_tembusan($no_surat, $pengirim, $perihal, $up_data);
+            }
+            $this->session->set_flashdata('message', message_box('Data telah diperbaharui. ' . $this->upload->display_errors()));
+            redirect('surat/surat_tembusan');
+        } else {
+            $data['data'] = $this->surat_model->select_surat_tembusan_limit($awal, $akhir);
+            $data['page'] = "surat/list_surat_tembusan";
+        }
+        $data['title'] = "Surat Tembusan";
         $this->load->view('simak/header', $data);
     }
 

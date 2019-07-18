@@ -118,12 +118,13 @@ class Surat_model extends CI_Model {
         $this->db->insert('surat_masuk_umum', $data);
     }
 
-    public function insert_surat_masuk($no_surat, $tgl_surat, $pengirim, $perihal) {
+    public function insert_surat_masuk($no_surat, $tgl_surat, $pengirim, $perihal, $up_data) {
         $data = array(
             'no_surat' => $no_surat,
             'tgl_surat' => $tgl_surat,
             'pengirim' => $pengirim,
             'perihal' => $perihal,
+            'file' => $up_data,
             'pengolah' => $this->session->user_id
         );
         $this->db->insert('surat_masuk_umum', $data);
@@ -311,19 +312,16 @@ class Surat_model extends CI_Model {
             'file' => $up_data,
             'pengolah' => $this->session->user_id
         );
-        $this->db->insert('surat_masuk_umum', $data);
+        $this->db->insert('surat_keluar_umum', $data);
     }
 
-    public function insert_surat_keluar($kode, $no_agenda, $uraian, $dari, $no_surat, $tgl_surat, $ket) {
+    public function insert_surat_keluar($no_surat, $tgl_surat, $tujuan, $perihal, $up_data) {
         $data = array(
-            'kode' => $kode,
-            'no_agenda' => $no_agenda,
-            'isi_ringkas' => $uraian,
-            'tujuan' => $dari,
             'no_surat' => $no_surat,
             'tgl_surat' => $tgl_surat,
-            'tgl_catat' => now(),
-            'keterangan' => $ket,
+            'tujuan' => $tujuan,
+            'perihal' => $perihal,
+            'file' => $up_data,
             'pengolah' => $this->session->user_id
         );
         $this->db->insert('surat_keluar_umum', $data);
@@ -361,6 +359,104 @@ class Surat_model extends CI_Model {
     public function select_surat_keluar_limit($awal, $akhir) {
         $this->db->limit($akhir, $awal);
         $query = $this->db->get('surat_keluar_umum');
+        return $query->result();
+    }
+
+    //surat_tembusan
+    public function get_total_row_surat_tembusan() {
+        $query = $this->db->get('surat_tembusan');
+        return $query->num_rows();
+    }
+
+    public function delete_surat_tembusan($id_url) {
+        $this->db->where('id_surat', $id_url);
+        $this->db->delete('surat_tembusan');
+    }
+
+    public function cari_surat_tembusan_tgl($tglcari) {
+        $this->db->like('tgl_surat', $tglcari);
+        $this->db->order_by('id', 'DESC');
+        $query = $this->db->get('surat_keluar');
+        return $query->result();
+    }
+
+    public function cari_surat_tembusan_key($cari) {
+        $this->db->like('dari', $cari);
+        $this->db->or_like('no_surat', $cari);
+        $this->db->order_by('id', 'DESC');
+        $query = $this->db->get('surat_tembusan');
+        return $query->result();
+    }
+
+    public function cari_surat_tembusan_tgl_key($tglcari, $cari) {
+        $this->db->like('tgl_surat', $tglcari);
+        $this->db->like('dari', $cari);
+        $this->db->order_by('id', 'DESC');
+        $query = $this->db->get('surat_tembusan');
+        return $query->result();
+    }
+
+
+    public function select_surat_tembusan_id($id_url) {
+        $this->db->where('id_surat', $id_url);
+        $query = $this->db->get('surat_tembusan');
+        return $query->row();
+    }
+
+    public function insert_surat_tembusan_with_file($no_surat, $pengirim, $perihal, $up_data) {
+        $data = array(
+            'no_surat' => $no_surat,
+            'pengirim' => $pengirim,
+            'perihal' => $perihal,
+            'file' => $up_data,
+            'pengolah' => $this->session->user_id
+        );
+        $this->db->insert('surat_tembusan', $data);
+    }
+
+    public function insert_surat_tembusan($kode, $no_agenda, $uraian, $dari, $no_surat, $tgl_surat, $ket) {
+        $data = array(
+            'kode' => $kode,
+            'no_agenda' => $no_agenda,
+            'isi_ringkas' => $uraian,
+            'tujuan' => $dari,
+            'no_surat' => $no_surat,
+            'tgl_surat' => $tgl_surat,
+            'tgl_catat' => now(),
+            'keterangan' => $ket,
+            'pengolah' => $this->session->user_id
+        );
+        $this->db->insert('surat_tembusan', $data);
+    }
+
+    public function update_surat_tembusan_with_file($no_surat, $pengirim, $perihal, $up_data) {
+        $data = array(
+            'no_surat' => $no_surat,
+            'pengirim' => $pengirim,
+            'perihal' => $perihal,
+            'file' => $up_data
+        );
+        $this->db->where('id_surat', $id_post);
+        $this->db->update('surat_tembusan', $data);
+    }
+
+    public function update_surat_tembusan($no_agenda, $kode, $uraian, $dari, $no_surat, $tgl_surat, $ket, $id_post) {
+        $data = array(
+            'no_agenda' => $no_agenda,
+            'kode' => $kode,
+            'isi_ringkas' => $uraian,
+            'tujuan' => $dari,
+            'no_surat' => $no_surat,
+            'tgl_surat' => $tgl_surat,
+            'keterangan' => $ket
+        );
+        $this->db->where('id', $id_post);
+        $this->db->update('surat_tembusan', $data);
+    }
+
+    public function select_surat_tembusan_limit($awal, $akhir) {
+        $this->db->limit($akhir, $awal);
+        $query = $this->db->get('surat_tembusan');
         return $query->result();
     }
 

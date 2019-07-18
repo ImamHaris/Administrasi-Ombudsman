@@ -12,7 +12,7 @@ if ($mode == "edit" || $mode == "act_edit") {
     $act = "act_add";
     $id_post = "";
     $indek_berkas = "";
-    $kode = "";
+    $file = "";
     $pengirim = "";
     $no_surat = "";
     $tgl_surat = "";
@@ -73,7 +73,7 @@ if ($mode == "edit" || $mode == "act_edit") {
                             </div>
                             <div class="form-group">
                                 <label for="fileSurat">File Surat</label>
-                                <input type="file" id="fileSurat" name="file_surat">
+                                <input type="file" id="fileSurat" name="file_surat" value="<?php echo $file; ?>">
                                 <p class="help-block">File harus berekstensi .pdf/ .jpg/.jpeg/.png</p>
                             </div>
                             <div class="form-group">
