@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 17, 2019 at 05:11 AM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.3
+-- Generation Time: 19 Jul 2019 pada 03.31
+-- Versi Server: 10.1.28-MariaDB
+-- PHP Version: 7.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `disposisi`
+-- Struktur dari tabel `disposisi`
 --
 
 CREATE TABLE `disposisi` (
@@ -39,7 +39,7 @@ CREATE TABLE `disposisi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `disposisi`
+-- Dumping data untuk tabel `disposisi`
 --
 
 INSERT INTO `disposisi` (`id`, `id_surat`, `kepada`, `isi_disposisi`, `sifat`, `batas_waktu`, `catatan`) VALUES
@@ -1309,7 +1309,7 @@ INSERT INTO `disposisi` (`id`, `id_surat`, `kepada`, `isi_disposisi`, `sifat`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `surat_keluar_laporan`
+-- Struktur dari tabel `surat_keluar_laporan`
 --
 
 CREATE TABLE `surat_keluar_laporan` (
@@ -1318,13 +1318,14 @@ CREATE TABLE `surat_keluar_laporan` (
   `tgl_surat` date NOT NULL,
   `tujuan` varchar(100) NOT NULL,
   `perihal` varchar(255) NOT NULL,
-  `file` varchar(255) DEFAULT NULL
+  `file` varchar(255) DEFAULT NULL,
+  `pengolah` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `surat_keluar_umum`
+-- Struktur dari tabel `surat_keluar_umum`
 --
 
 CREATE TABLE `surat_keluar_umum` (
@@ -1333,13 +1334,21 @@ CREATE TABLE `surat_keluar_umum` (
   `tgl_surat` date NOT NULL,
   `tujuan` varchar(255) NOT NULL,
   `perihal` varchar(255) NOT NULL,
-  `file` varchar(255) DEFAULT NULL
+  `file` varchar(255) DEFAULT NULL,
+  `pengolah` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `surat_keluar_umum`
+--
+
+INSERT INTO `surat_keluar_umum` (`id_surat`, `no_surat`, `tgl_surat`, `tujuan`, `perihal`, `file`, `pengolah`) VALUES
+(1, '1/II/2019/BDL', '2019-07-18', 'Bandar Lampung', 'Lamaran Pernikahan ', 'Spesifikasi_Tugas_Besar_25.pdf', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `surat_klarifikasi_keluar`
+-- Struktur dari tabel `surat_klarifikasi_keluar`
 --
 
 CREATE TABLE `surat_klarifikasi_keluar` (
@@ -1348,13 +1357,14 @@ CREATE TABLE `surat_klarifikasi_keluar` (
   `tgl_surat` date NOT NULL,
   `tujuan` varchar(100) NOT NULL,
   `perihal` varchar(256) NOT NULL,
-  `file` varchar(255) DEFAULT NULL
+  `file` varchar(255) DEFAULT NULL,
+  `pengolah` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `surat_klarifikasi_keluar2`
+-- Struktur dari tabel `surat_klarifikasi_keluar2`
 --
 
 CREATE TABLE `surat_klarifikasi_keluar2` (
@@ -1363,13 +1373,14 @@ CREATE TABLE `surat_klarifikasi_keluar2` (
   `tgl_surat` date NOT NULL,
   `tujuan` varchar(100) NOT NULL,
   `perihal` varchar(255) NOT NULL,
-  `file` varchar(255) DEFAULT NULL
+  `file` varchar(255) DEFAULT NULL,
+  `pengolah` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `surat_klarifikasi_masuk`
+-- Struktur dari tabel `surat_klarifikasi_masuk`
 --
 
 CREATE TABLE `surat_klarifikasi_masuk` (
@@ -1378,13 +1389,14 @@ CREATE TABLE `surat_klarifikasi_masuk` (
   `tgl_surat` date NOT NULL,
   `pengirim` varchar(100) NOT NULL,
   `perihal` varchar(255) NOT NULL,
-  `file` varchar(255) DEFAULT NULL
+  `file` varchar(255) DEFAULT NULL,
+  `pengolah` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `surat_masuk_umum`
+-- Struktur dari tabel `surat_masuk_umum`
 --
 
 CREATE TABLE `surat_masuk_umum` (
@@ -1398,18 +1410,24 @@ CREATE TABLE `surat_masuk_umum` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `surat_masuk_umum`
+-- Dumping data untuk tabel `surat_masuk_umum`
 --
 
 INSERT INTO `surat_masuk_umum` (`id_surat`, `no_surat`, `tgl_surat`, `pengirim`, `perihal`, `file`, `pengolah`) VALUES
-(8, '1/II/2019', '0000-00-00', '', 'Jalan Rosak', NULL, 1),
-(9, '1/II/2019', '2019-07-13', '', 'Jalan Rosak', NULL, 1),
-(11, '1/II/2019', '2019-07-06', 'Alvijar FRP', 'Jalan Rosak', '2SMK_N_5_BANDAR_LAMPUNG1.pdf', 1);
+(30, '1/II/2019/BDL', '2019-07-18', 'Alvijar FRP', 'Jalan Rosak', NULL, 1),
+(31, '1/II/2019/BDL', '2019-07-18', 'Aan', 'Jalan Rosak', NULL, 1),
+(32, '1/II/2019/BDL', '2019-07-18', 'Aan', 'Jalan Rosak', NULL, 1),
+(33, '1/II/2019/BDL', '2019-07-18', 'Alvijar FRP', 'Jalan Rosak', NULL, 1),
+(34, '1/II/2019/BDL', '2019-07-18', 'Aan', 'Lamaran Pernikahan ', NULL, 1),
+(35, '1/II/2019/BDL', '2019-07-18', 'Alvijar FRP', 'Jalan Rosak', NULL, 1),
+(36, '1/II/2019/BDL', '2019-07-18', 'Aan', 'Lamaran Pernikahan ', NULL, 1),
+(37, '1/II/2019/BDL', '2019-07-18', 'Alvijar FRP', 'Lamaran Pernikahan ', 'Spesifikasi_Tugas_Besar_27.pdf', 1),
+(38, '1/II/2019/BDL', '2019-07-18', 'Alvijar FRP', 'Lamaran Pernikahan ', 'Spesifikasi_Tugas_Besar_28.pdf', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `surat_tembusan`
+-- Struktur dari tabel `surat_tembusan`
 --
 
 CREATE TABLE `surat_tembusan` (
@@ -1418,13 +1436,14 @@ CREATE TABLE `surat_tembusan` (
   `tgl_surat` date NOT NULL,
   `pengirim` varchar(100) NOT NULL,
   `perihal` varchar(255) NOT NULL,
-  `file` varchar(255) DEFAULT NULL
+  `file` varchar(255) DEFAULT NULL,
+  `pengolah` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `surat_tugas`
+-- Struktur dari tabel `surat_tugas`
 --
 
 CREATE TABLE `surat_tugas` (
@@ -1434,13 +1453,14 @@ CREATE TABLE `surat_tugas` (
   `yang_diberi_tugas` varchar(100) NOT NULL,
   `daerah_tugas` varchar(100) NOT NULL,
   `keterangan` varchar(255) NOT NULL,
-  `file` varchar(255) DEFAULT NULL
+  `file` varchar(255) DEFAULT NULL,
+  `pengolah` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -1453,7 +1473,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `nama`, `nip`, `level`) VALUES
@@ -1548,7 +1568,7 @@ ALTER TABLE `surat_keluar_laporan`
 -- AUTO_INCREMENT for table `surat_keluar_umum`
 --
 ALTER TABLE `surat_keluar_umum`
-  MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `surat_klarifikasi_keluar`
@@ -1572,7 +1592,7 @@ ALTER TABLE `surat_klarifikasi_masuk`
 -- AUTO_INCREMENT for table `surat_masuk_umum`
 --
 ALTER TABLE `surat_masuk_umum`
-  MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `surat_tembusan`
