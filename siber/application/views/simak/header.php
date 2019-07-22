@@ -49,7 +49,7 @@
                                 <li class="dropdown notifications-menu">
                                     <a href="<?php echo site_url('simak/manage_user'); ?>">
                                         <i class="fa fa-gears"></i>
-                                        <span class="hidden-xs">Manage User</span>
+                                        <span class="hidden-xs">Kelola User</span>
                                     </a>
                                     
                                 </li>
@@ -108,7 +108,7 @@
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="<?php echo site_url('surat/surat_keluar'); ?>"><i class="fa fa-print text-green"></i> Surat Keluar Umum</a></li>
+                                <li><a href="<?php echo site_url('surat/surat_keluar'); ?>"><i class="fa fa-print text-orange"></i> Surat Keluar Umum</a></li>
                                 <li><a href="<?php echo site_url('surat/surat_keluar_laporan'); ?>"><i class="fa fa-print text-orange"></i> Surat Keluar Laporan</a></li>
                             </ul>
                         </li>
@@ -120,7 +120,7 @@
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="<?php echo site_url('surat/'); ?>"><i class="fa fa-print text-green"></i> Surat Klarifikasi Masuk</a></li>
+                                <li><a href="<?php echo site_url('surat/'); ?>"><i class="fa fa-print text-orange"></i> Surat Klarifikasi Masuk</a></li>
                                 <li><a href="<?php echo site_url('surat/'); ?>"><i class="fa fa-print text-orange"></i> Surat Klarifikasi Keluar</a></li>
                                 <li><a href="<?php echo site_url('surat/'); ?>"><i class="fa fa-print text-orange"></i> Surat Klarifikasi Keluar II</a></li>
                             </ul>
