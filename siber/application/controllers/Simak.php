@@ -28,6 +28,23 @@ class Simak extends CI_Controller {
         $this->load->view('simak/header', $data);
     }
 
+    public function beranda()
+    {
+        if ($this->session->user_valid == FALSE && $this->session->user_id == "") {
+            redirect("simak/login");
+        }
+        $this->session->set_flashdata('welcome_message', message_box('Selamat Datang <b>' . $this->session->user_nama . '</b>'));
+        $this->load->model('surat_model');
+        $data = array(
+            'title' => 'Home',
+            'page' => 'simak/home',
+            'total_surat_masuk' => $this->surat_model->get_total_row_surat_masuk(),
+            'total_surat_keluar' => $this->surat_model->get_total_row_surat_keluar(),
+            'total_disposisi' => $this->surat_model->counter_row_surat_disposisi()
+        );
+        $this->load->view('surat/form_surat_masuk');
+    }
+
     public function login() {
         if ($this->session->user_valid == TRUE) {
             redirect("simak");
