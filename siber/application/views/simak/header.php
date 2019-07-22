@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>SIMAK | <?php echo $title; ?></title>
+        <title>SIBERS | <?php echo $title; ?></title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
@@ -30,9 +30,11 @@
                 <!-- Logo -->
                 <a href="<?php echo site_url('simak'); ?>" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
-                    <span class="logo-mini"><i class="fa fa-home"></i></span>
+                    <span class="logo-mini"><i class="fa fa-file"></i></span>
                     <!-- logo for regular state and mobile devices -->
-                    <span class="logo-lg"><b>SIMAK</b></span>
+                    <span class="logo-lg">
+                        <img src="<?php echo base_url() ?>assets/foto/logo.png">
+                    </span>
                 </a>
                 <!-- Header Navbar: style can be found in header.less -->
                 <nav class="navbar navbar-static-top">
@@ -47,7 +49,7 @@
                                 <li class="dropdown notifications-menu">
                                     <a href="<?php echo site_url('simak/manage_user'); ?>">
                                         <i class="fa fa-gears"></i>
-                                        <span class="hidden-xs">Manage User</span>
+                                        <span class="hidden-xs">Kelola User</span>
                                     </a>
                                     
                                 </li>
@@ -92,7 +94,7 @@
                     <ul class="sidebar-menu">
                         <li class="header">NAVIGASI UTAMA</li>
                         <li><a href="<?php echo site_url('simak/beranda'); ?>"><i class="fa fa-home text-teal"></i> <span>Beranda</span></a></li>
-                        <li><a href="<?php echo site_url('simak'); ?>"><i class="fa fa-check text-teal"></i> <span>Dasboard</span></a></li>
+                        <li><a href="<?php echo site_url('simak'); ?>"><i class="fa fa-dashboard text-teal"></i> <span>Dashboard</span></a></li>
                     </ul>
 
                     <ul class="sidebar-menu">
@@ -106,7 +108,7 @@
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="<?php echo site_url('surat/surat_keluar'); ?>"><i class="fa fa-print text-green"></i> Surat Keluar Umum</a></li>
+                                <li><a href="<?php echo site_url('surat/surat_keluar'); ?>"><i class="fa fa-print text-orange"></i> Surat Keluar Umum</a></li>
                                 <li><a href="<?php echo site_url('surat/surat_keluar_laporan'); ?>"><i class="fa fa-print text-orange"></i> Surat Keluar Laporan</a></li>
                             </ul>
                         </li>
@@ -118,7 +120,7 @@
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="<?php echo site_url('surat/'); ?>"><i class="fa fa-print text-green"></i> Surat Klarifikasi Masuk</a></li>
+                                <li><a href="<?php echo site_url('surat/'); ?>"><i class="fa fa-print text-orange"></i> Surat Klarifikasi Masuk</a></li>
                                 <li><a href="<?php echo site_url('surat/'); ?>"><i class="fa fa-print text-orange"></i> Surat Klarifikasi Keluar</a></li>
                                 <li><a href="<?php echo site_url('surat/'); ?>"><i class="fa fa-print text-orange"></i> Surat Klarifikasi Keluar II</a></li>
                             </ul>
