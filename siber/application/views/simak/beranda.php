@@ -16,7 +16,7 @@
         <br>
         <br>
         <div style="text-align: center">
-        	<img src="<?php echo base_url() ?>assets/foto/logo sibers.png">
+        	<img class='resize_fit_center' src="<?php echo base_url() ?>assets/foto/logo sibers.png">
         </div>
         <!-- /.row -->
     </section>

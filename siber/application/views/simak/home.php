@@ -56,7 +56,7 @@
             <!-- ./col -->
             <div class="col-lg-4 col-xs-6">
                 <!-- small box -->
-                <div class="small-box bg-orange">
+                <div class="small-box bg-blue">
                     <div class="inner">
                         <h3><?php echo (int) $total_surat_keluar; ?></h3>
                         <p>Total Surat Klarifikasi Umum</p>
@@ -70,7 +70,7 @@
             <!-- ./col -->
             <div class="col-lg-4 col-xs-6">
                 <!-- small box -->
-                <div class="small-box bg-orange">
+                <div class="small-box bg-blue">
                     <div class="inner">
                         <h3><?php echo (int) $total_surat_keluar; ?></h3>
                         <p>Total Surat Klarifikasi Keluar</p>
@@ -84,7 +84,7 @@
             <!-- ./col -->
             <div class="col-lg-4 col-xs-6">
                 <!-- small box -->
-                <div class="small-box bg-orange">
+                <div class="small-box bg-blue">
                     <div class="inner">
                         <h3><?php echo (int) $total_surat_keluar; ?></h3>
                         <p>Total Surat Klarifikasi Keluar II</p>
@@ -98,7 +98,7 @@
             <!-- ./col -->
             <div class="col-lg-4 col-xs-6">
                 <!-- small box -->
-                <div class="small-box bg-orange">
+                <div class="small-box bg-blue">
                     <div class="inner">
                         <h3><?php echo (int) $total_surat_keluar; ?></h3>
                         <p>Total Surat Tembusan</p>
@@ -112,7 +112,7 @@
             <!-- ./col -->
             <div class="col-lg-4 col-xs-6">
                 <!-- small box -->
-                <div class="small-box bg-orange">
+                <div class="small-box bg-blue">
                     <div class="inner">
                         <h3><?php echo (int) $total_surat_keluar; ?></h3>
                         <p>Total Surat Tugas</p>
@@ -126,7 +126,7 @@
             <!-- ./col -->
             <div class="col-lg-4 col-xs-6">
                 <!-- small box -->
-                <div class="small-box bg-aqua">
+                <div class="small-box bg-blue">
                     <div class="inner">
                         <h3><?php echo (int) $total_surat_keluar; ?></h3>
                         <p>Total Surat Keputusan (Kepala Perwakilan)</p>
