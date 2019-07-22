@@ -405,11 +405,12 @@ class Surat_model extends CI_Model {
         return $query->row();
     }
 
-    public function insert_surat_tembusan_with_file($no_surat, $pengirim, $perihal, $up_data) {
+    public function insert_surat_tembusan_with_file($no_surat, $tgl_surat, $pengirim, $perihal, $up_data) {
         $data = array(
             'no_surat' => $no_surat,
+            'tgl_surat' => $tgl_surat,
             'pengirim' => $pengirim,
-            'perihal' => $perihal,
+            'perihal' => $perihal,  
             'file' => $up_data,
             'pengolah' => $this->session->user_id
         );

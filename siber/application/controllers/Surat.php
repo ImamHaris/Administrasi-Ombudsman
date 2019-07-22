@@ -337,6 +337,7 @@ class Surat extends CI_Controller {
         $no_surat = addslashes($this->input->post('no_surat'));
         $pengirim = addslashes($this->input->post('pengirim'));
         $perihal = addslashes($this->input->post('perihal'));
+        $tgl_surat = addslashes($this->input->post('tgl_surat'));
         
 
         //upload config 
@@ -368,9 +369,9 @@ class Surat extends CI_Controller {
             $data['datpil'] = $this->surat_model->select_surat_tembusan_id($id_url);
             $data['page'] = "surat/form_surat_tembusan";
         } else if ($mau_ke == "act_add") {
-            if ($this->upload->do_upload('file')) {
-                $up_data = $this->upload->data('file');
-                $this->surat_model->insert_surat_tembusan_with_file($no_surat, $pengirim, $perihal, $up_data);
+            if ($this->upload->do_upload('file_surat')) {
+                $up_data = $this->upload->data('file_name');
+                $this->surat_model->insert_surat_tembusan_with_file($no_surat, $tgl_surat, $pengirim, $perihal, $up_data);
             } else {
                 $this->surat_model->insert_surat_tembusan($no_surat, $pengirim, $perihal, $up_data);
             }
