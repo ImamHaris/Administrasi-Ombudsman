@@ -140,7 +140,7 @@
 
             <!--============================================-->
             <footer class="main-footer">
-                <b>&copy; 2019 </b>
+                <b>&copy; 2019 Kerja Praktik Teknik Informatika | Institut Teknologi Sumatera</b>
                 <div class="pull-right hidden-sm hidden-xs">
                     Waktu Eksekusi: <strong>{elapsed_time}</strong>, Penggunaan Memori: <strong>{memory_usage}</strong>
                 </div>

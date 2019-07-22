@@ -2450,6 +2450,7 @@ a:focus {
  */
 .alert {
     border-radius: 3px;
+    background color: #4983c9;
 }
 .alert h4 {
     font-weight: 600;
@@ -2472,6 +2473,7 @@ a:focus {
 }
 .alert-success {
     border-color: #4983c9;
+    color: #4983c9;
 }
 .alert-danger,
 .alert-error {
