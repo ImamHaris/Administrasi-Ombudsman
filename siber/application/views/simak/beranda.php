@@ -12,22 +12,11 @@
     <section class="content">
         <?php echo $this->session->flashdata("welcome_message"); ?>
         <!-- Stats box -->
-        <div class="row">
-            <div class="col-lg-4 col-xs-6">
-                <!-- small box -->
-                h
-            </div> 
-            <!-- ./col -->
-            <div class="col-lg-4 col-xs-6">
-                <!-- small box -->
-                h
-            </div>
-            <!-- ./col -->
-            <div class="col-lg-4 col-xs-6">
-                <!-- small box -->
-                h
-            </div>
-            <!-- ./col -->
+        <br>
+        <br>
+        <br>
+        <div style="text-align: center">
+        	<img src="<?php echo base_url() ?>assets/foto/logo sibers.png">
         </div>
         <!-- /.row -->
     </section>
