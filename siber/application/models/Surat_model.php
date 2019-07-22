@@ -203,9 +203,10 @@ class Surat_model extends CI_Model {
             return $query->row();
         }
     
-        public function insert_surat_tugas_with_file($no_surat, $yang_diberi_tugas, $daerah_tugas, $keterangan, $up_data) {
+        public function insert_surat_tugas_with_file($no_surat, $tgl_surat, $yang_diberi_tugas, $daerah_tugas, $keterangan, $up_data) {
             $data = array(
                 'no_surat' => $no_surat,
+                'tgl_surat' => $tgl_surat,
                 'yang_diberi_tugas' => $yang_diberi_tugas,
                 'daerah_tugas' => $daerah_tugas,
                 'keterangan' => $keterangan,
