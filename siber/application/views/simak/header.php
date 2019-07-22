@@ -92,7 +92,7 @@
                     <ul class="sidebar-menu">
                         <li class="header">NAVIGASI UTAMA</li>
                         <li><a href="<?php echo site_url('simak/beranda'); ?>"><i class="fa fa-home text-teal"></i> <span>Beranda</span></a></li>
-                        <li><a href="<?php echo site_url('simak'); ?>"><i class="fa fa-check text-teal"></i> <span>Dasboard</span></a></li>
+                        <li><a href="<?php echo site_url('simak'); ?>"><i class="fa fa-dashboard text-teal"></i> <span>Dashboard</span></a></li>
                     </ul>
 
                     <ul class="sidebar-menu">
