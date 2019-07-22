@@ -4,19 +4,19 @@ $mode = $this->uri->segment(3);
 if ($mode == "edit" || $mode == "act_edit") {
     $act = "act_edit";
     $id_post = $datpil->id_surat;
-    $pengirim = $datpil->pengirim;
+    $yang_diberi_tugas = $datpil->yang_diberi_tugas;
     $no_surat = $datpil->no_surat;
-    $perihal = $datpil->perihal;
+    $daerah_tugas	 = $datpil->daerah_tugas;
     $tgl_surat = $datpil->tgl_surat;
 } else {
     $act = "act_add";
     $id_post = "";
     $indek_berkas = "";
-    $kode = "";
-    $pengirim = "";
+    $keterangan = "";
+    $daerah_tugas	 = "";
     $no_surat = "";
     $tgl_surat = "";
-    $perihal = "";
+    $yang_diberi_tugas = "";
     $ket = "";
 }
 ?>
@@ -52,14 +52,20 @@ if ($mode == "edit" || $mode == "act_edit") {
                                        class="form-control" id="noSurat" placeholder="Nomor Surat" autofocus required>
                             </div>
                             <div class="form-group">
-                                <label for="Pengirim">Pengirim</label>
-                                <input type="text" value="<?php echo $pengirim; ?>" name="pengirim"
-                                       class="form-control" id="pengirim" placeholder="pengirim" required>
+                                <label for="yang bertugas">Diberikan Kepada</label>
+                                <input type="text" value="<?php echo $yang_diberi_tugas; ?>" name="yang_diberi_tugas"
+                                       class="form-control" id="yang_bertugas" placeholder="Yang bertugas" required>
                             </div>
                             <div class="form-group">
-                                <label for="perihal">Perihal</label>
-                                <input type="text" value="<?php echo $perihal; ?>" name="perihal"
-                                       class="form-control" id="perihal" placeholder="perihal" required>
+                                <label for="perihal">Daerah Tugas</label>
+                                <input type="text" value="<?php echo $daerah_tugas	; ?>" name="daerah_tugas"
+                                       class="form-control" id="daerah_tugas" placeholder="Daerah tugas" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="perihal">Keterangan </label>
+                                <input type="text" value="<?php echo $keterangan; ?>" name="keterangan"
+                                       class="form-control" id="keterangan" placeholder="Keterangan" required>
                             </div>
                         
                         </div>
@@ -71,6 +77,7 @@ if ($mode == "edit" || $mode == "act_edit") {
                                 <input type="text" value="<?php echo $tgl_surat; ?>" name="tgl_surat"
                                        class="form-control" id="datepicker" placeholder="Tanggal Surat" required>
                             </div>
+                            
                             <div class="form-group">
                                 <label for="fileSurat">File Surat</label>
                                 <input type="file" id="fileSurat" name="file_surat">

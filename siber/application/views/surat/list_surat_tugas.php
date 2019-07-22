@@ -5,7 +5,7 @@
         <h1>Surat Tugas</h1>
         <ol class="breadcrumb">
             <li><a href="<?php echo site_url('simak'); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Surat tugas</li>
+            <li class="active">Surat Tugas</li>
         </ol>
     </section>
 
@@ -39,9 +39,9 @@
                         <table class="table table-hover" style="width: 100%;">
                             <tr>
                                 <th style="width: 4%;">No.</th>
-                                <th style="width: 36%;">Asal Surat/Pengirim</th>
-                                <th style="width: 25%;">Perihal</th>
                                 <th style="width: 20%;">Nomor, Tgl. Surat</th>
+                                <th style="width: 36%;">Yang Bertugas</th>
+                                <th style="width: 25%;">Daerah</th>
                                 <th style="width: 15%;">Aksi</th>
                             </tr>
                             <?php
@@ -55,9 +55,10 @@
                                     ?>
                                     <tr>
                                         <td ><?php echo $nomor; ?></td>
-                                        <td ><?php echo $b->pengirim; ?> </td> 
-                                        <td ><?php echo limit_word($b->perihal, 50, 0) . "<br><b>File : </b><i><a href='"  . base_URL() . "assets/upload/surat_tugas_umum/" . $b->file . "' target='_blank'>" . limit_word($b->file, 50, 1) . "</a>"; ?></td>
                                         <td ><?php echo $b->no_surat . "<br><i>" . tgl_jam_sql($b->tgl_surat) . "</i>"; ?></td>
+                                        <td ><?php echo $b->yang_diberi_tugas; ?> </td> 
+                                        <td ><?php echo limit_word($b->daerah_tugas, 50, 0) . "<br><b>File : </b><i><a href='"  . base_URL() . "assets/upload/surat_tugas_umum/" . $b->file . "' target='_blank'>" . limit_word($b->file, 50, 1) . "</a>"; ?></td>
+                                        
                                         <td>
                                             <?php
                                             if ($b->pengolah == $this->session->user_id) {

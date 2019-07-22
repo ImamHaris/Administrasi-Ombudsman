@@ -256,6 +256,8 @@ class Surat extends CI_Controller {
         $yang_diberi_tugas = addslashes($this->input->post('yang_diberi_tugas'));
         $daerah_tugas = addslashes($this->input->post('daerah_tugas'));
         $keterangan = addslashes($this->input->post('keterangan'));
+        $tgl_surat = addslashes($this->input->post('tgl_surat'));
+
 
         //upload config 
         $config['upload_path'] = './assets/upload/surat_tugas';
@@ -286,9 +288,9 @@ class Surat extends CI_Controller {
             $data['datpil'] = $this->surat_model->select_surat_tugas_id($id_url);
             $data['page'] = "surat/form_surat_tugas";
         } else if ($mau_ke == "act_add") {
-            if ($this->upload->do_upload('file')) {
-                $up_data = $this->upload->data('file');
-                $this->surat_model->insert_surat_tugas_with_file($no_surat, $yang_diberi_tugas, $daerah_tugas, $keterangan, $up_data);
+            if ($this->upload->do_upload('file_surat')) {
+                $up_data = $this->upload->data('file_name');
+                $this->surat_model->insert_surat_tugas_with_file($no_surat, $tgl_surat, $yang_diberi_tugas, $daerah_tugas, $keterangan, $up_data);
             } else {
                 $this->surat_model->insert_surat_tugas($kode, $no_agenda, $indek_berkas, $uraian, $dari, $no_surat, $tgl_surat, $ket);
             }
