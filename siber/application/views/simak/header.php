@@ -91,6 +91,12 @@
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
                         <li class="header">NAVIGASI UTAMA</li>
+                        <li><a href="<?php echo site_url('surat/surat_masuk'); ?>"><i class="fa fa-envelope text-green"></i> <span>Beranda</span></a></li>
+                        <li><a href="<?php echo site_url('surat/surat_masuk'); ?>"><i class="fa fa-envelope text-green"></i> <span>Dasboard</span></a></li>
+                    </ul>
+
+                    <ul class="sidebar-menu">
+                        <li class="header">SURAT</li>
                         <li><a href="<?php echo site_url('surat/surat_masuk'); ?>"><i class="fa fa-envelope text-green"></i> <span>Surat Masuk Umum</span></a></li>
                         <li class="treeview">
                             <a href="#">
