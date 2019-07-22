@@ -13,19 +13,22 @@
     <section class="content">
         <?php echo $this->session->flashdata("message"); ?>
         <div class="row">
+            <div class="col-xs-4">
+                <div class="box-tools">
+                    <form class="input-group input-group-sm" method="post" action="<?php echo site_url('simak/manage_user/cari'); ?>">
+                        <input type="text" name="q" class="form-control pull-right" placeholder="Search">
+                            <div class="input-group-btn">
+                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+            <br><br>
             <div class="col-xs-12">
                 <div class="box box-success">
                     <div class="box-header">
                         <a class="btn btn-primary btn-sm btn-flat " href="<?php echo site_url('simak/manage_user/add'); ?>"><i class="fa fa-user-plus"></i>
                             <span class="hidden-xs"> Tambah User</span></a></li>
-                        <div class="box-tools">
-                            <form class="input-group input-group-sm" method="post" action="<?php echo site_url('simak/manage_user/cari'); ?>">
-                                <input type="text" name="q" class="form-control pull-right" placeholder="Search">
-                                <div class="input-group-btn">
-                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                                </div>
-                            </form>
-                        </div>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body table-responsive no-padding">
