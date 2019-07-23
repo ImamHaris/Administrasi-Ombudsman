@@ -16,6 +16,19 @@ class Simak extends CI_Controller {
         if ($this->session->user_valid == FALSE && $this->session->user_id == "") {
             redirect("simak/login");
         }
+        $this->session->set_flashdata('welcome_message', message_box('Selamat Datang <b>' . $this->session->user_nama . '</b>'));
+        $data = array(
+            'title' => 'Beranda',
+            'page' => 'simak/beranda',
+        );
+
+        $this->load->view('simak/header', $data);
+    }
+
+    public function dashboard(){
+        if ($this->session->user_valid == FALSE && $this->session->user_id == "") {
+            redirect("simak/login");
+        } 
         
         $this->load->model('surat_model');
         $data = array(
@@ -26,16 +39,7 @@ class Simak extends CI_Controller {
             'total_disposisi' => $this->surat_model->counter_row_surat_disposisi()
         );
         $this->load->view('simak/header', $data);
-    }
-
-    public function beranda(){
-        $this->session->set_flashdata('welcome_message', message_box('Selamat Datang <b>' . $this->session->user_nama . '</b>'));
-        $data = array(
-            'title' => 'Beranda',
-            'page' => 'simak/beranda',
-        );
-
-        $this->load->view('simak/header', $data);
+        
     }
 
     public function login() {
