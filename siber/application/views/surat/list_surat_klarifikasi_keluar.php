@@ -2,10 +2,10 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>Surat Keluar Laporan</h1>
+        <h1>Surat Klarifikasi Keluar</h1>
         <ol class="breadcrumb">
             <li><a href="<?php echo site_url('simak'); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Surat Keluar Laporan</li>
+            <li class="active">Surat Klarifikasi Keluar</li>
         </ol>
     </section>
 
@@ -18,11 +18,11 @@
                     <div class="box-header">
                         <div class="row">
                             <div class="col-xs-6">
-                                <a class="btn btn-primary btn-sm btn-flat" href="<?php echo site_url('surat/surat_keluar_laporan/add'); ?>"><i class="fa fa-plus"></i>
+                                <a class="btn btn-primary btn-sm btn-flat" href="<?php echo site_url('surat/surat_klarifikasi_keluar/add'); ?>"><i class="fa fa-plus"></i>
                                     <span class="hidden-xs"> Tambah Data</span></a></li>
                             </div>
                             <div class="box-tools col-xs-6">
-                                <form method="post" action="<?php echo site_url('surat/surat_keluar_laporan/cari'); ?>">
+                                <form method="post" action="<?php echo site_url('surat/surat_klarifikasi_keluar/cari'); ?>">
                                     <div class="input-group input-group-sm" style="width: 100%;">
                                         <input type="text"  style="width: 35%;" id="datepicker" name="t" class="form-control" placeholder="Tgl">
                                         <input type="text"  style="width: 65%;" name="q" class="form-control pull-right" placeholder="Kata kunci">
@@ -56,7 +56,7 @@
                                     <tr>
                                         <td ><?php echo $nomor; ?></td>
                                         <td ><?php echo $b->no_surat . "<br><i>" . $b->tgl_surat . "</i>"; ?></td>
-                                        <td ><?php echo limit_word($b->tujuan, 50, 0) . "<br><b>File : </b><i><a href='" . base_URL() . "assets/upload/surat_keluar_laporan/" . $b->file . "' target='_blank'>" . limit_word($b->file, 50, 1) . "</a>"; ?></td>
+                                        <td ><?php echo limit_word($b->tujuan, 50, 0) . "<br><b>File : </b><i><a href='" . base_URL() . "assets/upload/surat_klarifikasi_keluar/" . $b->file . "' target='_blank'>" . limit_word($b->file, 50, 1) . "</a>"; ?></td>
                                         <td><?php echo $b->perihal; ?></td>
                                         
                                         <td>
@@ -64,9 +64,9 @@
                                             if ($b->pengolah == $this->session->user_id) {
                                                 ?>
                                                 <div>
-                                                    <a href="<?php echo site_url('surat/surat_keluar_laporan/edit'); ?>/<?php echo $b->id_surat ?>"
+                                                    <a href="<?php echo site_url('surat/surat_klarifikasi_keluar/edit'); ?>/<?php echo $b->id_surat ?>"
                                                        data-toggle="tooltip" class="btn btn-success btn-sm" title="Edit Data"><i class="fa fa-pencil"> </i></a>
-                                                    <a href="<?php echo site_url('surat/surat_keluar_laporan/del'); ?>/<?php echo $b->id_surat ?>"
+                                                    <a href="<?php echo site_url('surat/surat_klarifikasi_keluar/del'); ?>/<?php echo $b->id_surat ?>"
                                                        data-toggle="tooltip" class="btn btn-danger btn-sm" title="Hapus Data" onclick="return confirm('Anda Yakin..?')"><i class="fa fa-remove"></i></a>			
                                                 </div>	
                                                 <?php

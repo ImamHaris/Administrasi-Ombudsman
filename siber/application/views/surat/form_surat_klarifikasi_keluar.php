@@ -20,10 +20,10 @@ if ($mode == "edit" || $mode == "act_edit") {
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>Surat Keluar Laporan</h1>
+        <h1>Surat Klarifikasi Keluar</h1>
         <ol class="breadcrumb">
             <li><a href="<?php echo site_url('simak'); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Surat Keluar Laporan</li>
+            <li class="active">Surat Klarifikasi Keluar</li>
         </ol>
     </section>
 
@@ -35,11 +35,11 @@ if ($mode == "edit" || $mode == "act_edit") {
                 <!-- general form elements -->
                 <div class="box box-success">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Data Surat Keluar Laporan</h3>
+                        <h3 class="box-title">Data Surat Klarifikasi Keluar</h3>
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form role="form" action="<?php echo site_url('surat/surat_keluar_laporan'); ?>/<?php echo $act; ?>" method="post" enctype="multipart/form-data">
+                    <form role="form" action="<?php echo site_url('surat/surat_klarifikasi_keluar'); ?>/<?php echo $act; ?>" method="post" enctype="multipart/form-data">
                         <div class="col-md-6 box-body">
                             <div class="form-group">
                                 <label for="noSurat">Nomor Surat</label>
@@ -47,7 +47,7 @@ if ($mode == "edit" || $mode == "act_edit") {
                                        class="form-control" id="noSurat" placeholder="Nomor Surat" autofocus required>
                             </div>
                             <div class="form-group">
-                                <label for="tujuan">tujuan</label>
+                                <label for="tujuan">Tujuan</label>
                                 <input type="text" value="<?php echo $tujuan; ?>" name="tujuan"
                                        class="form-control" id="tujuan" placeholder="tujuan" required>
                             </div>
@@ -80,7 +80,7 @@ if ($mode == "edit" || $mode == "act_edit") {
                             <button type="submit" class="btn btn-primary btn-flat">
                                 <i class="fa fa-save"></i><span class="hidden-xs"> Simpan</span>
                             </button>
-                            <a href="<?php echo site_url('surat/surat_keluar_laporan'); ?>" class="btn btn-danger btn-flat">
+                            <a href="<?php echo site_url('surat/surat_klarifikasi_keluar'); ?>" class="btn btn-danger btn-flat">
                                 <i class="fa fa-undo"></i><span class="hidden-xs"> Kembali</span></a>
                             <button type="reset" class="btn btn-default btn-flat pull-right">
                                 <i class="fa fa-eraser"></i><span class="hidden-xs"> Clear</span>
