@@ -1543,7 +1543,9 @@ a:focus {
     color: rgba(255, 255, 255, 0.8);
     display: block;
     z-index: 10;
-    background: rgba(0, 0, 0, 0.1);
+    background: #0073b7;
+    /*background: rgba(0, 0, 0, 0.1);
+    */
     text-decoration: none;
 }
 .small-box > .small-box-footer:hover {
@@ -1553,12 +1555,14 @@ a:focus {
 .small-box h3 {
     font-size: 38px;
     font-weight: bold;
+    color: #fff;
     margin: 0 0 10px 0;
     white-space: nowrap;
     padding: 0;
 }
 .small-box p {
     font-size: 15px;
+    color: #fff;
 }
 .small-box p > small {
     display: block;
@@ -4504,6 +4508,11 @@ img.tengah {
 .bg-blue {
     background-color: #0073b7 !important;
 }
+
+.bg-new {
+    background-color: #374850 !important;
+}
+
 .bg-light-blue,
 .label-primary,
 .modal-primary .modal-body {
