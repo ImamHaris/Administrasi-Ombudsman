@@ -50,7 +50,7 @@
                     <div class="icon">
                         <i class="ion ion-android-checkbox"></i>
                     </div>
-                    <a href="<?php echo site_url('surat/surat_disposisi'); ?>" class="small-box-footer">Selengkapnya.. <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="<?php echo site_url('surat/surat_keluar_laporan'); ?>" class="small-box-footer">Selengkapnya.. <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
@@ -106,7 +106,7 @@
                     <div class="icon">
                         <i class="ion ion-android-mail"></i>
                     </div>
-                    <a href="<?php echo site_url('surat/surat_keluar'); ?>" class="small-box-footer">Selengkapnya.. <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="<?php echo site_url('surat/surat_tembusan'); ?>" class="small-box-footer">Selengkapnya.. <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
@@ -120,13 +120,13 @@
                     <div class="icon">
                         <i class="ion ion-android-mail"></i>
                     </div>
-                    <a href="<?php echo site_url('surat/surat_keluar'); ?>" class="small-box-footer">Selengkapnya.. <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="<?php echo site_url('surat/surat_tugas'); ?>" class="small-box-footer">Selengkapnya.. <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->
             <div class="col-lg-4 col-xs-6">
                 <!-- small box -->
-                <div class="small-box bg-new">
+                <div class="small-box bg-aqua">
                     <div class="inner">
                         <h3><?php echo (int) $total_surat_keluar; ?></h3>
                         <p>Total Surat Keputusan (Kepala Perwakilan)</p>
