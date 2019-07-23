@@ -15,8 +15,12 @@
         <br>
         <br>
         <br>
-        <div style="text-align: center">
-        	<img class='resize_fit_center' src="<?php echo base_url() ?>assets/foto/logo sibers.png">
+        <style>
+        	.container { width: 96%; max-width: 960px; margin: 0 auto; text-align: center; }
+        	img {width: 40%; height: auto}
+        </style>
+        <div class="container">
+        	<img src="<?php echo base_url() ?>assets/foto/logo sibers.png" alt="" width="960"; height="640"/>
         </div>
         <!-- /.row -->
     </section>
