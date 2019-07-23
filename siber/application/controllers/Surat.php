@@ -303,7 +303,7 @@ class Surat extends CI_Controller {
             redirect('surat/surat_keluar');
         } else {
             $data['data'] = $this->surat_model->select_surat_keluar_limit($awal, $akhir);
-            $data['page'] = "surat/list_surat_keluar";
+            $data['page'] = "surat/list_surat_keluar_laporan";
         }
         $data['title'] = "Surat keluar";
         $this->load->view('simak/header', $data);
