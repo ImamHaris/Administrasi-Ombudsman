@@ -17,10 +17,25 @@
                 <div class="box box-success">
                     <div class="box-header">
                         <div class="row">
+                        <?php
+                                if ("Admin" == $this->session->user_level) {
+                            ?>
+                                <div class="col-xs-6">
+                            
+                            <a class="btn btn-primary btn-sm btn-flat" href="<?php echo site_url('surat/surat_tembusan/add'); ?>"><i class="fa fa-plus"></i>
+                                <span class="hidden-xs"> Tambah Data</span></a></li>
+                        </div>	
+                            <?php
+                            } else {
+                                ?>
                             <div class="col-xs-6">
-                                <a class="btn btn-primary btn-sm btn-flat" href="<?php echo site_url('surat/surat_tembusan/add'); ?>"><i class="fa fa-plus"></i>
-                                    <span class="hidden-xs"> Tambah Data</span></a></li>
-                            </div>
+                                
+                                <span class="hidden-xs"> </span></a></li>          
+                            </div>              
+                            <?php
+                            }
+                            ?>
+                            
                             <div class="box-tools col-xs-6">
                                 <form method="post" action="<?php echo site_url('surat/surat_tembusan/cari'); ?>">
                                     <div class="input-group input-group-sm" style="width: 100%;">
