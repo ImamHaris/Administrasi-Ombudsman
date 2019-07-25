@@ -124,8 +124,7 @@ class Surat extends CI_Controller {
             $data['page'] = "surat/form_surat_masuk";
         } else if ($mau_ke == "act_add") {
             if ($this->upload->do_upload('file_surat')) {
-                $data = array('upload_data' => $this->upload->data()); //ambil nama file yang diupload
-                $up_data= $data['upload_data']['file_name'];
+                $up_data = $this->upload->data('file_name');
                 $this->surat_model->insert_surat_masuk_with_file($no_surat, $tgl_surat, $pengirim, $perihal, $up_data);
             } else {
                 $this->surat_model->insert_surat_masuk($no_surat, $tgl_surat, $pengirim, $perihal, $up_data);
@@ -134,10 +133,10 @@ class Surat extends CI_Controller {
             redirect('surat/surat_masuk');
         } else if ($mau_ke == "act_edit") {
             if ($this->upload->do_upload('file_surat')) {
-                $data = array('upload_data' => $this->upload->data());
-                $this->surat_model->update_surat_masuk_with_file($kode, $no_agenda, $indek_berkas, $uraian, $dari, $no_surat, $tgl_surat, $ket, $up_data, $id_post);
+                $up_data = $this->upload->data('file_name');
+                $this->surat_model->update_surat_masuk_with_file($no_surat, $tgl_surat, $pengirim, $perihal, $up_data);
             } else {
-                $this->surat_model->update_surat_masuk($kode, $no_agenda, $indek_berkas, $uraian, $dari, $no_surat, $tgl_surat, $ket, $id_post);
+                $this->surat_model->update_surat_masuk_with_file($no_surat, $tgl_surat, $pengirim, $perihal, $up_data);
             }
             $this->session->set_flashdata('message', message_box('Data telah diperbaharui. ' . $this->upload->display_errors()));
             redirect('surat/surat_masuk');
@@ -469,61 +468,6 @@ class Surat extends CI_Controller {
             $data['page'] = "surat/list_surat_tembusan";
         }
         $data['title'] = "Surat Tembusan";
-        $this->load->view('simak/header', $data);
-    }
-
-    public function surat_disposisi() {
-        if ($this->session->user_valid == FALSE && $this->session->user_id == "") {
-            redirect("simak/login");
-        }
-
-        //ambil variabel URL
-        $go_to = $this->uri->segment(4);
-        $id_url1 = $this->uri->segment(3);
-        $id_url2 = $this->uri->segment(5);
-
-        // pagination //
-        $total_row = $this->surat_model->get_total_row_surat_disposisi($id_url1);
-        $per_page = 10;
-        $awal = $this->uri->segment(4, 0);
-        $akhir = $per_page;
-        $data['pagi'] = _page($total_row, $per_page, 4, site_url("surat/surat_disposisi/" . $id_url1 . "/page"));
-
-        //ambil variabel Postingan
-        $id_post = addslashes($this->input->post('id_post'));
-        $id_surat = addslashes($this->input->post('id_surat'));
-        $kepada = addslashes($this->input->post('kepada'));
-        $isi_disposisi = addslashes($this->input->post('isi_disposisi'));
-        $sifat = addslashes($this->input->post('sifat'));
-        $batas_waktu = addslashes($this->input->post('batas_waktu'));
-        $catatan = addslashes($this->input->post('catatan'));
-        //$cari = addslashes($this->input->post('q'));
-        //judul surat
-        $judul_surat = gval("surat_masuk_umum", "id", "isi_ringkas", $id_url1);
-        $this->session->set_flashdata('judul_surat', message_box('Perihal: ' . $judul_surat));
-
-        if ($go_to == "del") {
-            $this->surat_model->delete_disposisi($id_url2);
-            $this->session->set_flashdata('message', message_box('Data telah dihapus'));
-            redirect('surat/surat_disposisi/' . $id_url1);
-        } else if ($go_to == "add") {
-            $data['page'] = "surat/form_surat_disposisi";
-        } else if ($go_to == "edit") {
-            $data['datpil'] = $this->surat_model->get_disposisi_id($id_url2);
-            $data['page'] = "surat/form_surat_disposisi";
-        } else if ($go_to == "act_add") {
-            $this->surat_model->insert_disposisi($id_surat, $kepada, $isi_disposisi, $sifat, $batas_waktu, $catatan);
-            $this->session->set_flashdata('message', message_box('Data telah ditambah'));
-            redirect('surat/surat_disposisi/' . $id_surat);
-        } else if ($go_to == "act_edit") {
-            $this->surat_model->update_disposisi($kepada, $isi_disposisi, $sifat, $batas_waktu, $catatan, $id_post);
-            $this->session->set_flashdata('message', message_box('Data telah diperbaharui'));
-            redirect('surat/surat_disposisi/' . $id_surat);
-        } else {
-            $data['data'] = $this->surat_model->get_disposisi_limit($id_url1, $awal, $akhir);
-            $data['page'] = "surat/list_surat_disposisi";
-        }
-        $data['title'] = "Disposisi Surat";
         $this->load->view('simak/header', $data);
     }
 

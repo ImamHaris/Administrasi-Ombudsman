@@ -76,8 +76,8 @@
                                             } else {
                                                 ?>
                                                 <div>
-                                                    <a href="<?php echo site_url('cetak/cetak_disposisi'); ?>/<?php echo $b->id_surat; ?>"
-                                                       data-toggle="tooltip" class="btn btn-default btn-sm" target="_blank" title="Cetak Disposisi"><i class="fa fa-print"></i></a>
+                                                <a href="<?php echo site_url('assets/upload/surat_masuk_umum/'); ?>/<?php echo $b->file ?>"
+                                                       data-toggle="tooltip" class="btn btn-default btn-sm" target="_blank" ><i class="fa fa-download"></i></a>
                                                 </div>	
                                                 <?php
                                             }

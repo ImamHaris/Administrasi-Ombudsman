@@ -8,6 +8,7 @@ if ($mode == "edit" || $mode == "act_edit") {
     $no_surat = $datpil->no_surat;
     $perihal = $datpil->perihal;
     $tgl_surat = $datpil->tgl_surat;
+    $file = $datpil->file;
 } else {
     $act = "act_add";
     $id_post = "";

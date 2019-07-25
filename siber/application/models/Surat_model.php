@@ -13,58 +13,6 @@ class Surat_model extends CI_Model {
         return $query->row_array();
        }
 
-    //klas_surat
-    public function get_total_row() {
-        $query = $this->db->get('klasifikasi');
-        return $query->num_rows();
-    }
-
-    public function cari_klas_surat($cari) {
-        $this->db->like('nama', $cari);
-        $this->db->or_like('uraian', $cari);
-        $this->db->order_by('id', 'DESC');
-        $query = $this->db->get('klasifikasi');
-        return $query->result();
-    }
-
-    public function get_data_id($id_url) {
-        $this->db->where('id', $id_url);
-        $query = $this->db->get('klasifikasi');
-        return $query->row();
-    }
-
-    public function delete_klasifikasi_surat($id_url) {
-        $this->db->where('id', $id_url);
-        $this->db->delete('klasifikasi');
-    }
-
-    public function insert_data_klasifikasi($kode, $divisi, $nama, $uraian) {
-        $data = array(
-            'kode' => $kode,
-            'divisi' => $divisi,
-            'nama' => $nama,
-            'uraian' => $uraian
-        );
-        $this->db->insert('klasifikasi', $data);
-    }
-
-    public function edit_data_klasifikasi($kode, $divisi, $nama, $uraian, $id_post) {
-        $data = array(
-            'kode' => $kode,
-            'divisi' => $divisi,
-            'nama' => $nama,
-            'uraian' => $uraian
-        );
-        $this->db->where('id', $id_post);
-        $this->db->update('klasifikasi', $data);
-    }
-
-    public function get_data_limit($awal, $akhir) {
-        $this->db->limit($akhir, $awal);
-        $query = $this->db->get('klasifikasi');
-        return $query->result();
-    }
-
     //surat_masuk
     public function get_total_row_surat_masuk() {
         $query = $this->db->get('surat_masuk_umum');
@@ -138,7 +86,7 @@ class Surat_model extends CI_Model {
             'perihal' => $perihal,
             'file' => $up_data
         );
-        $this->db->update('surat_masuk', $data);
+        $this->db->update('surat_masuk_umum', $data);
     }
 
     public function update_surat_masuk($kode, $no_agenda, $indek_berkas, $uraian, $dari, $no_surat, $tgl_surat, $ket, $id_post) {
