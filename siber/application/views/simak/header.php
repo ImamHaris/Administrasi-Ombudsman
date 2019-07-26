@@ -120,9 +120,9 @@
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="<?php echo site_url('surat/'); ?>"><i class="fa fa-print text-orange"></i> Surat Klarifikasi Masuk</a></li>
-                                <li><a href="<?php echo site_url('surat/'); ?>"><i class="fa fa-print text-orange"></i> Surat Klarifikasi Keluar</a></li>
-                                <li><a href="<?php echo site_url('surat/'); ?>"><i class="fa fa-print text-orange"></i> Surat Klarifikasi Keluar II</a></li>
+                                <li><a href="<?php echo site_url('surat/surat_klarifikasi_masuk'); ?>"><i class="fa fa-print text-orange"></i> Surat Klarifikasi Masuk</a></li>
+                                <li><a href="<?php echo site_url('surat/surat_klarifikasi_keluar'); ?>"><i class="fa fa-print text-orange"></i> Surat Klarifikasi Keluar</a></li>
+                                <li><a href="<?php echo site_url('surat/surat_klarifikasi_keluar2'); ?>"><i class="fa fa-print text-orange"></i> Surat Klarifikasi Keluar II</a></li>
                             </ul>
                         </li>
                         <li><a href="<?php echo site_url('surat/surat_tembusan'); ?>"><i class="fa fa-envelope text-orange"></i> <span>Surat Tembusan</span></a></li>

@@ -494,6 +494,206 @@ class Surat_model extends CI_Model {
         return $query->result();
     }
 
+    //surat_klarifikasi_keluar2
+    public function get_total_row_surat_klarifikasi_keluar2() {
+        $query = $this->db->get('surat_klarifikasi_keluar2');
+        return $query->num_rows();
+    }
+
+    public function delete_surat_klarifikasi_keluar2($id_url) {
+        $this->db->where('id_surat', $id_url);
+        $this->db->delete('surat_klarifikasi_keluar2');
+    }
+
+    public function cari_surat_klarifikasi_keluar2_tgl($tglcari) {
+        $this->db->like('tgl_surat', $tglcari);
+        $this->db->order_by('id', 'DESC');
+        $query = $this->db->get('surat_klarifikasi_keluar2');
+        return $query->result();
+    }
+
+    public function cari_surat_klarifikasi_keluar2_key($cari) {
+        $this->db->like('dari', $cari);
+        $this->db->or_like('no_surat', $cari);
+        $this->db->or_like('isi_ringkas', $cari);
+        $this->db->order_by('id', 'DESC');
+        $query = $this->db->get('surat_klarifikasi_keluar2');
+        return $query->result();
+    }
+
+    public function cari_surat_klarifikasi_keluar2_tgl_key($tglcari, $cari) {
+        $this->db->like('tgl_surat', $tglcari);
+        $this->db->like('dari', $cari);
+        $this->db->order_by('id', 'DESC');
+        $query = $this->db->get('surat_keluar');
+        return $query->result();
+    }
+
+    public function select_surat_klarifikasi_keluar2_id($id_url) {
+        $this->db->where('id_surat', $id_url);
+        $query = $this->db->get('surat_klarifikasi_keluar2');
+        return $query->row();
+    }
+
+    public function insert_surat_klarifikasi_keluar2_with_file($no_surat, $tgl_surat, $tujuan, $perihal, $up_data) {
+        $data = array(
+            'no_surat' => $no_surat,
+            'tgl_surat' => $tgl_surat,
+            'tujuan' => $tujuan,
+            'perihal' => $perihal,
+            'file' => $up_data,
+            'pengolah' => $this->session->user_id
+        );
+        $this->db->insert('surat_klarifikasi_keluar2', $data);
+    }
+
+    public function insert_surat_klarifikasi_keluar2($no_surat, $tgl_surat, $tujuan, $perihal, $up_data) {
+        $data = array(
+            'no_surat' => $no_surat,
+            'tgl_surat' => $tgl_surat,
+            'tujuan' => $tujuan,
+            'perihal' => $perihal,
+            'file' => $up_data,
+            'pengolah' => $this->session->user_id
+        );
+        $this->db->insert('surat_klarifikasi_keluar2', $data);
+    }
+
+    public function update_surat_klarifikasi_keluar2_with_file($no_agenda, $kode, $uraian, $dari, $no_surat, $tgl_surat, $ket, $up_data, $id_post) {
+        $data = array(
+            'no_agenda' => $no_agenda,
+            'kode' => $kode,
+            'isi_ringkas' => $uraian,
+            'tujuan' => $dari,
+            'no_surat' => $no_surat,
+            'tgl_surat' => $tgl_surat,
+            'keterangan' => $ket,
+            'file' => $up_data
+        );
+        $this->db->where('id', $id_post);
+        $this->db->update('surat_klarifikasi_keluar2', $data);
+    }
+
+    public function update_surat_klarifikasi_keluar2($no_agenda, $kode, $uraian, $dari, $no_surat, $tgl_surat, $ket, $id_post) {
+        $data = array(
+            'no_agenda' => $no_agenda,
+            'kode' => $kode,
+            'isi_ringkas' => $uraian,
+            'tujuan' => $dari,
+            'no_surat' => $no_surat,
+            'tgl_surat' => $tgl_surat,
+            'keterangan' => $ket
+        );
+        $this->db->where('id', $id_post);
+        $this->db->update('surat_klarifikasi_keluar2', $data);
+    }
+
+    public function select_surat_klarifikasi_keluar2_limit($awal, $akhir) {
+        $this->db->limit($akhir, $awal);
+        $query = $this->db->get('surat_klarifikasi_keluar2');
+        return $query->result();
+    }
+
+    //surat_klarifikasi_masuk
+    public function get_total_row_surat_klarifikasi_masuk() {
+        $query = $this->db->get('surat_klarifikasi_masuk');
+        return $query->num_rows();
+    }
+
+    public function delete_surat_klarifikasi_masuk($id_url) {
+        $this->db->where('id_surat', $id_url);
+        $this->db->delete('surat_klarifikasi_masuk');
+    }
+
+    public function cari_surat_klarifikasi_masuk_tgl($tglcari) {
+        $this->db->like('tgl_surat', $tglcari);
+        $this->db->order_by('id', 'DESC');
+        $query = $this->db->get('surat_klarifikasi_masuk');
+        return $query->result();
+    }
+
+    public function cari_surat_klarifikasi_masuk_key($cari) {
+        $this->db->like('dari', $cari);
+        $this->db->or_like('no_surat', $cari);
+        $this->db->or_like('isi_ringkas', $cari);
+        $this->db->order_by('id', 'DESC');
+        $query = $this->db->get('surat_klarifikasi_masuk');
+        return $query->result();
+    }
+
+    public function cari_surat_klarifikasi_masuk_tgl_key($tglcari, $cari) {
+        $this->db->like('tgl_surat', $tglcari);
+        $this->db->like('dari', $cari);
+        $this->db->order_by('id', 'DESC');
+        $query = $this->db->get('surat_klarifikasi_masuk');
+        return $query->result();
+    }
+
+    public function select_surat_klarifikasi_masuk_id($id_url) {
+        $this->db->where('id_surat', $id_url);
+        $query = $this->db->get('surat_klarifikasi_masuk2');
+        return $query->row();
+    }
+
+    public function insert_surat_klarifikasi_masuk_with_file($no_surat, $tgl_surat, $pengirim, $perihal, $up_data) {
+        $data = array(
+            'no_surat' => $no_surat,
+            'tgl_surat' => $tgl_surat,
+            'pengirim' => $pengirim,
+            'perihal' => $perihal,
+            'file' => $up_data,
+            'pengolah' => $this->session->user_id
+        );
+        $this->db->insert('surat_klarifikasi_masuk', $data);
+    }
+
+    public function insert_surat_klarifikasi_masuk($no_surat, $tgl_surat, $pengirim, $perihal, $up_data) {
+        $data = array(
+            'no_surat' => $no_surat,
+            'tgl_surat' => $tgl_surat,
+            'pengirim' => $pengirim,
+            'perihal' => $perihal,
+            'file' => $up_data,
+            'pengolah' => $this->session->user_id
+        );
+        $this->db->insert('surat_klarifikasi_masuk', $data);
+    }
+
+    public function update_surat_klarifikasi_masuk_with_file($no_agenda, $kode, $uraian, $dari, $no_surat, $tgl_surat, $ket, $up_data, $id_post) {
+        $data = array(
+            'no_agenda' => $no_agenda,
+            'kode' => $kode,
+            'isi_ringkas' => $uraian,
+            'tujuan' => $dari,
+            'no_surat' => $no_surat,
+            'tgl_surat' => $tgl_surat,
+            'keterangan' => $ket,
+            'file' => $up_data
+        );
+        $this->db->where('id', $id_post);
+        $this->db->update('surat_klarifikasi_masuk', $data);
+    }
+
+    public function update_surat_klarifikasi_masuk($no_agenda, $kode, $uraian, $dari, $no_surat, $tgl_surat, $ket, $id_post) {
+        $data = array(
+            'no_agenda' => $no_agenda,
+            'kode' => $kode,
+            'isi_ringkas' => $uraian,
+            'tujuan' => $dari,
+            'no_surat' => $no_surat,
+            'tgl_surat' => $tgl_surat,
+            'keterangan' => $ket
+        );
+        $this->db->where('id', $id_post);
+        $this->db->update('surat_klarifikasi_masuk', $data);
+    }
+
+    public function select_surat_klarifikasi_masuk_limit($awal, $akhir) {
+        $this->db->limit($akhir, $awal);
+        $query = $this->db->get('surat_klarifikasi_masuk');
+        return $query->result();
+    }
+
     //surat_tembusan
     public function get_total_row_surat_tembusan() {
         $query = $this->db->get('surat_tembusan');
