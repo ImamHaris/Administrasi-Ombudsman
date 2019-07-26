@@ -78,32 +78,9 @@ class Surat_model extends CI_Model {
         $this->db->insert('surat_masuk_umum', $data);
     }
 
-    public function update_surat_masuk_with_file($no_surat, $tgl_surat, $pengirim, $perihal, $up_data) {
-        $data = array(
-            'no_surat' => $no_surat,
-            'tgl_surat' => $tgl_surat,
-            'pengirim' => $pengirim,
-            'perihal' => $perihal,
-            'file' => $up_data
-        );
-        $this->db->update('surat_masuk_umum', $data);
+    public function update_surat_masuk_with_file($data, $where) {
+        $this->db->update('surat_masuk_umum', $data,$where);
     }
-
-    public function update_surat_masuk($kode, $no_agenda, $indek_berkas, $uraian, $dari, $no_surat, $tgl_surat, $ket, $id_post) {
-        $data = array(
-            'kode' => $kode,
-            'no_agenda' => $no_agenda,
-            'indek_berkas' => $indek_berkas,
-            'isi_ringkas' => $uraian,
-            'dari' => $dari,
-            'no_surat' => $no_surat,
-            'tgl_surat' => $tgl_surat,
-            'keterangan' => $ket
-        );
-        $this->db->where('id', $id_post);
-        $this->db->update('surat_masuk_umum', $data);
-    }
-
     public function select_surat_masuk_limit($awal, $akhir) {
         $this->db->limit($akhir, $awal);
         $query = $this->db->get('surat_masuk_umum');

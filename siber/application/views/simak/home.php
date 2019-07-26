@@ -44,7 +44,7 @@
                 <!-- small box -->
                 <div class="small-box bg-new">
                     <div class="inner">
-                        <h3><?php echo (int) $total_disposisi; ?></h3>
+                        <h3><?php echo (int) $total_surat_keluar_laporan; ?></h3>
                         <p>Total Surat Keluar Laporan</p>
                     </div>
                     <div class="icon">
@@ -100,7 +100,7 @@
                 <!-- small box -->
                 <div class="small-box bg-new">
                     <div class="inner">
-                        <h3><?php echo (int) $total_surat_keluar; ?></h3>
+                        <h3><?php echo (int) $total_surat_tembusan; ?></h3>
                         <p>Total Surat Tembusan</p>
                     </div>
                     <div class="icon">
@@ -114,7 +114,7 @@
                 <!-- small box -->
                 <div class="small-box bg-new">
                     <div class="inner">
-                        <h3><?php echo (int) $total_surat_keluar; ?></h3>
+                        <h3><?php echo (int) $total_surat_tugas; ?></h3>
                         <p>Total Surat Tugas</p>
                     </div>
                     <div class="icon">
