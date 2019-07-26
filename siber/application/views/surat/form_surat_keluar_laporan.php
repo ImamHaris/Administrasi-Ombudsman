@@ -47,7 +47,7 @@ if ($mode == "edit" || $mode == "act_edit") {
                                        class="form-control" id="noSurat" placeholder="Nomor Surat" autofocus required>
                             </div>
                             <div class="form-group">
-                                <label for="tujuan">tujuan</label>
+                                <label for="tujuan">Tujuan</label>
                                 <input type="text" value="<?php echo $tujuan; ?>" name="tujuan"
                                        class="form-control" id="tujuan" placeholder="tujuan" required>
                             </div>
