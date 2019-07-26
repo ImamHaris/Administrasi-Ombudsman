@@ -4,8 +4,8 @@
     <section class="content-header">
         <h1>Surat Masuk Umum</h1>
         <ol class="breadcrumb">
-            <li><a href="<?php echo site_url('simak/beranda'); ?>"><i class="fa fa-home"></i> Beranda</a></li>
-            <li class="active">Surat Masuk</li>
+            <li><a href="<?php echo site_url('simak'); ?>"><i class="fa fa-home"></i> Beranda</a></li>
+            <li class="active">Surat Masuk Umum</li>
         </ol>
     </section>
 
