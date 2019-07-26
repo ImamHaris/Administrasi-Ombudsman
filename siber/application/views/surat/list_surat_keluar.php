@@ -4,7 +4,7 @@
     <section class="content-header">
         <h1>Surat Keluar Umum</h1>
         <ol class="breadcrumb">
-            <li><a href="<?php echo site_url('simak'); ?>"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="<?php echo site_url('simak'); ?>"><i class="fa fa-dashboard"></i> Beranda</a></li>
             <li class="active">Surat Keluar Umum</li>
         </ol>
     </section>
