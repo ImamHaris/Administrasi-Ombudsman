@@ -59,7 +59,7 @@
                 <div class="small-box bg-new">
                     <div class="inner">
                         <h3><?php echo (int) $total_surat_keluar; ?></h3>
-                        <p>Total Surat Klarifikasi Umum</p>
+                        <p>Total Surat Klarifikasi Masuk</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-android-mail"></i>
