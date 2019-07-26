@@ -53,10 +53,10 @@ if ($this->session->userdata('masuk') == TRUE) {
                             </div>
                         <?php }; ?>
                     </div>
-
+                    <br>
                     <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
                         <input class="input100" type="text" name="username">
-                        <span class="focus-input100" data-placeholder="Username"></span>
+                        <span class="focus-input100" data-placeholder="No Induk Ombudsman"></span>
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Enter password">
@@ -64,7 +64,7 @@ if ($this->session->userdata('masuk') == TRUE) {
                             <i class="zmdi zmdi-eye"></i>
                         </span>
                         <input class="input100" type="password" name="password">
-                        <span class="focus-input100" data-placeholder="No Induk Ombudsman"></span>
+                        <span class="focus-input100" data-placeholder="Password"></span>
                     </div>
 
                     <div class="container-login100-form-btn">

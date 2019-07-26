@@ -72,7 +72,7 @@ if ($mode == "edit" || $mode == "act_edit") {
                                 </div>
                                 <div class="form-group input-group">
                                     <span class="input-group-addon"><i class="fa fa-barcode"></i></span>
-                                    <input type="text" class="form-control" name="nip" placeholder="NIP"
+                                    <input type="text" class="form-control" name="nip" placeholder="NIO"
                                            value="<?php echo $nip; ?>" required>
                                 </div>
                                 <?php if ($mode == "add") { ?>
