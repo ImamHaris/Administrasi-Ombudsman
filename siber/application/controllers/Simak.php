@@ -39,6 +39,7 @@ class Simak extends CI_Controller {
             'total_surat_keluar_laporan' => $this->surat_model->get_total_row_surat_keluar_laporan(),
             'total_surat_tugas' => $this->surat_model->get_total_row_surat_tugas(),
             'total_surat_tembusan' => $this->surat_model->get_total_row_surat_tembusan(),
+            'total_surat_klarifikasi_keluar' => $this->surat_model->get_total_row_surat_klarifikasi_keluar(),
             'total_disposisi' => $this->surat_model->counter_row_surat_disposisi()
         );
         $this->load->view('simak/header', $data);

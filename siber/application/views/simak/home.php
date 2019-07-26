@@ -72,13 +72,13 @@
                 <!-- small box -->
                 <div class="small-box bg-new">
                     <div class="inner">
-                        <h3><?php echo (int) $total_surat_keluar; ?></h3>
+                        <h3><?php echo (int) $total_surat_klarifikasi_keluar; ?></h3>
                         <p>Total Surat Klarifikasi Keluar</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-android-mail"></i>
                     </div>
-                    <a href="<?php echo site_url('surat/surat_keluar'); ?>" class="small-box-footer">Selengkapnya.. <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="<?php echo site_url('surat/surat_klarifikasi_keluar'); ?>" class="small-box-footer">Selengkapnya.. <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->

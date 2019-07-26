@@ -390,7 +390,107 @@ class Surat_model extends CI_Model {
 
     public function select_surat_keluar_laporan_limit($awal, $akhir) {
         $this->db->limit($akhir, $awal);
-        $query = $this->db->get('surat_keluar_umum');
+        $query = $this->db->get('surat_keluar_laporan');
+        return $query->result();
+    }
+
+    //surat_klarifikasi_keluar
+    public function get_total_row_surat_klarifikasi_keluar() {
+        $query = $this->db->get('surat_klarifikasi_keluar');
+        return $query->num_rows();
+    }
+
+    public function delete_surat_klarifikasi_keluar($id_url) {
+        $this->db->where('id_surat', $id_url);
+        $this->db->delete('surat_klarifikasi_keluar');
+    }
+
+    public function cari_surat_klarifikasi_keluar_tgl($tglcari) {
+        $this->db->like('tgl_surat', $tglcari);
+        $this->db->order_by('id', 'DESC');
+        $query = $this->db->get('surat_klarifikasi_keluar');
+        return $query->result();
+    }
+
+    public function cari_surat_klarifikasi_keluar_key($cari) {
+        $this->db->like('dari', $cari);
+        $this->db->or_like('no_surat', $cari);
+        $this->db->or_like('isi_ringkas', $cari);
+        $this->db->order_by('id', 'DESC');
+        $query = $this->db->get('surat_klarifikasi_keluar');
+        return $query->result();
+    }
+
+    public function cari_surat_klarifikasi_keluar_tgl_key($tglcari, $cari) {
+        $this->db->like('tgl_surat', $tglcari);
+        $this->db->like('dari', $cari);
+        $this->db->order_by('id', 'DESC');
+        $query = $this->db->get('surat_keluar');
+        return $query->result();
+    }
+
+    public function select_surat_klarifikasi_keluar_id($id_url) {
+        $this->db->where('id_surat', $id_url);
+        $query = $this->db->get('surat_klarifikasi_keluar');
+        return $query->row();
+    }
+
+    public function insert_surat_klarifikasi_keluar_with_file($no_surat, $tgl_surat, $tujuan, $perihal, $up_data) {
+        $data = array(
+            'no_surat' => $no_surat,
+            'tgl_surat' => $tgl_surat,
+            'tujuan' => $tujuan,
+            'perihal' => $perihal,
+            'file' => $up_data,
+            'pengolah' => $this->session->user_id
+        );
+        $this->db->insert('surat_klarifikasi_keluar', $data);
+    }
+
+    public function insert_surat_klarifikasi_keluar($no_surat, $tgl_surat, $tujuan, $perihal, $up_data) {
+        $data = array(
+            'no_surat' => $no_surat,
+            'tgl_surat' => $tgl_surat,
+            'tujuan' => $tujuan,
+            'perihal' => $perihal,
+            'file' => $up_data,
+            'pengolah' => $this->session->user_id
+        );
+        $this->db->insert('surat_klarifikasi_keluar', $data);
+    }
+
+    public function update_surat_klarifikasi_keluar_with_file($no_agenda, $kode, $uraian, $dari, $no_surat, $tgl_surat, $ket, $up_data, $id_post) {
+        $data = array(
+            'no_agenda' => $no_agenda,
+            'kode' => $kode,
+            'isi_ringkas' => $uraian,
+            'tujuan' => $dari,
+            'no_surat' => $no_surat,
+            'tgl_surat' => $tgl_surat,
+            'keterangan' => $ket,
+            'file' => $up_data
+        );
+        $this->db->where('id', $id_post);
+        $this->db->update('surat_klarifikasi_keluar', $data);
+    }
+
+    public function update_surat_klarifikasi_keluar($no_agenda, $kode, $uraian, $dari, $no_surat, $tgl_surat, $ket, $id_post) {
+        $data = array(
+            'no_agenda' => $no_agenda,
+            'kode' => $kode,
+            'isi_ringkas' => $uraian,
+            'tujuan' => $dari,
+            'no_surat' => $no_surat,
+            'tgl_surat' => $tgl_surat,
+            'keterangan' => $ket
+        );
+        $this->db->where('id', $id_post);
+        $this->db->update('surat_klarifikasi_keluar', $data);
+    }
+
+    public function select_surat_klarifikasi_keluar_limit($awal, $akhir) {
+        $this->db->limit($akhir, $awal);
+        $query = $this->db->get('surat_klarifikasi_keluar');
         return $query->result();
     }
 
