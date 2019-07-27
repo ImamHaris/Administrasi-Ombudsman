@@ -448,18 +448,15 @@ class Surat_model extends CI_Model {
         $this->db->insert('surat_klarifikasi_keluar', $data);
     }
 
-    public function update_surat_klarifikasi_keluar_with_file($no_agenda, $kode, $uraian, $dari, $no_surat, $tgl_surat, $ket, $up_data, $id_post) {
+    public function update_surat_klarifikasi_keluar_with_file($no_surat, $tgl_surat, $tujuan, $perihal, $up_data, $id_surat) {
         $data = array(
-            'no_agenda' => $no_agenda,
-            'kode' => $kode,
-            'isi_ringkas' => $uraian,
-            'tujuan' => $dari,
             'no_surat' => $no_surat,
             'tgl_surat' => $tgl_surat,
-            'keterangan' => $ket,
+            'tujuan' => $tujuan,
+            'perihal' => $perihal,
             'file' => $up_data
         );
-        $this->db->where('id', $id_post);
+        $this->db->where('id_surat', $id_surat);
         $this->db->update('surat_klarifikasi_keluar', $data);
     }
 
@@ -623,7 +620,7 @@ class Surat_model extends CI_Model {
         $query = $this->db->get('surat_klarifikasi_masuk');
         return $query->row();
     }
-
+                                
     public function insert_surat_klarifikasi_masuk_with_file($no_surat, $tgl_surat, $pengirim, $perihal, $up_data) {
         $data = array(
             'no_surat' => $no_surat,

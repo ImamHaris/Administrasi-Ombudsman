@@ -321,7 +321,7 @@ class Surat extends CI_Controller {
         $id_url = $this->uri->segment(4);
 
         //ambil variabel Postingan
-        $id_post = addslashes($this->input->post('id_post'));
+        $id_surat = addslashes($this->input->post('id_surat'));
         $no_agenda = addslashes($this->input->post('no_agenda'));
         $indek_berkas = $no_agenda;
         //$indek_berkas = addslashes($this->input->post('indek_berkas'));
@@ -370,9 +370,9 @@ class Surat extends CI_Controller {
         } else if ($mau_ke == "act_edit") {
             if ($this->upload->do_upload('file_surat')) {
                 $up_data = $this->upload->data('file_name');
-                $this->surat_model->update_surat_klarifikasi_keluar_with_file($kode, $no_agenda, $indek_berkas, $uraian, $dari, $no_surat, $tgl_surat, $ket, $up_data, $id_post);
+                $this->surat_model->update_surat_klarifikasi_keluar_with_file($no_surat, $tgl_surat, $tujuan, $perihal, $up_data, $id_surat);
             } else {
-                $this->surat_model->update_surat_klarifikasi_keluar($kode, $no_agenda, $indek_berkas, $uraian, $dari, $no_surat, $tgl_surat, $ket, $id_post);
+                $this->surat_model->update_surat_klarifikasi_keluar($no_surat, $tgl_surat, $tujuan, $perihal, $up_data, $id_surat);
             }
             $this->session->set_flashdata('message', message_box('Data telah diperbaharui. ' . $this->upload->display_errors()));
             redirect('surat/surat_klarifikasi_keluar');
@@ -482,12 +482,10 @@ class Surat extends CI_Controller {
 
         //ambil variabel Postingan
         $id_surat = addslashes($this->input->post('id_surat'));
-        $no_agenda = addslashes($this->input->post('no_agenda'));
-        $indek_berkas = $no_agenda;
         //$indek_berkas = addslashes($this->input->post('indek_berkas'));
         $no_surat = addslashes($this->input->post('no_surat'));
         $tgl_surat = addslashes($this->input->post('tgl_surat'));
-        $tujuan = addslashes($this->input->post('tujuan'));
+        $pengirim = addslashes($this->input->post('pengirim'));
         $perihal = addslashes($this->input->post('perihal'));
 
         //upload config 
@@ -521,9 +519,9 @@ class Surat extends CI_Controller {
         } else if ($mau_ke == "act_add") {
             if ($this->upload->do_upload('file_surat')) {
                 $up_data = $this->upload->data('file_name');
-                $this->surat_model->insert_surat_klarifikasi_masuk_with_file($no_surat, $tgl_surat, $tujuan, $perihal, $up_data);
+                $this->surat_model->insert_surat_klarifikasi_masuk_with_file($no_surat, $tgl_surat, $pengirim, $perihal, $up_data);
             } else {
-                $this->surat_model->insert_surat_klarifikasi_masuk_with_file($no_surat, $tgl_surat, $tujuan, $perihal, $up_data);
+                $this->surat_model->insert_surat_klarifikasi_masuk_with_file($no_surat, $tgl_surat, $pengirim, $perihal, $up_data);
             }
             $this->session->set_flashdata('message', message_box('Data telah ditambah. ' . $this->upload->display_errors()));
             redirect('surat/surat_klarifikasi_masuk');
