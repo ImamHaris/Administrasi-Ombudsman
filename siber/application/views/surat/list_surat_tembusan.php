@@ -79,14 +79,10 @@
                                                 ?>
                                                 <div>
                                                     <a href="<?php echo site_url('surat/surat_tembusan/edit'); ?>/<?php echo $b->id_surat ?>"
-                                                       data-toggle="tooltip" class="btn btn-success btn-sm" title="Edit Data"><i class="fa fa-pencil"> </i></a>
+                                                       data-toggle="tooltip" class="btn btn-success btn-sm" title="Edit Data"><i class="fa fa-pencil">Sunting</i></a>
                                                     <a href="<?php echo site_url('surat/surat_tembusan/del'); ?>/<?php echo $b->id_surat ?>"
-                                                       data-toggle="tooltip" class="btn btn-danger btn-sm" title="Hapus Data" onclick="return confirm('Anda Yakin ..?')"><i class="fa fa-remove"></i></a>			
-                                                    <a href="<?php echo site_url('surat/surat_disposisi'); ?>/<?php echo $b->id_surat ?>"
-                                                       data-toggle="tooltip" class="btn btn-warning btn-sm"  title="Disposisi Surat"><i class="fa fa-check"></i></a>
-                                                    <a href="<?php echo site_url('cetak/cetak_disposisi'); ?>/<?php echo $b->id_surat ?>"
-                                                       data-toggle="tooltip" class="btn btn-default btn-sm" target="_blank" title="Cetak Disposisi"><i class="fa fa-print"></i></a>
-                                                </div>	
+                                                       data-toggle="tooltip" class="btn btn-danger btn-sm" title="Hapus Data" onclick="return confirm('Anda Yakin ..?')"><i class="fa fa-remove">Hapus Data</i></a>			
+                                                 </div>	
                                                 <?php
                                             } else {
                                                 ?>
