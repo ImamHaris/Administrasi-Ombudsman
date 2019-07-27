@@ -125,8 +125,8 @@ class Surat_model extends CI_Model {
     
         public function cari_surat_tugas_tgl_key($tglcari, $cari) {
             $this->db->like('tgl_surat', $tglcari);
-            $this->db->like('dari', $cari);
-            $this->db->order_by('id', 'DESC');
+            $this->db->like('yang_diberi_tugas', $cari);
+            $this->db->order_by('id_surat', 'DESC');
             $query = $this->db->get('surat_tugas');
             return $query->result();
         }

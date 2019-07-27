@@ -569,6 +569,8 @@ class Surat extends CI_Controller {
         $daerah_tugas = addslashes($this->input->post('daerah_tugas'));
         $keterangan = addslashes($this->input->post('keterangan'));
         $tgl_surat = addslashes($this->input->post('tgl_surat'));
+        $tglcari = addslashes($this->input->post('t'));
+        $cari = addslashes($this->input->post('q'));
 
 
         //upload config 
