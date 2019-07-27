@@ -3,7 +3,7 @@ $mode = $this->uri->segment(3);
 
 if ($mode == "edit" || $mode == "act_edit") {
     $act = "act_edit";
-    $id_post = $datpil->id_surat;
+    $id_surat = $datpil->id_surat;
     $tujuan = $datpil->tujuan;
     $no_surat = $datpil->no_surat;
     $perihal = $datpil->perihal;
@@ -11,6 +11,7 @@ if ($mode == "edit" || $mode == "act_edit") {
 } else {
     $act = "act_add";
     $tujuan = "";
+    $id_surat = "";
     $no_surat = "";
     $tgl_surat = "";
     $perihal = "";
@@ -41,6 +42,7 @@ if ($mode == "edit" || $mode == "act_edit") {
                     <!-- form start -->
                     <form role="form" action="<?php echo site_url('surat/surat_keluar_laporan'); ?>/<?php echo $act; ?>" method="post" enctype="multipart/form-data">
                         <div class="col-md-6 box-body">
+                        <input type="hidden" name="id_surat" value="<?php echo $id_surat; ?>">
                             <div class="form-group">
                                 <label for="noSurat">Nomor Surat</label>
                                 <input type="text" value="<?php echo $no_surat; ?>" name="no_surat"
