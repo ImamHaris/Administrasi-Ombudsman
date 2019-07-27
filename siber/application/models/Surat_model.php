@@ -161,14 +161,16 @@ class Surat_model extends CI_Model {
             $this->db->insert('surat_tugas', $data);
         }
     
-        public function update_surat_tugas_with_file($no_surat, $yang_diberi_tugas, $daerah_tugas, $keterangan, $up_data) {
+        public function update_surat_tugas_with_file($no_surat, $tgl_surat, $yang_diberi_tugas, $daerah_tugas, $keterangan, $up_data, $id_surat) {
             $data = array(
                 'no_surat' => $no_surat,
+                'tgl_surat' => $tgl_surat,
                 'yang_diberi_tugas' => $yang_diberi_tugas,
                 'daerah_tugas' => $daerah_tugas,
                 'keterangan' => $keterangan,
                 'file' => $up_data
             );
+            $this->db->where('id_surat', $id_surat);
             $this->db->update('surat_tugas', $data);
         }
     
