@@ -10,6 +10,7 @@ if ($mode == "edit" || $mode == "act_edit") {
     $tgl_surat = $datpil->tgl_surat;
 } else {
     $act = "act_add";
+    $id_surat ="";
     $tujuan = "";
     $no_surat = "";
     $tgl_surat = "";

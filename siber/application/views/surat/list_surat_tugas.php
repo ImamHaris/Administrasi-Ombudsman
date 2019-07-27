@@ -20,12 +20,11 @@
                         <?php
                                 if ("Admin" == $this->session->user_level) {
                             ?>
-                                
-                            <div class="col-xs-6">
-                                <a class="btn btn-primary btn-sm btn-flat" href="<?php echo site_url('surat/surat_tugas/add'); ?>"><i class="fa fa-plus"></i>
-                                    <span class="hidden-xs"> Tambah Data</span></a></li>
-                            </div>         
-                            </div>	
+                                <div class="col-xs-6">
+                            
+                            <a class="btn btn-primary btn-sm btn-flat" href="<?php echo site_url('surat/surat_tugas/add'); ?>"><i class="fa fa-plus"></i>
+                                <span class="hidden-xs"> Tambah Data</span></a></li>
+                        </div>	
                             <?php
                             } else {
                                 ?>
@@ -36,8 +35,9 @@
                             <?php
                             }
                             ?>
+                            
                             <div class="box-tools col-xs-6">
-                                <form method="post" action="<?php echo site_url('surat/surat_tugas/cari'); ?>">
+                                <form method="post" action="<?php echo site_url('surat/surat_tembusan/cari'); ?>">
                                     <div class="input-group input-group-sm" style="width: 100%;">
                                         <input type="text" style="width: 35%;" id="datepicker" name="t" class="form-control" placeholder="Tgl">
                                         <input type="text" style="width: 65%;" name="q" class="form-control pull-right" placeholder="Kata kunci">
@@ -55,8 +55,8 @@
                             <tr>
                                 <th style="width: 4%;">No.</th>
                                 <th style="width: 20%;">Nomor, Tgl. Surat</th>
-                                <th style="width: 36%;">Yang Bertugas</th>
-                                <th style="width: 25%;">Daerah</th>
+                                <th style="width: 36%;">Yang Diberitugas</th>
+                                <th style="width: 25%;">Daerah Tugas</th>
                                 <th style="width: 15%;">Aksi</th>
                             </tr>
                             <?php
@@ -72,18 +72,18 @@
                                         <td ><?php echo $nomor; ?></td>
                                         <td ><?php echo $b->no_surat . "<br><i>" . tgl_jam_sql($b->tgl_surat) . "</i>"; ?></td>
                                         <td ><?php echo $b->yang_diberi_tugas; ?> </td> 
-                                        <td ><?php echo limit_word($b->daerah_tugas, 50, 0) . "<br><b>File : </b><i><a href='"  . base_URL() . "assets/upload/surat_tugas_umum/" . $b->file . "' target='_blank'>" . limit_word($b->file, 50, 1) . "</a>"; ?></td>
-                                        
+                                        <td ><?php echo limit_word($b->daerah_tugas, 50, 0) . "<br><b>File : </b><i><a href='"  . base_URL() . "assets/upload/surat_tembusan_umum/" . $b->file . "' target='_blank'>" . limit_word($b->file, 50, 1) . "</a>"; ?></td>
+                                        <td ><?php echo $b->no_surat . "<br><i>" . tgl_jam_sql($b->tgl_surat) . "</i>"; ?></td>
                                         <td>
                                             <?php
                                             if ($b->pengolah == $this->session->user_id) {
                                                 ?>
                                                 <div>
-                                                    <a href="<?php echo site_url('surat/surat_tugas/edit'); ?>/<?php echo $b->id_surat ?>"
+                                                    <a href="<?php echo site_url('surat/surat_tembusan/edit'); ?>/<?php echo $b->id_surat ?>"
                                                        data-toggle="tooltip" class="btn btn-success btn-sm" title="Edit Data"><i class="fa fa-pencil">Sunting</i></a>
-                                                    <a href="<?php echo site_url('surat/surat_tugas/del'); ?>/<?php echo $b->id_surat ?>"
+                                                    <a href="<?php echo site_url('surat/surat_tembusan/del'); ?>/<?php echo $b->id_surat ?>"
                                                        data-toggle="tooltip" class="btn btn-danger btn-sm" title="Hapus Data" onclick="return confirm('Anda Yakin ..?')"><i class="fa fa-remove">Hapus Data</i></a>			
-                                                </div>	
+                                                 </div>	
                                                 <?php
                                             } else {
                                                 ?>
