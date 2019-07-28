@@ -249,6 +249,8 @@ class Surat extends CI_Controller {
         $tgl_surat = addslashes($this->input->post('tgl_surat'));
         $tujuan = addslashes($this->input->post('tujuan'));
         $perihal = addslashes($this->input->post('perihal'));
+        $tglcari = addslashes($this->input->post('t'));
+        $cari = addslashes($this->input->post('q'));
 
         //upload config 
         $config['upload_path'] = './assets/upload/surat_keluar_laporan';
