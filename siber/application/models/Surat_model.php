@@ -398,25 +398,25 @@ class Surat_model extends CI_Model {
 
     public function cari_surat_klarifikasi_keluar_tgl($tglcari) {
         $this->db->like('tgl_surat', $tglcari);
-        $this->db->order_by('id', 'DESC');
+        $this->db->order_by('id_surat', 'DESC');
         $query = $this->db->get('surat_klarifikasi_keluar');
         return $query->result();
     }
 
     public function cari_surat_klarifikasi_keluar_key($cari) {
-        $this->db->like('dari', $cari);
+        $this->db->like('tujuan', $cari);
         $this->db->or_like('no_surat', $cari);
-        $this->db->or_like('isi_ringkas', $cari);
-        $this->db->order_by('id', 'DESC');
+        $this->db->or_like('perihal', $cari);
+        $this->db->order_by('id_surat', 'DESC');
         $query = $this->db->get('surat_klarifikasi_keluar');
         return $query->result();
     }
 
     public function cari_surat_klarifikasi_keluar_tgl_key($tglcari, $cari) {
         $this->db->like('tgl_surat', $tglcari);
-        $this->db->like('dari', $cari);
-        $this->db->order_by('id', 'DESC');
-        $query = $this->db->get('surat_keluar');
+        $this->db->like('tujuan', $cari);
+        $this->db->order_by('id_surat', 'DESC');
+        $query = $this->db->get('surat_klarifikasi_keluar');
         return $query->result();
     }
 
@@ -495,25 +495,25 @@ class Surat_model extends CI_Model {
 
     public function cari_surat_klarifikasi_keluar2_tgl($tglcari) {
         $this->db->like('tgl_surat', $tglcari);
-        $this->db->order_by('id', 'DESC');
+        $this->db->order_by('id_syrat', 'DESC');
         $query = $this->db->get('surat_klarifikasi_keluar2');
         return $query->result();
     }
 
     public function cari_surat_klarifikasi_keluar2_key($cari) {
-        $this->db->like('dari', $cari);
+        $this->db->like('tujuan', $cari);
         $this->db->or_like('no_surat', $cari);
-        $this->db->or_like('isi_ringkas', $cari);
-        $this->db->order_by('id', 'DESC');
+        $this->db->or_like('perihal', $cari);
+        $this->db->order_by('id_surat', 'DESC');
         $query = $this->db->get('surat_klarifikasi_keluar2');
         return $query->result();
     }
 
     public function cari_surat_klarifikasi_keluar2_tgl_key($tglcari, $cari) {
         $this->db->like('tgl_surat', $tglcari);
-        $this->db->like('dari', $cari);
-        $this->db->order_by('id', 'DESC');
-        $query = $this->db->get('surat_keluar');
+        $this->db->like('tujuan', $cari);
+        $this->db->order_by('id_surat', 'DESC');
+        $query = $this->db->get('surat_klarifikasi_keluar2');
         return $query->result();
     }
 
@@ -592,16 +592,16 @@ class Surat_model extends CI_Model {
 
     public function cari_surat_klarifikasi_masuk_tgl($tglcari) {
         $this->db->like('tgl_surat', $tglcari);
-        $this->db->order_by('id', 'DESC');
+        $this->db->order_by('id_surat', 'DESC');
         $query = $this->db->get('surat_klarifikasi_masuk');
         return $query->result();
     }
 
     public function cari_surat_klarifikasi_masuk_key($cari) {
-        $this->db->like('dari', $cari);
+        $this->db->like('pengirim', $cari);
         $this->db->or_like('no_surat', $cari);
-        $this->db->or_like('isi_ringkas', $cari);
-        $this->db->order_by('id', 'DESC');
+        $this->db->or_like('perihal', $cari);
+        $this->db->order_by('id_surat', 'DESC');
         $query = $this->db->get('surat_klarifikasi_masuk');
         return $query->result();
     }
@@ -689,23 +689,23 @@ class Surat_model extends CI_Model {
 
     public function cari_surat_tembusan_tgl($tglcari) {
         $this->db->like('tgl_surat', $tglcari);
-        $this->db->order_by('id', 'DESC');
-        $query = $this->db->get('surat_keluar');
+        $this->db->order_by('id_surat', 'DESC');
+        $query = $this->db->get('surat_tembusan');
         return $query->result();
     }
 
     public function cari_surat_tembusan_key($cari) {
-        $this->db->like('dari', $cari);
+        $this->db->like('pengirim', $cari);
         $this->db->or_like('no_surat', $cari);
-        $this->db->order_by('id', 'DESC');
+        $this->db->order_by('id_surat', 'DESC');
         $query = $this->db->get('surat_tembusan');
         return $query->result();
     }
 
     public function cari_surat_tembusan_tgl_key($tglcari, $cari) {
         $this->db->like('tgl_surat', $tglcari);
-        $this->db->like('dari', $cari);
-        $this->db->order_by('id', 'DESC');
+        $this->db->like('pengirim', $cari);
+        $this->db->order_by('id_surat', 'DESC');
         $query = $this->db->get('surat_tembusan');
         return $query->result();
     }
