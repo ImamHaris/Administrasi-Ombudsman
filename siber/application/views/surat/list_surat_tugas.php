@@ -73,7 +73,6 @@
                                         <td ><?php echo $b->no_surat . "<br><i>" . tgl_jam_sql($b->tgl_surat) . "</i>"; ?></td>
                                         <td ><?php echo $b->yang_diberi_tugas; ?> </td> 
                                         <td ><?php echo limit_word($b->daerah_tugas, 50, 0) . "<br><b>File : </b><i><a href='"  . base_URL() . "assets/upload/surat_tugas/" . $b->file . "' target='_blank'>" . limit_word($b->file, 50, 1) . "</a>"; ?></td>
-                                        <td ><?php echo $b->no_surat . "<br><i>" . tgl_jam_sql($b->tgl_surat) . "</i>"; ?></td>
                                         <td>
                                             <?php
                                             if ($b->pengolah == $this->session->user_id) {
@@ -88,8 +87,8 @@
                                             } else {
                                                 ?>
                                                 <div>
-                                                    <a href="<?php echo site_url('cetak/cetak_disposisi'); ?>/<?php echo $b->id_surat; ?>"
-                                                       data-toggle="tooltip" class="btn btn-default btn-sm" target="_blank" title="Cetak Disposisi"><i class="fa fa-print"></i></a>
+                                                <a href="<?php echo site_url('assets/upload/surat_tugas'); ?>/<?php echo $b->file ?>"
+                                                       data-toggle="tooltip" class="btn btn-default btn-sm" target="_blank" ><i class="fa fa-download"> Unduh</i></a>
                                                 </div>	
                                                 <?php
                                             }

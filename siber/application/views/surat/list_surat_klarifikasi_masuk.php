@@ -72,7 +72,10 @@
                                                 <?php
                                             } else {
                                                 ?>
-                                                <div class="label label-danger">No Action</div>
+                                                <div>
+                                                <a href="<?php echo site_url('assets/upload/surat_klarifikasi_masuk'); ?>/<?php echo $b->file ?>"
+                                                       data-toggle="tooltip" class="btn btn-default btn-sm" target="_blank" ><i class="fa fa-download"> Unduh</i></a>
+                                                </div>
                                                 <?php
                                             }
                                             ?>
