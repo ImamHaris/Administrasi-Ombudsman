@@ -74,7 +74,7 @@ class Simak extends CI_Controller {
             $this->session->set_userdata($data);
             redirect('simak');
         } else {
-            $this->session->set_flashdata('message', message_box('Username or password is not valid', 'danger'));
+            $this->session->set_flashdata('message', message_box('Nama pengguna atau kata sandi tidak valid', 'danger'));
             redirect('simak/login');
         }
     }

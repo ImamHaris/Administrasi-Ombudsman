@@ -43,18 +43,16 @@ if ($this->session->userdata('masuk') == TRUE) {
                         <span class="txt3">
                             Selamat Datang, Silahkan Masuk Untuk Melanjutkan
                         </span>
-                        <?php if ($this->session->flashdata('sukses')){ ?>
-                            <div class="alert alert-success" role="alert">
-                                <?php echo $this->session->flashdata('sukses'); ?>
-                            </div>
-                        <?php }elseif ($this->session->flashdata('error')){ ?>
-                            <div class="alert alert-warning" role="alert">
-                            <?php echo $this->session->flashdata('error') ?>
-                            </div>
+                        <?php if ($this->session->flashdata('message')){ ?>
+                            
+                                <?php echo $this->session->flashdata('message'); ?>
+                           
+                    
+                            
                         <?php }; ?>
                     </div>
                     <br>
-                    <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                    <div class="wrap-input100 validate-input" data-validate = "Valid NIO is required">
                         <input class="input100" type="text" name="username">
                         <span class="focus-input100" data-placeholder="No Induk Ombudsman"></span>
                     </div>
