@@ -308,14 +308,14 @@ class Surat_model extends CI_Model {
         $this->db->delete('surat_keluar_umum');
     }
 
-    public function cari_surat_laporan_tgl($tglcari) {
+    public function cari_surat_keluar_laporan_tgl($tglcari) {
         $this->db->like('tgl_surat', $tglcari);
         $this->db->order_by('id_surat', 'DESC');
         $query = $this->db->get('surat_keluar_laporan');
         return $query->result();
     }
 
-    public function cari_surat_laporan_key($cari) {
+    public function cari_surat_keluar_laporan_key($cari) {
         $this->db->like('tujuan', $cari);
         $this->db->or_like('no_surat', $cari);
         $this->db->or_like('perihal', $cari);
