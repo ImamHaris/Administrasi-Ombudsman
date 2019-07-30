@@ -12,6 +12,8 @@ if ($mode == "edit" || $mode == "act_edit") {
 } else {
     $act = "act_add";
     $pengirim = "";
+    $id_surat = "";
+    $file = "";
     $no_surat = "";
     $tgl_surat = "";
     $perihal = "";
