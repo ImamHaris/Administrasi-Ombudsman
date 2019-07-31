@@ -4,7 +4,7 @@
     <section class="content-header">
         <h1>Manage User</h1>
         <ol class="breadcrumb">
-            <li><a href="<?php echo site_url('simak'); ?>"><i class="fa fa-home"></i> Beranda</a></li>
+            <li><a href="<?php echo site_url('sibers'); ?>"><i class="fa fa-home"></i> Beranda</a></li>
             <li class="active">Manage User</li>
         </ol>
     </section>
@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col-xs-4">
                 <div class="box-tools">
-                    <form class="input-group input-group-sm" method="post" action="<?php echo site_url('simak/manage_user/cari'); ?>">
+                    <form class="input-group input-group-sm" method="post" action="<?php echo site_url('sibers/manage_user/cari'); ?>">
                         <input type="text" name="q" class="form-control pull-right" placeholder="Search">
                             <div class="input-group-btn">
                                 <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
@@ -27,7 +27,7 @@
             <div class="col-xs-12">
                 <div class="box box-success">
                     <div class="box-header">
-                        <a class="btn btn-primary btn-sm btn-flat " href="<?php echo site_url('simak/manage_user/add'); ?>"><i class="fa fa-user-plus"></i>
+                        <a class="btn btn-primary btn-sm btn-flat " href="<?php echo site_url('sibers/manage_user/add'); ?>"><i class="fa fa-user-plus"></i>
                             <span class="hidden-xs"> Tambah User</span></a></li>
                     </div>
                     <!-- /.box-header -->
@@ -53,10 +53,10 @@
                                         <td><?php echo $b->nip ?></td>
                                         <td><?php echo $b->level ?></td>
                                         <td>
-                                            <a href="<?php echo site_url('simak/manage_user/edit'); ?>/<?php echo $b->id; ?>"
+                                            <a href="<?php echo site_url('sibers/manage_user/edit'); ?>/<?php echo $b->id; ?>"
                                                class="btn btn-success btn-sm btn-flat" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil"></i></a>
                                                <?php if ($b->level != 'Admin') { ?>
-                                                <a href="<?php echo site_url('simak/manage_user/del'); ?>/<?php echo $b->id; ?>"
+                                                <a href="<?php echo site_url('sibers/manage_user/del'); ?>/<?php echo $b->id; ?>"
                                                    class="btn btn-danger btn-sm btn-flat" data-toggle="tooltip" title="Delete"
                                                    onclick="return confirm('Anda Yakin?')"><i class="fa fa-remove"></i></a>
                                             <?php } ?>				

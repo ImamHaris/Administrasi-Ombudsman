@@ -25,7 +25,7 @@ if ($mode == "edit" || $mode == "act_edit") {
     <section class="content-header">
         <h1>Manage User</h1>
         <ol class="breadcrumb">
-            <li><a href="<?php echo site_url('simak'); ?>"><i class="fa fa-home"></i> Beranda</a></li>
+            <li><a href="<?php echo site_url('sibers'); ?>"><i class="fa fa-home"></i> Beranda</a></li>
             <li class="active">Manage User</li>
         </ol>
     </section>
@@ -42,7 +42,7 @@ if ($mode == "edit" || $mode == "act_edit") {
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form role="form"action="<?php echo site_url('simak/manage_user'); ?>/<?php echo $act; ?>" method="post" enctype="multipart/form-data">
+                    <form role="form"action="<?php echo site_url('sibers/manage_user'); ?>/<?php echo $act; ?>" method="post" enctype="multipart/form-data">
                         <div class="box-body">
                             <div class="col-md-6">
                                 <input type="hidden" name="id_post" value="<?php echo $id_post; ?>">
@@ -121,7 +121,7 @@ if ($mode == "edit" || $mode == "act_edit") {
                             <button type="submit" class="btn btn-primary btn-flat">
                                 <i class="fa fa-save"></i><span class="hidden-xs"> Simpan</span>
                             </button>
-                            <a href="<?php echo site_url('simak/manage_user') ?>" class="btn btn-danger btn-flat">
+                            <a href="<?php echo site_url('sibers/manage_user') ?>" class="btn btn-danger btn-flat">
                                 <i class="fa fa-undo"></i><span class="hidden-xs"> Kembali</span></a>
                             <button type="reset" class="btn btn-default btn-flat pull-right">
                                 <i class="fa fa-eraser"></i><span class="hidden-xs"> Clear</span>
