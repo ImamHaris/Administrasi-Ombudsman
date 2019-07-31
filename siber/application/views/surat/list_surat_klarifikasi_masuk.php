@@ -4,7 +4,7 @@
     <section class="content-header">
         <h1>Surat Klarifikasi Masuk</h1>
         <ol class="breadcrumb">
-            <li><a href="<?php echo site_url('simak'); ?>"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="<?php echo site_url('sibers'); ?>"><i class="fa fa-home"></i> Home</a></li>
             <li class="active">Surat Klarifikasi Masuk</li>
         </ol>
     </section>

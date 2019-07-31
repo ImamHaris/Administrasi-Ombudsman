@@ -9,7 +9,7 @@
 
         <?php
         //Favicon
-        echo link_tag('assets/simak/favicon.ico', 'shortcut icon', 'image/ico');
+        echo link_tag('assets/sibers/favicon.ico', 'shortcut icon', 'image/ico');
         //Bootstrap 3.3.7
         echo link_tag('assets/bootstrap/css/bootstrap.css');
         //Jquery UI
@@ -17,9 +17,9 @@
         //Font Awesome
         echo link_tag('assets/font-awesome/css/font-awesome.css');
         //AdminLTE Theme style
-        echo link_tag('assets/simak/css/AdminLTE.css');
+        echo link_tag('assets/sibers/css/AdminLTE.css');
         //AdminLTE green skins
-        echo link_tag('assets/simak/css/skin-green.css');
+        echo link_tag('assets/sibers/css/skin-green.css');
         ?>
     </head>
     <body class="hold-transition skin-green sidebar-mini">
@@ -28,7 +28,7 @@
             <!--============================================-->
             <header class="main-header">
                 <!-- Logo -->
-                <a href="<?php echo site_url('simak'); ?>" class="logo">
+                <a href="<?php echo site_url('sibers'); ?>" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
                     <span class="logo-mini"><i class="fa fa-file"></i></span>
                     <!-- logo for regular state and mobile devices -->
@@ -47,7 +47,7 @@
                             <!-- Setting -->
                             <?php if ($this->session->user_level == "Admin") { ?>
                                 <li class="dropdown notifications-menu">
-                                    <a href="<?php echo site_url('simak/manage_user'); ?>">
+                                    <a href="<?php echo site_url('sibers/manage_user'); ?>">
                                         <i class="fa fa-gears"></i>
                                         <span class="hidden-xs">Kelola User</span>
                                     </a>
@@ -64,13 +64,13 @@
                                     <li>
                                         <ul class="menu">
                                             <li>
-                                                <a href="<?php echo site_url('simak/change_password'); ?>">
+                                                <a href="<?php echo site_url('sibers/change_password'); ?>">
                                                     <i class="fa fa-lock text-orange"></i>
                                                     <span>Ganti Password</span>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="<?php echo site_url('simak/logout'); ?>">
+                                                <a href="<?php echo site_url('sibers/logout'); ?>">
                                                     <i class="fa fa-power-off text-red"></i> 
                                                     <span>Log Out</span>
                                                 </a>
@@ -93,8 +93,8 @@
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
                         <li class="header">NAVIGASI UTAMA</li>
-                        <li><a href="<?php echo site_url('simak'); ?>"><i class="fa fa-home text-teal"></i> <span>Beranda</span></a></li>
-                        <li><a href="<?php echo site_url('simak/dashboard'); ?>"><i class="fa fa-dashboard text-teal"></i> <span>Dashboard</span></a></li>
+                        <li><a href="<?php echo site_url('sibers'); ?>"><i class="fa fa-home text-teal"></i> <span>Beranda</span></a></li>
+                        <li><a href="<?php echo site_url('sibers/dashboard'); ?>"><i class="fa fa-dashboard text-teal"></i> <span>Dashboard</span></a></li>
                     </ul>
 
                     <ul class="sidebar-menu">
@@ -160,7 +160,7 @@
         <!-- FastClick -->
         <script src="<?php echo base_url(); ?>assets/fastclick/fastclick.js"></script>
         <!-- AdminLTE JS -->
-        <script src="<?php echo base_url(); ?>assets/simak/js/adminlte.js"></script>
+        <script src="<?php echo base_url(); ?>assets/sibers/js/adminlte.js"></script>
         <script>
             $(document).ready(function () {
                 //tolltip hover pada button tanpa nama

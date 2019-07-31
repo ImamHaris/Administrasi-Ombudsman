@@ -34,7 +34,7 @@ if ($this->session->userdata('masuk') == TRUE) {
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
-                <form class="login100-form validate-form" action="<?php echo site_url('simak/do_login'); ?>" method="post">
+                <form class="login100-form validate-form" action="<?php echo site_url('Sibers/do_login'); ?>" method="post">
                     <div class="text-center">
                         <img src="<?php echo base_url() ?>assets/foto/logo2.png">
                     </div>

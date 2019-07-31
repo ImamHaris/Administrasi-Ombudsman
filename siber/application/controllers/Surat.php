@@ -9,14 +9,14 @@ class Surat extends CI_Controller {
         $this->load->database();
         $this->load->library('session');
         $this->load->helper(array('url', 'html', 'form', 'date', 'MY_helper','download'));
-        $this->load->model(array('simak_model', 'surat_model'));
+        $this->load->model(array('sibers_model', 'surat_model'));
     }
 
 
  
     public function klas_surat() {
         if ($this->session->user_valid == FALSE && $this->session->user_id == "") {
-            redirect("simak/login");
+            redirect("sibers/login");
         }
 
         /* pagination */
@@ -63,12 +63,12 @@ class Surat extends CI_Controller {
             $data['page'] = "surat/list_klas_surat";
         }
         $data['title'] = "Klasifikasi Surat";
-        $this->load->view('simak/header', $data);
+        $this->load->view('sibers/header', $data);
     }
 
     public function surat_masuk() {
         if ($this->session->user_valid == FALSE && $this->session->user_id == "") {
-            redirect("simak/login");
+            redirect("sibers/login");
         }
 
         /* pagination */
@@ -143,12 +143,12 @@ class Surat extends CI_Controller {
             $data['page'] = "surat/list_surat_masuk";
         }
         $data['title'] = "Surat Masuk";
-        $this->load->view('simak/header', $data);
+        $this->load->view('sibers/header', $data);
     }
 
     public function surat_keluar() {
         if ($this->session->user_valid == FALSE && $this->session->user_id == "") {
-            redirect("simak/login");
+            redirect("sibers/login");
         }
 
         /* pagination */
@@ -226,12 +226,12 @@ class Surat extends CI_Controller {
             $data['page'] = "surat/list_surat_keluar";
         }
         $data['title'] = "Surat keluar";
-        $this->load->view('simak/header', $data);
+        $this->load->view('sibers/header', $data);
     }
 
     public function surat_keluar_laporan() {
         if ($this->session->user_valid == FALSE && $this->session->user_id == "") {
-            redirect("simak/login");
+            redirect("sibers/login");
         }
 
         /* pagination */
@@ -308,12 +308,12 @@ class Surat extends CI_Controller {
             $data['page'] = "surat/list_surat_keluar_laporan";
         }
         $data['title'] = "Surat keluar";
-        $this->load->view('simak/header', $data);
+        $this->load->view('sibers/header', $data);
     }
 
     public function surat_klarifikasi_keluar() {
         if ($this->session->user_valid == FALSE && $this->session->user_id == "") {
-            redirect("simak/login");
+            redirect("sibers/login");
         }
 
         /* pagination */
@@ -390,12 +390,12 @@ class Surat extends CI_Controller {
             $data['page'] = "surat/list_surat_klarifikasi_keluar";
         }
         $data['title'] = "Surat keluar";
-        $this->load->view('simak/header', $data);
+        $this->load->view('sibers/header', $data);
     }
 
     public function surat_klarifikasi_keluar2() {
         if ($this->session->user_valid == FALSE && $this->session->user_id == "") {
-            redirect("simak/login");
+            redirect("sibers/login");
         }
 
         /* pagination */
@@ -472,12 +472,12 @@ class Surat extends CI_Controller {
             $data['page'] = "surat/list_surat_klarifikasi_keluar2";
         }
         $data['title'] = "Surat keluar";
-        $this->load->view('simak/header', $data);
+        $this->load->view('sibers/header', $data);
     }
 
     public function surat_klarifikasi_masuk() {
         if ($this->session->user_valid == FALSE && $this->session->user_id == "") {
-            redirect("simak/login");
+            redirect("sibers/login");
         }
 
         /* pagination */
@@ -552,13 +552,13 @@ class Surat extends CI_Controller {
             $data['page'] = "surat/list_surat_klarifikasi_masuk";
         }
         $data['title'] = "Surat keluar";
-        $this->load->view('simak/header', $data);
+        $this->load->view('sibers/header', $data);
     }
 
 
     public function surat_tugas() {
         if ($this->session->user_valid == FALSE && $this->session->user_id == "") {
-            redirect("simak/login");
+            redirect("sibers/login");
         }
 
         /* pagination */
@@ -637,12 +637,12 @@ class Surat extends CI_Controller {
             $data['page'] = "surat/list_surat_tugas";
         }
         $data['title'] = "Surat Tugas";
-        $this->load->view('simak/header', $data);
+        $this->load->view('sibers/header', $data);
     }
 
     public function surat_tembusan() {
         if ($this->session->user_valid == FALSE && $this->session->user_id == "") {
-            redirect("simak/login");
+            redirect("sibers/login");
         }
 
         /* pagination */
@@ -717,7 +717,7 @@ class Surat extends CI_Controller {
             $data['page'] = "surat/list_surat_tembusan";
         }
         $data['title'] = "Surat Tembusan";
-        $this->load->view('simak/header', $data);
+        $this->load->view('sibers/header', $data);
     }
 
     
