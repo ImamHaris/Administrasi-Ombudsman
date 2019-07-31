@@ -16,7 +16,7 @@
             <div class="col-xs-4">
                 <div class="box-tools">
                     <form class="input-group input-group-sm" method="post" action="<?php echo site_url('sibers/manage_user/cari'); ?>">
-                        <input type="text" name="q" class="form-control pull-right" placeholder="Search">
+                        <input type="text" name="q" class="form-control pull-right" placeholder="Kata kunci">
                             <div class="input-group-btn">
                                 <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
                             </div>

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 12, 2019 at 09:40 AM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.3
+-- Waktu pembuatan: 31 Jul 2019 pada 13.46
+-- Versi server: 10.1.38-MariaDB
+-- Versi PHP: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,35 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `disposisi`
+-- Struktur dari tabel `asisten_yang_menangani`
+--
+
+CREATE TABLE `asisten_yang_menangani` (
+  `Id_Asisten` int(20) NOT NULL,
+  `Nama` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `asisten_yang_menangani`
+--
+
+INSERT INTO `asisten_yang_menangani` (`Id_Asisten`, `Nama`) VALUES
+(1, 'Hidayat Pratama, S.H.'),
+(2, 'Atika Mutiara Oktakevina, S.I.P.'),
+(3, 'Muhammad Burhan, S.Pd.'),
+(4, 'Singgih Samsuri, S.E.'),
+(5, 'Dodik Hermanto, S.H.,M.H.,C.L.A.'),
+(6, 'Hardian Ruswan, S.I.P.'),
+(7, 'Alfero Setiawan, S.H.,M.H.,C.L.A.'),
+(8, 'Upi Fitriyanti, S.P.'),
+(9, 'Shintya Gugah A. T., S.I.P.'),
+(10, 'Tegar Adi Wijaya, S.H.,C.L.A.'),
+(11, 'Ahmad Saleh David Faranto, S.H.,M.H.');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `disposisi`
 --
 
 CREATE TABLE `disposisi` (
@@ -39,7 +67,7 @@ CREATE TABLE `disposisi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `disposisi`
+-- Dumping data untuk tabel `disposisi`
 --
 
 INSERT INTO `disposisi` (`id`, `id_surat`, `kepada`, `isi_disposisi`, `sifat`, `batas_waktu`, `catatan`) VALUES
@@ -1309,19 +1337,23 @@ INSERT INTO `disposisi` (`id`, `id_surat`, `kepada`, `isi_disposisi`, `sifat`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `surat_keluar_laporan`
+-- Struktur dari tabel `surat_keluar_laporan`
 --
 
 CREATE TABLE `surat_keluar_laporan` (
+  `id_surat` int(11) NOT NULL,
   `no_surat` varchar(32) NOT NULL,
+  `tgl_surat` date NOT NULL,
   `tujuan` varchar(100) NOT NULL,
-  `perihal` varchar(255) NOT NULL
+  `perihal` varchar(255) NOT NULL,
+  `file` varchar(255) DEFAULT NULL,
+  `pengolah` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `surat_keluar_umum`
+-- Struktur dari tabel `surat_keluar_umum`
 --
 
 CREATE TABLE `surat_keluar_umum` (
@@ -1330,49 +1362,69 @@ CREATE TABLE `surat_keluar_umum` (
   `tgl_surat` date NOT NULL,
   `tujuan` varchar(255) NOT NULL,
   `perihal` varchar(255) NOT NULL,
-  `file` varchar(255) DEFAULT NULL
+  `file` varchar(255) DEFAULT NULL,
+  `pengolah` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `surat_keluar_umum`
+--
+
+INSERT INTO `surat_keluar_umum` (`id_surat`, `no_surat`, `tgl_surat`, `tujuan`, `perihal`, `file`, `pengolah`) VALUES
+(1, '1/II/2019/BDL', '2019-07-18', 'Bandar Lampung', 'Lamaran Pernikahan ', 'Spesifikasi_Tugas_Besar_25.pdf', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `surat_klarifikasi_keluar`
+-- Struktur dari tabel `surat_klarifikasi_keluar`
 --
 
 CREATE TABLE `surat_klarifikasi_keluar` (
+  `id_surat` int(11) NOT NULL,
   `no_surat` varchar(32) NOT NULL,
+  `tgl_surat` date NOT NULL,
   `tujuan` varchar(100) NOT NULL,
-  `perihal` varchar(256) NOT NULL
+  `perihal` varchar(256) NOT NULL,
+  `file` varchar(255) DEFAULT NULL,
+  `pengolah` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `surat_klarifikasi_keluar2`
+-- Struktur dari tabel `surat_klarifikasi_keluar2`
 --
 
 CREATE TABLE `surat_klarifikasi_keluar2` (
+  `id_surat` int(11) NOT NULL,
   `no_surat` varchar(32) NOT NULL,
+  `tgl_surat` date NOT NULL,
   `tujuan` varchar(100) NOT NULL,
-  `perihal` varchar(255) NOT NULL
+  `perihal` varchar(255) NOT NULL,
+  `file` varchar(255) DEFAULT NULL,
+  `pengolah` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `surat_klarifikasi_masuk`
+-- Struktur dari tabel `surat_klarifikasi_masuk`
 --
 
 CREATE TABLE `surat_klarifikasi_masuk` (
+  `id_surat` int(11) NOT NULL,
   `no_surat` varchar(32) NOT NULL,
+  `tgl_surat` date NOT NULL,
   `pengirim` varchar(100) NOT NULL,
-  `perihal` varchar(255) NOT NULL
+  `perihal` varchar(255) NOT NULL,
+  `file` varchar(255) DEFAULT NULL,
+  `pengolah` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `surat_masuk_umum`
+-- Struktur dari tabel `surat_masuk_umum`
 --
 
 CREATE TABLE `surat_masuk_umum` (
@@ -1386,43 +1438,57 @@ CREATE TABLE `surat_masuk_umum` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `surat_masuk_umum`
+-- Dumping data untuk tabel `surat_masuk_umum`
 --
 
 INSERT INTO `surat_masuk_umum` (`id_surat`, `no_surat`, `tgl_surat`, `pengirim`, `perihal`, `file`, `pengolah`) VALUES
-(8, '1/II/2019', '0000-00-00', '', 'Jalan Rosak', NULL, 1),
-(9, '1/II/2019', '2019-07-13', '', 'Jalan Rosak', NULL, 1),
-(11, '1/II/2019', '2019-07-06', 'Alvijar FRP', 'Jalan Rosak', '2SMK_N_5_BANDAR_LAMPUNG1.pdf', 1);
+(30, '1/II/2019/BDL', '2019-07-18', 'Alvijar FRP', 'Jalan Rosak', NULL, 1),
+(31, '1/II/2019/BDL', '2019-07-18', 'Aan', 'Jalan Rosak', NULL, 1),
+(32, '1/II/2019/BDL', '2019-07-18', 'Aan', 'Jalan Rosak', NULL, 1),
+(33, '1/II/2019/BDL', '2019-07-18', 'Alvijar FRP', 'Jalan Rosak', NULL, 1),
+(34, '1/II/2019/BDL', '2019-07-18', 'Aan', 'Lamaran Pernikahan ', NULL, 1),
+(35, '1/II/2019/BDL', '2019-07-18', 'Alvijar FRP', 'Jalan Rosak', NULL, 1),
+(36, '1/II/2019/BDL', '2019-07-18', 'Aan', 'Lamaran Pernikahan ', NULL, 1),
+(37, '1/II/2019/BDL', '2019-07-18', 'Alvijar FRP', 'Lamaran Pernikahan ', 'Spesifikasi_Tugas_Besar_27.pdf', 1),
+(38, '1/II/2019/BDL', '2019-07-18', 'Alvijar FRP', 'Lamaran Pernikahan ', 'Spesifikasi_Tugas_Besar_28.pdf', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `surat_tembusan`
+-- Struktur dari tabel `surat_tembusan`
 --
 
 CREATE TABLE `surat_tembusan` (
+  `id_surat` int(11) NOT NULL,
   `no_surat` varchar(32) NOT NULL,
+  `tgl_surat` date NOT NULL,
   `pengirim` varchar(100) NOT NULL,
-  `perihal` varchar(255) NOT NULL
+  `perihal` varchar(255) NOT NULL,
+  `file` varchar(255) DEFAULT NULL,
+  `pengolah` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `surat_tugas`
+-- Struktur dari tabel `surat_tugas`
 --
 
 CREATE TABLE `surat_tugas` (
+  `id_surat` int(11) NOT NULL,
   `no_surat` varchar(32) NOT NULL,
+  `tgl_surat` date NOT NULL,
   `yang_diberi_tugas` varchar(100) NOT NULL,
   `daerah_tugas` varchar(100) NOT NULL,
-  `keterangan` varchar(255) NOT NULL
+  `keterangan` varchar(255) NOT NULL,
+  `file` varchar(255) DEFAULT NULL,
+  `pengolah` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -1435,105 +1501,153 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `nama`, `nip`, `level`) VALUES
-(1, 'admin', 'ac43724f16e9241d990427ab7c8f4228', 'Administrator', '125150101111003', 'Admin'),
+(1, 'admin', 'caf1a3dfb505ffed0d024130f58c5cfa', 'Administrator', '125150101111003', 'Admin'),
 (6, 'musrifah', 'ac43724f16e9241d990427ab7c8f4228', 'Musrifah', '1123211282829191101', 'User'),
 (7, 'faris', 'ac43724f16e9241d990427ab7c8f4228', 'Faris Febrianto', '135150201111221', 'User'),
 (8, 'sigit', 'ac43724f16e9241d990427ab7c8f4228', 'Sigit Pangestu', '135150201111188', 'User'),
 (9, 'syarif', 'ac43724f16e9241d990427ab7c8f4228', 'Achmad Syarifudin', '135150200111065', 'User'),
-(10, 'Aan', '202cb962ac59075b964b07152d234b70', 'Aan Sanova', '14116175', 'User');
+(10, 'Aan', 'caf1a3dfb505ffed0d024130f58c5cfa', 'Aan Sanova', '14116175', 'User');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `disposisi`
+-- Indeks untuk tabel `asisten_yang_menangani`
+--
+ALTER TABLE `asisten_yang_menangani`
+  ADD PRIMARY KEY (`Id_Asisten`);
+
+--
+-- Indeks untuk tabel `disposisi`
 --
 ALTER TABLE `disposisi`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `surat_keluar_laporan`
+-- Indeks untuk tabel `surat_keluar_laporan`
 --
 ALTER TABLE `surat_keluar_laporan`
-  ADD PRIMARY KEY (`no_surat`);
+  ADD PRIMARY KEY (`id_surat`);
 
 --
--- Indexes for table `surat_keluar_umum`
+-- Indeks untuk tabel `surat_keluar_umum`
 --
 ALTER TABLE `surat_keluar_umum`
   ADD PRIMARY KEY (`id_surat`);
 
 --
--- Indexes for table `surat_klarifikasi_keluar`
+-- Indeks untuk tabel `surat_klarifikasi_keluar`
 --
 ALTER TABLE `surat_klarifikasi_keluar`
-  ADD PRIMARY KEY (`no_surat`);
+  ADD PRIMARY KEY (`id_surat`);
 
 --
--- Indexes for table `surat_klarifikasi_keluar2`
+-- Indeks untuk tabel `surat_klarifikasi_keluar2`
 --
 ALTER TABLE `surat_klarifikasi_keluar2`
-  ADD PRIMARY KEY (`no_surat`);
+  ADD PRIMARY KEY (`id_surat`);
 
 --
--- Indexes for table `surat_klarifikasi_masuk`
+-- Indeks untuk tabel `surat_klarifikasi_masuk`
 --
 ALTER TABLE `surat_klarifikasi_masuk`
-  ADD PRIMARY KEY (`no_surat`);
+  ADD PRIMARY KEY (`id_surat`);
 
 --
--- Indexes for table `surat_masuk_umum`
+-- Indeks untuk tabel `surat_masuk_umum`
 --
 ALTER TABLE `surat_masuk_umum`
   ADD PRIMARY KEY (`id_surat`);
 
 --
--- Indexes for table `surat_tembusan`
+-- Indeks untuk tabel `surat_tembusan`
 --
 ALTER TABLE `surat_tembusan`
-  ADD PRIMARY KEY (`no_surat`);
+  ADD PRIMARY KEY (`id_surat`);
 
 --
--- Indexes for table `surat_tugas`
+-- Indeks untuk tabel `surat_tugas`
 --
 ALTER TABLE `surat_tugas`
-  ADD PRIMARY KEY (`no_surat`);
+  ADD PRIMARY KEY (`id_surat`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `disposisi`
+-- AUTO_INCREMENT untuk tabel `asisten_yang_menangani`
+--
+ALTER TABLE `asisten_yang_menangani`
+  MODIFY `Id_Asisten` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT untuk tabel `disposisi`
 --
 ALTER TABLE `disposisi`
   MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1277;
 
 --
--- AUTO_INCREMENT for table `surat_keluar_umum`
+-- AUTO_INCREMENT untuk tabel `surat_keluar_laporan`
 --
-ALTER TABLE `surat_keluar_umum`
+ALTER TABLE `surat_keluar_laporan`
   MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `surat_masuk_umum`
+-- AUTO_INCREMENT untuk tabel `surat_keluar_umum`
 --
-ALTER TABLE `surat_masuk_umum`
-  MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+ALTER TABLE `surat_keluar_umum`
+  MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `surat_klarifikasi_keluar`
+--
+ALTER TABLE `surat_klarifikasi_keluar`
+  MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `surat_klarifikasi_keluar2`
+--
+ALTER TABLE `surat_klarifikasi_keluar2`
+  MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `surat_klarifikasi_masuk`
+--
+ALTER TABLE `surat_klarifikasi_masuk`
+  MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `surat_masuk_umum`
+--
+ALTER TABLE `surat_masuk_umum`
+  MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+
+--
+-- AUTO_INCREMENT untuk tabel `surat_tembusan`
+--
+ALTER TABLE `surat_tembusan`
+  MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `surat_tugas`
+--
+ALTER TABLE `surat_tugas`
+  MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
