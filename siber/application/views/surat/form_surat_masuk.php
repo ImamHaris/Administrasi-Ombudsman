@@ -14,6 +14,8 @@ if ($mode == "edit" || $mode == "act_edit") {
     $id_surat = "";
     $file = "";
     $pengirim = "";
+    $id_surat = "";
+    $file = "";
     $no_surat = "";
     $tgl_surat = "";
     $perihal = "";

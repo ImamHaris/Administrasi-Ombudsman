@@ -12,6 +12,7 @@ if ($mode == "edit" || $mode == "act_edit") {
     $act = "act_add";
     $id_surat = "";
     $tujuan = "";
+    $id_surat = "";
     $no_surat = "";
     $tgl_surat = "";
     $perihal = "";
