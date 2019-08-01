@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 31 Jul 2019 pada 13.46
+-- Waktu pembuatan: 01 Agu 2019 pada 03.18
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 7.3.2
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `asisten_yang_menangani` (
-  `Id_Asisten` int(20) NOT NULL,
+  `Id_Asisten` int(10) NOT NULL,
   `Nama` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1347,7 +1347,8 @@ CREATE TABLE `surat_keluar_laporan` (
   `tujuan` varchar(100) NOT NULL,
   `perihal` varchar(255) NOT NULL,
   `file` varchar(255) DEFAULT NULL,
-  `pengolah` int(3) NOT NULL
+  `pengolah` int(3) NOT NULL,
+  `Id_Asisten` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1363,15 +1364,16 @@ CREATE TABLE `surat_keluar_umum` (
   `tujuan` varchar(255) NOT NULL,
   `perihal` varchar(255) NOT NULL,
   `file` varchar(255) DEFAULT NULL,
-  `pengolah` int(11) NOT NULL
+  `pengolah` int(11) NOT NULL,
+  `Id_Asisten` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `surat_keluar_umum`
 --
 
-INSERT INTO `surat_keluar_umum` (`id_surat`, `no_surat`, `tgl_surat`, `tujuan`, `perihal`, `file`, `pengolah`) VALUES
-(1, '1/II/2019/BDL', '2019-07-18', 'Bandar Lampung', 'Lamaran Pernikahan ', 'Spesifikasi_Tugas_Besar_25.pdf', 1);
+INSERT INTO `surat_keluar_umum` (`id_surat`, `no_surat`, `tgl_surat`, `tujuan`, `perihal`, `file`, `pengolah`, `Id_Asisten`) VALUES
+(1, '1/II/2019/BDL', '2019-07-18', 'Bandar Lampung', 'Lamaran Pernikahan ', 'Spesifikasi_Tugas_Besar_25.pdf', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -1386,7 +1388,8 @@ CREATE TABLE `surat_klarifikasi_keluar` (
   `tujuan` varchar(100) NOT NULL,
   `perihal` varchar(256) NOT NULL,
   `file` varchar(255) DEFAULT NULL,
-  `pengolah` int(3) NOT NULL
+  `pengolah` int(3) NOT NULL,
+  `Id_Asisten` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1402,7 +1405,8 @@ CREATE TABLE `surat_klarifikasi_keluar2` (
   `tujuan` varchar(100) NOT NULL,
   `perihal` varchar(255) NOT NULL,
   `file` varchar(255) DEFAULT NULL,
-  `pengolah` int(3) NOT NULL
+  `pengolah` int(3) NOT NULL,
+  `Id_Asisten` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1418,7 +1422,8 @@ CREATE TABLE `surat_klarifikasi_masuk` (
   `pengirim` varchar(100) NOT NULL,
   `perihal` varchar(255) NOT NULL,
   `file` varchar(255) DEFAULT NULL,
-  `pengolah` int(3) NOT NULL
+  `pengolah` int(3) NOT NULL,
+  `Id_Asisten` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1532,31 +1537,36 @@ ALTER TABLE `disposisi`
 -- Indeks untuk tabel `surat_keluar_laporan`
 --
 ALTER TABLE `surat_keluar_laporan`
-  ADD PRIMARY KEY (`id_surat`);
+  ADD PRIMARY KEY (`id_surat`),
+  ADD KEY `Id_Asisten` (`Id_Asisten`);
 
 --
 -- Indeks untuk tabel `surat_keluar_umum`
 --
 ALTER TABLE `surat_keluar_umum`
-  ADD PRIMARY KEY (`id_surat`);
+  ADD PRIMARY KEY (`id_surat`),
+  ADD KEY `Id_Asisten` (`Id_Asisten`);
 
 --
 -- Indeks untuk tabel `surat_klarifikasi_keluar`
 --
 ALTER TABLE `surat_klarifikasi_keluar`
-  ADD PRIMARY KEY (`id_surat`);
+  ADD PRIMARY KEY (`id_surat`),
+  ADD KEY `Id_Asisten` (`Id_Asisten`);
 
 --
 -- Indeks untuk tabel `surat_klarifikasi_keluar2`
 --
 ALTER TABLE `surat_klarifikasi_keluar2`
-  ADD PRIMARY KEY (`id_surat`);
+  ADD PRIMARY KEY (`id_surat`),
+  ADD KEY `Id_Asisten` (`Id_Asisten`);
 
 --
 -- Indeks untuk tabel `surat_klarifikasi_masuk`
 --
 ALTER TABLE `surat_klarifikasi_masuk`
-  ADD PRIMARY KEY (`id_surat`);
+  ADD PRIMARY KEY (`id_surat`),
+  ADD KEY `Id_Asisten` (`Id_Asisten`);
 
 --
 -- Indeks untuk tabel `surat_masuk_umum`
@@ -1590,7 +1600,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `asisten_yang_menangani`
 --
 ALTER TABLE `asisten_yang_menangani`
-  MODIFY `Id_Asisten` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `Id_Asisten` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `disposisi`
