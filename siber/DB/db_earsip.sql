@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 01 Agu 2019 pada 03.18
+-- Waktu pembuatan: 01 Agu 2019 pada 14.19
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 7.3.2
 
@@ -21,34 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_earsip`
 --
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `asisten_yang_menangani`
---
-
-CREATE TABLE `asisten_yang_menangani` (
-  `Id_Asisten` int(10) NOT NULL,
-  `Nama` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `asisten_yang_menangani`
---
-
-INSERT INTO `asisten_yang_menangani` (`Id_Asisten`, `Nama`) VALUES
-(1, 'Hidayat Pratama, S.H.'),
-(2, 'Atika Mutiara Oktakevina, S.I.P.'),
-(3, 'Muhammad Burhan, S.Pd.'),
-(4, 'Singgih Samsuri, S.E.'),
-(5, 'Dodik Hermanto, S.H.,M.H.,C.L.A.'),
-(6, 'Hardian Ruswan, S.I.P.'),
-(7, 'Alfero Setiawan, S.H.,M.H.,C.L.A.'),
-(8, 'Upi Fitriyanti, S.P.'),
-(9, 'Shintya Gugah A. T., S.I.P.'),
-(10, 'Tegar Adi Wijaya, S.H.,C.L.A.'),
-(11, 'Ahmad Saleh David Faranto, S.H.,M.H.');
 
 -- --------------------------------------------------------
 
@@ -1348,7 +1320,7 @@ CREATE TABLE `surat_keluar_laporan` (
   `perihal` varchar(255) NOT NULL,
   `file` varchar(255) DEFAULT NULL,
   `pengolah` int(3) NOT NULL,
-  `Id_Asisten` int(10) NOT NULL
+  `Asisten` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1365,14 +1337,14 @@ CREATE TABLE `surat_keluar_umum` (
   `perihal` varchar(255) NOT NULL,
   `file` varchar(255) DEFAULT NULL,
   `pengolah` int(11) NOT NULL,
-  `Id_Asisten` int(10) NOT NULL
+  `Asisten` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `surat_keluar_umum`
 --
 
-INSERT INTO `surat_keluar_umum` (`id_surat`, `no_surat`, `tgl_surat`, `tujuan`, `perihal`, `file`, `pengolah`, `Id_Asisten`) VALUES
+INSERT INTO `surat_keluar_umum` (`id_surat`, `no_surat`, `tgl_surat`, `tujuan`, `perihal`, `file`, `pengolah`, `Asisten`) VALUES
 (1, '1/II/2019/BDL', '2019-07-18', 'Bandar Lampung', 'Lamaran Pernikahan ', 'Spesifikasi_Tugas_Besar_25.pdf', 1, 0);
 
 -- --------------------------------------------------------
@@ -1389,7 +1361,7 @@ CREATE TABLE `surat_klarifikasi_keluar` (
   `perihal` varchar(256) NOT NULL,
   `file` varchar(255) DEFAULT NULL,
   `pengolah` int(3) NOT NULL,
-  `Id_Asisten` int(10) NOT NULL
+  `Asisten` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1406,7 +1378,7 @@ CREATE TABLE `surat_klarifikasi_keluar2` (
   `perihal` varchar(255) NOT NULL,
   `file` varchar(255) DEFAULT NULL,
   `pengolah` int(3) NOT NULL,
-  `Id_Asisten` int(10) NOT NULL
+  `Asisten` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1423,7 +1395,7 @@ CREATE TABLE `surat_klarifikasi_masuk` (
   `perihal` varchar(255) NOT NULL,
   `file` varchar(255) DEFAULT NULL,
   `pengolah` int(3) NOT NULL,
-  `Id_Asisten` int(10) NOT NULL
+  `Asisten` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1522,12 +1494,6 @@ INSERT INTO `user` (`id`, `username`, `password`, `nama`, `nip`, `level`) VALUES
 --
 
 --
--- Indeks untuk tabel `asisten_yang_menangani`
---
-ALTER TABLE `asisten_yang_menangani`
-  ADD PRIMARY KEY (`Id_Asisten`);
-
---
 -- Indeks untuk tabel `disposisi`
 --
 ALTER TABLE `disposisi`
@@ -1537,36 +1503,31 @@ ALTER TABLE `disposisi`
 -- Indeks untuk tabel `surat_keluar_laporan`
 --
 ALTER TABLE `surat_keluar_laporan`
-  ADD PRIMARY KEY (`id_surat`),
-  ADD KEY `Id_Asisten` (`Id_Asisten`);
+  ADD PRIMARY KEY (`id_surat`);
 
 --
 -- Indeks untuk tabel `surat_keluar_umum`
 --
 ALTER TABLE `surat_keluar_umum`
-  ADD PRIMARY KEY (`id_surat`),
-  ADD KEY `Id_Asisten` (`Id_Asisten`);
+  ADD PRIMARY KEY (`id_surat`);
 
 --
 -- Indeks untuk tabel `surat_klarifikasi_keluar`
 --
 ALTER TABLE `surat_klarifikasi_keluar`
-  ADD PRIMARY KEY (`id_surat`),
-  ADD KEY `Id_Asisten` (`Id_Asisten`);
+  ADD PRIMARY KEY (`id_surat`);
 
 --
 -- Indeks untuk tabel `surat_klarifikasi_keluar2`
 --
 ALTER TABLE `surat_klarifikasi_keluar2`
-  ADD PRIMARY KEY (`id_surat`),
-  ADD KEY `Id_Asisten` (`Id_Asisten`);
+  ADD PRIMARY KEY (`id_surat`);
 
 --
 -- Indeks untuk tabel `surat_klarifikasi_masuk`
 --
 ALTER TABLE `surat_klarifikasi_masuk`
-  ADD PRIMARY KEY (`id_surat`),
-  ADD KEY `Id_Asisten` (`Id_Asisten`);
+  ADD PRIMARY KEY (`id_surat`);
 
 --
 -- Indeks untuk tabel `surat_masuk_umum`
@@ -1595,12 +1556,6 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
-
---
--- AUTO_INCREMENT untuk tabel `asisten_yang_menangani`
---
-ALTER TABLE `asisten_yang_menangani`
-  MODIFY `Id_Asisten` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `disposisi`
