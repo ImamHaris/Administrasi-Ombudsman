@@ -75,10 +75,17 @@ if ($mode == "edit" || $mode == "act_edit") {
                             </div>
                             <div class="form-group">
                                 <select>
-                                  <option value="volvo">Volvo</option>
-                                  <option value="saab">Saab</option>
-                                  <option value="opel">Opel</option>
-                                  <option value="audi">Audi</option>
+                                  <option value="Hidayat Pratama, S.H.">Hidayat Pratama, S.H.</option>
+                                  <option value="Atika Mutiara Oktakevina, S.I.P.">Atika Mutiara Oktakevina, S.I.P.</option>
+                                  <option value="Muhammad Burhan, S.Pd.">Muhammad Burhan, S.Pd.</option>
+                                  <option value="Singgih Samsuri, S.E.">Singgih Samsuri, S.E.</option>
+                                  <option value="Dodik Hermanto, S.H.,M.H.,C.L.A.">Dodik Hermanto, S.H.,M.H.,C.L.A.</option>
+                                  <option value="Hardian Ruswan, S.I.P.">Hardian Ruswan, S.I.P.</option>
+                                  <option value="Alfero Setiawan, S.H.,M.H.,C.L.A.">Alfero Setiawan, S.H.,M.H.,C.L.A.</option>
+                                  <option value="Upi Fitriyanti, S.P.">Upi Fitriyanti, S.P.</option>
+                                  <option value="Shintya Gugah A. T., S.I.P.">Shintya Gugah A. T., S.I.P.</option>
+                                  <option value="Tegar Adi Wijaya, S.H.,C.L.A.">Tegar Adi Wijaya, S.H.,C.L.A.</option>
+                                  <option value="Ahmad Saleh David Faranto, S.H.,M.H.">Ahmad Saleh David Faranto, S.H.,M.H.</option>
                                 </select>
                             </div>
                         </div>
