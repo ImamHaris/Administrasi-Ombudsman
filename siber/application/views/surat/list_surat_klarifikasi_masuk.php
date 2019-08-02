@@ -39,9 +39,10 @@
                         <table class="table table-hover" style="width: 100%;">
                             <tr>
                                 <th style="width: 4%;">No.</th>
-                                <th style="width: 20%;">Nomor, Tgl. Surat</th>
-                                <th style="width: 30%;">Pengirim</th>
-                                <th style="width: 40%;">Perihal</th>
+                                <th style="width: 15%;">Nomor, Tgl. Surat</th>
+                                <th style="width: 20%;">Pengirim</th>
+                                <th style="width: 30%;">Perihal</th>
+                                <th style="width: 25%;">Asisten</th>
                                 <th style="width: 6%;">Aksi</th>
                             </tr>
                             <?php
