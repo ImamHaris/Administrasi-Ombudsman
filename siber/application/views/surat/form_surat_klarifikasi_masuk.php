@@ -49,7 +49,7 @@ if ($mode == "edit" || $mode == "act_edit") {
                                        class="form-control" id="noSurat" placeholder="Nomor Surat" autofocus required>
                             </div>
                             <div class="form-group">
-                                <label for="pengirim">pengirim</label>
+                                <label for="pengirim">Pengirim</label>
                                 <input type="text" value="<?php echo $pengirim; ?>" name="pengirim"
                                        class="form-control" id="pengirim" placeholder="pengirim" required>
                             </div>
@@ -74,6 +74,7 @@ if ($mode == "edit" || $mode == "act_edit") {
                                 <p class="help-block">File harus berekstensi .pdf/ .jpg/.jpeg/.png</p>
                             </div>
                             <div class="form-group">
+                                <label for="Asisten">Asisten Yang Menangani</label><br>
                                 <select>
                                   <option value="Hidayat Pratama, S.H.">Hidayat Pratama, S.H.</option>
                                   <option value="Atika Mutiara Oktakevina, S.I.P.">Atika Mutiara Oktakevina, S.I.P.</option>
@@ -91,14 +92,16 @@ if ($mode == "edit" || $mode == "act_edit") {
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer">
-                            <button type="submit" class="btn btn-primary btn-flat">
-                                <i class="fa fa-save"></i><span class="hidden-xs"> Simpan</span>
-                            </button>
-                            <a href="<?php echo site_url('surat/surat_klarifikasi_masuk'); ?>" class="btn btn-danger btn-flat">
-                                <i class="fa fa-undo"></i><span class="hidden-xs"> Kembali</span></a>
-                            <button type="reset" class="btn btn-default btn-flat pull-right">
-                                <i class="fa fa-eraser"></i><span class="hidden-xs"> Clear</span>
-                            </button>
+                            <center>
+                                <button type="submit" class="btn btn-primary btn-flat">
+                                    <i class="fa fa-save"></i><span class="hidden-xs"> Simpan</span>
+                                </button>
+                                <a href="<?php echo site_url('surat/surat_klarifikasi_masuk'); ?>" class="btn btn-danger btn-flat">
+                                    <i class="fa fa-undo"></i><span class="hidden-xs"> Kembali</span></a>
+                                <button type="reset" class="btn btn-default btn-flat pull-right">
+                                    <i class="fa fa-eraser"></i><span class="hidden-xs"> Clear</span>
+                                </button>
+                            </center>
                         </div>
                     </form>
                 </div>
