@@ -125,7 +125,7 @@ class Surat extends CI_Controller {
                 $up_data = $this->upload->data('file_name');
                 $this->surat_model->insert_surat_masuk_with_file($no_surat, $tgl_surat, $pengirim, $perihal, $up_data);
             } else {
-                $this->surat_model->insert_surat_masuk($no_surat, $tgl_surat, $pengirim, $perihal, $up_data);
+                $this->surat_model->insert_surat_masuk_with_file($no_surat, $tgl_surat, $pengirim, $perihal, $up_data);
             }
             $this->session->set_flashdata('message', message_box('Data telah ditambah. ' . $this->upload->display_errors()));
             redirect('surat/surat_masuk');
@@ -290,7 +290,7 @@ class Surat extends CI_Controller {
                 $up_data = $this->upload->data('file_name');
                 $this->surat_model->insert_surat_keluar_laporan_with_file($no_surat, $tgl_surat, $tujuan, $perihal, $up_data);
             } else {
-                $this->surat_model->insert_surat_keluar_with_file($no_surat, $tgl_surat, $tujuan, $perihal, $up_data);
+                $this->surat_model->insert_surat_keluar_laporan_with_file($no_surat, $tgl_surat, $tujuan, $perihal, $up_data);
             }
             $this->session->set_flashdata('message', message_box('Data telah ditambah. ' . $this->upload->display_errors()));
             redirect('surat/surat_keluar_laporan');
