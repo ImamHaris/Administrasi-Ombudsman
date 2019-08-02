@@ -148,7 +148,7 @@
             <!--============================================-->
         </div>
         <!-- ./wrapper -->
-
+        <script type='text/javascript' src="<?php echo base_url();?>/assets/ckeditor/ckeditor.js"></script>
         <!-- jQuery 1.12.4 -->
         <script src="<?php echo base_url(); ?>assets/jquery/jquery.js"></script>
         <!-- jQuery UI 1.12.1 -->

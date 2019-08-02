@@ -52,8 +52,8 @@ if ($mode == "edit" || $mode == "act_edit") {
                             </div>
                             <div class="form-group">
                                 <label for="yang bertugas">Diberikan Kepada</label>
-                                <input type="text" value="<?php echo $yang_diberi_tugas; ?>" name="yang_diberi_tugas"
-                                       class="form-control" id="yang_bertugas" placeholder="Yang bertugas" required>
+                                
+                                <textarea class="ckeditor id="ckeditor" class="form-control" name="yang_diberi_tugas" id="yang_bertugas" cols="82" rows="10" placeholder="Yang bertugas" required><?php echo $yang_diberi_tugas; ?></textarea>                                       
                             </div>
                             <div class="form-group">
                                 <label for="perihal">Daerah Tugas</label>
@@ -79,7 +79,7 @@ if ($mode == "edit" || $mode == "act_edit") {
                             
                             <div class="form-group">
                                 <label for="fileSurat">File Surat</label>
-                                <input type="file" id="fileSurat" name="file_surat">
+                                <input type="file" id="fileSurat" name="file_surat" required oninvalid="this.setCustomValidity('silakan isi kolom ini')>
                                 <p class="help-block">File harus berekstensi .pdf/ .jpg/.jpeg/.png</p>
                             </div>
                             <div class="form-group">
@@ -108,6 +108,14 @@ if ($mode == "edit" || $mode == "act_edit") {
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+<script>
+  var ckeditor = CKEDITOR.replac('ckeditor'{
+                    height:'600px'
+  });
+    CKEDITOR.disableAutoInline = true;
+    CKEDITOR.inline('editable');
+</script>
+
 <script type="text/javascript">
     $('#tglSurat').datepicker({
         format: 'yy-mm-dd',

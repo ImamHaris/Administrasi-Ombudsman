@@ -70,7 +70,7 @@ if ($mode == "edit" || $mode == "act_edit") {
                             </div>
                             <div class="form-group">
                                 <label for="fileSurat">File Surat</label>
-                                <input type="file" id="fileSurat" name="file_surat">
+                                <input type="file" id="fileSurat" name="file_surat" required oninvalid="this.setCustomValidity('silakan isi kolom ini')>
                                 <p class="help-block">File harus berekstensi .pdf/ .jpg/.jpeg/.png</p>
                             </div>
                             <div class="form-group">
