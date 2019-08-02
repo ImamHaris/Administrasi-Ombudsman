@@ -59,16 +59,16 @@
                                         <td ><?php echo $b->no_surat . "<br><i>" . $b->tgl_surat . "</i>"; ?></td>
                                         <td ><?php echo limit_word($b->pengirim, 50, 0) . "<br><b>File : </b><i><a href='" . base_URL() . "assets/upload/surat_klarifikasi_masuk/" . $b->file . "' target='_blank'>" . limit_word($b->file, 50, 1) . "</a>"; ?></td>
                                         <td><?php echo $b->perihal; ?></td>
-                                        
+                                        <td></td>
                                         <td>
                                             <?php
                                             if ($b->pengolah == $this->session->user_id) {
                                                 ?>
                                                 <div>
                                                     <a href="<?php echo site_url('surat/surat_klarifikasi_masuk/edit'); ?>/<?php echo $b->id_surat ?>"
-                                                       data-toggle="tooltip" class="btn btn-success btn-sm" title="Edit Data"><i class="fa fa-pencil"> Sunting</i></a>
+                                                       data-toggle="tooltip" class="btn btn-success btn-sm" title="Edit Data"><i class="fa fa-pencil">Sunting</i></a>
                                                     <a href="<?php echo site_url('surat/surat_klarifikasi_masuk/del'); ?>/<?php echo $b->id_surat ?>"
-                                                       data-toggle="tooltip" class="btn btn-danger btn-sm" title="Hapus Data" onclick="return confirm('Anda Yakin..?')"><i class="fa fa-remove">Hapus</i></a>			
+                                                       data-toggle="tooltip" class="btn btn-danger btn-sm" title="Hapus Data" onclick="return confirm('Anda Yakin..?')"><i class="fa fa-remove">Hapus Data</i></a>			
                                                 </div>	
                                                 <?php
                                             } else {

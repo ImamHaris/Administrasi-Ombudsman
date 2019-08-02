@@ -59,7 +59,7 @@
                                         <td ><?php echo $b->no_surat . "<br><i>" . $b->tgl_surat . "</i>"; ?></td>
                                         <td ><?php echo limit_word($b->tujuan, 50, 0) . "<br><b>File : </b><i><a href='" . base_URL() . "assets/upload/surat_klarifikasi_keluar/" . $b->file . "' target='_blank'>" . limit_word($b->file, 50, 1) . "</a>"; ?></td>
                                         <td><?php echo $b->perihal; ?></td>
-                                        
+                                        <td></td>
                                         <td>
                                             <?php
                                             if ($b->pengolah == $this->session->user_id) {
