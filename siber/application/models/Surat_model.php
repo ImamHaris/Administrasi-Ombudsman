@@ -20,6 +20,8 @@ class Surat_model extends CI_Model {
     }
 
     public function delete_surat_masuk($id_url) {
+        $row = $this->db->where('id_surat',$id_url)->get('surat_masuk_umum')->row();
+        unlink('assets/upload/surat_masuk_umum/'.$row->file);
         $this->db->where('id_surat', $id_url);
         $this->db->delete('surat_masuk_umum');
     }
@@ -104,6 +106,8 @@ class Surat_model extends CI_Model {
         }
     
         public function delete_surat_tugas($id_url) {
+            $row = $this->db->where('id_surat',$id_url)->get('surat_tugas')->row();
+            unlink('assets/upload/surat_tugas/'.$row->file);
             $this->db->where('id_surat', $id_url);
             $this->db->delete('surat_tugas');
         }
@@ -202,6 +206,8 @@ class Surat_model extends CI_Model {
     }
 
     public function delete_surat_keluar($id_url) {
+        $row = $this->db->where('id_surat',$id_url)->get('surat_keluar_umum')->row();
+        unlink('assets/upload/surat_keluar_umum/'.$row->file);
         $this->db->where('id_surat', $id_url);
         $this->db->delete('surat_keluar_umum');
     }
@@ -299,6 +305,8 @@ class Surat_model extends CI_Model {
     }
 
     public function delete_surat_keluar_laporan($id_url) {
+        $row = $this->db->where('id_surat',$id_url)->get('surat_keluar_laporan')->row();
+        unlink('assets/upload/surat_keluar_laporan/'.$row->file);
         $this->db->where('id_surat', $id_url);
         $this->db->delete('surat_keluar_laporan');
     }
@@ -387,6 +395,8 @@ class Surat_model extends CI_Model {
     }
 
     public function delete_surat_klarifikasi_keluar($id_url) {
+        $row = $this->db->where('id_surat',$id_url)->get('surat_klarifikasi_keluar')->row();
+        unlink('assets/upload/surat_klarifikasi_keluar/'.$row->file);
         $this->db->where('id_surat', $id_url);
         $this->db->delete('surat_klarifikasi_keluar');
     }
@@ -484,6 +494,8 @@ class Surat_model extends CI_Model {
     }
 
     public function delete_surat_klarifikasi_keluar2($id_url) {
+        $row = $this->db->where('id_surat',$id_url)->get('surat_klarifikasi_keluar2')->row();
+        unlink('assets/upload/surat_klarifikasi_keluar2/'.$row->file);
         $this->db->where('id_surat', $id_url);
         $this->db->delete('surat_klarifikasi_keluar2');
     }
@@ -581,6 +593,8 @@ class Surat_model extends CI_Model {
     }
 
     public function delete_surat_klarifikasi_masuk($id_url) {
+        $row = $this->db->where('id_surat',$id_url)->get('surat_klarifikasi_masuk')->row();
+        unlink('assets/upload/surat_klarifikasi_masuk/'.$row->file);
         $this->db->where('id_surat', $id_url);
         $this->db->delete('surat_klarifikasi_masuk');
     }
@@ -678,6 +692,8 @@ class Surat_model extends CI_Model {
     }
 
     public function delete_surat_tembusan($id_url) {
+        $row = $this->db->where('id_surat',$id_url)->get('surat_tembusan')->row();
+        unlink('assets/upload/surat_tembusan/'.$row->file);
         $this->db->where('id_surat', $id_url);
         $this->db->delete('surat_tembusan');
     }
