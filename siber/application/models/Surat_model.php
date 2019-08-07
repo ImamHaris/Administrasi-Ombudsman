@@ -68,13 +68,12 @@ class Surat_model extends CI_Model {
         $this->db->insert('surat_masuk_umum', $data);
     }
 
-    public function insert_surat_masuk($no_surat, $tgl_surat, $pengirim, $perihal, $up_data) {
+    public function insert_surat_masuk($no_surat, $tgl_surat, $pengirim, $perihal) {
         $data = array(
             'no_surat' => $no_surat,
             'tgl_surat' => $tgl_surat,
             'pengirim' => $pengirim,
             'perihal' => $perihal,
-            'file' => $up_data,
             'pengolah' => $this->session->user_id
         );
         $this->db->insert('surat_masuk_umum', $data);
@@ -87,6 +86,17 @@ class Surat_model extends CI_Model {
             'pengirim' => $pengirim,
             'perihal' => $perihal,
             'file' => $up_data
+        );
+        $this->db->where('id_surat', $id_surat);
+        $this->db->update('surat_masuk_umum', $data);
+    }
+
+    public function update_surat_masuk($no_surat, $tgl_surat, $pengirim, $perihal, $id_surat) {
+        $data = array(
+            'no_surat' => $no_surat,
+            'tgl_surat' => $tgl_surat,
+            'pengirim' => $pengirim,
+            'perihal' => $perihal
         );
         $this->db->where('id_surat', $id_surat);
         $this->db->update('surat_masuk_umum', $data);
@@ -154,12 +164,14 @@ class Surat_model extends CI_Model {
             $this->db->insert('surat_tugas', $data);
         }
     
-        public function insert_tuags($no_surat, $tgl_surat, $pengirim, $perihal) {
+        public function insert_tuags($no_surat, $tgl_surat, $yang_diberi_tugas, $daerah_tugas, $keterangan) {
             $data = array(
                 'no_surat' => $no_surat,
                 'tgl_surat' => $tgl_surat,
-                'pengirim' => $pengirim,
-                'perihal' => $perihal,
+                'yang_diberi_tugas' => $yang_diberi_tugas,
+                'daerah_tugas' => $daerah_tugas,
+                'keterangan' => $keterangan,
+                'file' => $up_data,
                 'pengolah' => $this->session->user_id
             );
             $this->db->insert('surat_tugas', $data);
@@ -178,19 +190,16 @@ class Surat_model extends CI_Model {
             $this->db->update('surat_tugas', $data);
         }
     
-        public function update_surat_tugas($kode, $no_agenda, $indek_berkas, $uraian, $dari, $no_surat, $tgl_surat, $ket, $id_post) {
+        public function update_surat_tugas($no_surat, $tgl_surat, $yang_diberi_tugas, $daerah_tugas, $keterangan, $id_surat) {
             $data = array(
-                'kode' => $kode,
-                'no_agenda' => $no_agenda,
-                'indek_berkas' => $indek_berkas,
-                'isi_ringkas' => $uraian,
-                'dari' => $dari,
                 'no_surat' => $no_surat,
                 'tgl_surat' => $tgl_surat,
-                'keterangan' => $ket
+                'yang_diberi_tugas' => $yang_diberi_tugas,
+                'daerah_tugas' => $daerah_tugas,
+                'keterangan' => $keterangan
             );
-            $this->db->where('id', $id_post);
-            $this->db->update('surat_masuk_umum', $data);
+            $this->db->where('id_surat', $id_surat);
+            $this->db->update('surat_tugas', $data);
         }
     
         public function select_surat_tugas_limit($awal, $akhir) {
@@ -254,13 +263,12 @@ class Surat_model extends CI_Model {
         $this->db->insert('surat_keluar_umum', $data);
     }
 
-    public function insert_surat_keluar($no_surat, $tgl_surat, $tujuan, $perihal, $up_data) {
+    public function insert_surat_keluar($no_surat, $tgl_surat, $tujuan, $perihal) {
         $data = array(
             'no_surat' => $no_surat,
             'tgl_surat' => $tgl_surat,
             'tujuan' => $tujuan,
             'perihal' => $perihal,
-            'file' => $up_data,
             'pengolah' => $this->session->user_id
         );
         $this->db->insert('surat_keluar_umum', $data);
@@ -278,18 +286,15 @@ class Surat_model extends CI_Model {
         $this->db->update('surat_keluar_umum', $data);
     }
 
-    public function update_surat_keluar($no_agenda, $kode, $uraian, $dari, $no_surat, $tgl_surat, $ket, $id_post) {
+    public function update_surat_keluar($no_surat, $tgl_surat, $tujuan, $perihal, $id_surat) {
         $data = array(
-            'no_agenda' => $no_agenda,
-            'kode' => $kode,
-            'isi_ringkas' => $uraian,
-            'tujuan' => $dari,
             'no_surat' => $no_surat,
             'tgl_surat' => $tgl_surat,
-            'keterangan' => $ket
+            'tujuan' => $tujuan,
+            'perihal' => $perihal
         );
-        $this->db->where('id', $id_post);
-        $this->db->update('surat_keluar', $data);
+        $this->db->where('id_surat', $id_surat);
+        $this->db->update('surat_keluar_umum', $data);
     }
 
     public function select_surat_keluar_limit($awal, $akhir) {
@@ -358,13 +363,12 @@ class Surat_model extends CI_Model {
         $this->db->insert('surat_keluar_laporan', $data);
     }
 
-    public function insert_surat_keluar_laporan($no_surat, $tgl_surat, $tujuan, $perihal, $up_data) {
+    public function insert_surat_keluar_laporan($no_surat, $tgl_surat, $tujuan, $perihal) {
         $data = array(
             'no_surat' => $no_surat,
             'tgl_surat' => $tgl_surat,
             'tujuan' => $tujuan,
             'perihal' => $perihal,
-            'file' => $up_data,
             'pengolah' => $this->session->user_id
         );
         $this->db->insert('surat_keluar_umum', $data);
@@ -377,6 +381,17 @@ class Surat_model extends CI_Model {
             'tujuan' => $tujuan,
             'perihal' => $perihal,
             'file' => $up_data
+        );
+        $this->db->where('id_surat', $id_surat);
+        $this->db->update('surat_keluar_laporan', $data);
+    }
+
+    public function update_surat_keluar_laporan($no_surat, $tgl_surat, $tujuan, $perihal, $id_surat) {
+        $data = array(
+            'no_surat' => $no_surat,
+            'tgl_surat' => $tgl_surat,
+            'tujuan' => $tujuan,
+            'perihal' => $perihal
         );
         $this->db->where('id_surat', $id_surat);
         $this->db->update('surat_keluar_laporan', $data);
@@ -443,13 +458,12 @@ class Surat_model extends CI_Model {
         $this->db->insert('surat_klarifikasi_keluar', $data);
     }
 
-    public function insert_surat_klarifikasi_keluar($no_surat, $tgl_surat, $tujuan, $perihal, $up_data) {
+    public function insert_surat_klarifikasi_keluar($no_surat, $tgl_surat, $tujuan, $perihal) {
         $data = array(
             'no_surat' => $no_surat,
             'tgl_surat' => $tgl_surat,
             'tujuan' => $tujuan,
             'perihal' => $perihal,
-            'file' => $up_data,
             'pengolah' => $this->session->user_id
         );
         $this->db->insert('surat_klarifikasi_keluar', $data);
@@ -467,17 +481,14 @@ class Surat_model extends CI_Model {
         $this->db->update('surat_klarifikasi_keluar', $data);
     }
 
-    public function update_surat_klarifikasi_keluar($no_agenda, $kode, $uraian, $dari, $no_surat, $tgl_surat, $ket, $id_post) {
+    public function update_surat_klarifikasi_keluar($no_surat, $tgl_surat, $tujuan, $perihal, $id_surat) {
         $data = array(
-            'no_agenda' => $no_agenda,
-            'kode' => $kode,
-            'isi_ringkas' => $uraian,
-            'tujuan' => $dari,
             'no_surat' => $no_surat,
             'tgl_surat' => $tgl_surat,
-            'keterangan' => $ket
+            'tujuan' => $tujuan,
+            'perihal' => $perihal
         );
-        $this->db->where('id', $id_post);
+        $this->db->where('id_surat', $id_surat);
         $this->db->update('surat_klarifikasi_keluar', $data);
     }
 
@@ -542,13 +553,12 @@ class Surat_model extends CI_Model {
         $this->db->insert('surat_klarifikasi_keluar2', $data);
     }
 
-    public function insert_surat_klarifikasi_keluar2($no_surat, $tgl_surat, $tujuan, $perihal, $up_data) {
+    public function insert_surat_klarifikasi_keluar2($no_surat, $tgl_surat, $tujuan, $perihal) {
         $data = array(
             'no_surat' => $no_surat,
             'tgl_surat' => $tgl_surat,
             'tujuan' => $tujuan,
             'perihal' => $perihal,
-            'file' => $up_data,
             'pengolah' => $this->session->user_id
         );
         $this->db->insert('surat_klarifikasi_keluar2', $data);
@@ -566,17 +576,14 @@ class Surat_model extends CI_Model {
         $this->db->update('surat_klarifikasi_keluar2', $data);
     }
 
-    public function update_surat_klarifikasi_keluar2($no_agenda, $kode, $uraian, $dari, $no_surat, $tgl_surat, $ket, $id_post) {
+    public function update_surat_klarifikasi_keluar2($no_surat, $tgl_surat, $tujuan, $perihal,$id_surat) {
         $data = array(
-            'no_agenda' => $no_agenda,
-            'kode' => $kode,
-            'isi_ringkas' => $uraian,
-            'tujuan' => $dari,
             'no_surat' => $no_surat,
             'tgl_surat' => $tgl_surat,
-            'keterangan' => $ket
+            'tujuan' => $tujuan,
+            'perihal' => $perihal
         );
-        $this->db->where('id', $id_post);
+        $this->db->where('id_surat', $id_surat);
         $this->db->update('surat_klarifikasi_keluar2', $data);
     }
 
@@ -641,13 +648,12 @@ class Surat_model extends CI_Model {
         $this->db->insert('surat_klarifikasi_masuk', $data);
     }
 
-    public function insert_surat_klarifikasi_masuk($no_surat, $tgl_surat, $pengirim, $perihal, $up_data) {
+    public function insert_surat_klarifikasi_masuk($no_surat, $tgl_surat, $pengirim, $perihal) {
         $data = array(
             'no_surat' => $no_surat,
             'tgl_surat' => $tgl_surat,
             'pengirim' => $pengirim,
             'perihal' => $perihal,
-            'file' => $up_data,
             'pengolah' => $this->session->user_id
         );
         $this->db->insert('surat_klarifikasi_masuk', $data);
@@ -665,18 +671,16 @@ class Surat_model extends CI_Model {
         $this->db->update('surat_klarifikasi_masuk', $data);
     }
 
-    public function update_surat_klarifikasi_masuk($no_agenda, $kode, $uraian, $dari, $no_surat, $tgl_surat, $ket, $id_post) {
+    public function update_surat_klarifikasi_masuk($no_surat, $tgl_surat, $pengirim, $perihal, $id_surat) {
         $data = array(
-            'no_agenda' => $no_agenda,
-            'kode' => $kode,
-            'isi_ringkas' => $uraian,
-            'tujuan' => $dari,
-            'no_surat' => $no_surat,
-            'tgl_surat' => $tgl_surat,
-            'keterangan' => $ket
-        );
-        $this->db->where('id', $id_post);
-        $this->db->update('surat_klarifikasi_masuk', $data);
+            $data = array(
+                'no_surat' => $no_surat,
+                'tgl_surat' => $tgl_surat,
+                'pengirim' => $pengirim,
+                'perihal' => $perihal
+            );
+            $this->db->where('id_surat', $id_surat);
+            $this->db->update('surat_klarifikasi_masuk', $data);
     }
 
     public function select_surat_klarifikasi_masuk_limit($awal, $akhir) {
@@ -740,12 +744,33 @@ class Surat_model extends CI_Model {
         $this->db->insert('surat_tembusan', $data);
     }
 
+    public function insert_surat_tembusan($no_surat, $tgl_surat, $pengirim, $perihal) {
+        $data = array(
+            'no_surat' => $no_surat,
+            'tgl_surat' => $tgl_surat,
+            'pengirim' => $pengirim,
+            'perihal' => $perihal, 
+            'pengolah' => $this->session->user_id
+        );
+        $this->db->insert('surat_tembusan', $data);
+    }
+
     public function update_surat_tembusan_with_file($no_surat, $tgl_surat, $pengirim, $perihal, $up_data, $id_surat) {
         $data = array(
             'no_surat' => $no_surat,
             'pengirim' => $pengirim,
             'perihal' => $perihal,
             'file' => $up_data
+        );
+        $this->db->where('id_surat', $id_surat);
+        $this->db->update('surat_tembusan', $data);
+    }
+
+    public function update_surat_tembusan($no_surat, $tgl_surat, $pengirim, $perihal, $id_surat) {
+        $data = array(
+            'no_surat' => $no_surat,
+            'pengirim' => $pengirim,
+            'perihal' => $perihal
         );
         $this->db->where('id_surat', $id_surat);
         $this->db->update('surat_tembusan', $data);

@@ -125,7 +125,7 @@ class Surat extends CI_Controller {
                 $up_data = $this->upload->data('file_name');
                 $this->surat_model->insert_surat_masuk_with_file($no_surat, $tgl_surat, $pengirim, $perihal, $up_data);
             } else {
-                $this->surat_model->insert_surat_masuk_with_file($no_surat, $tgl_surat, $pengirim, $perihal, $up_data);
+                $this->surat_model->insert_surat_masuk($no_surat, $tgl_surat, $pengirim, $perihal);
             }
             $this->session->set_flashdata('message', message_box('Data telah ditambah. ' . $this->upload->display_errors()));
             redirect('surat/surat_masuk');
@@ -134,7 +134,7 @@ class Surat extends CI_Controller {
                 $up_data = $this->upload->data('file_name');
                 $this->surat_model->update_surat_masuk_with_file($no_surat, $tgl_surat, $pengirim, $perihal, $up_data, $id_surat);
             } else {
-                $this->surat_model->update_surat_masuk_with_file($no_surat, $tgl_surat, $pengirim, $perihal, $up_data, $id_surat);
+                $this->surat_model->update_surat_masuk($no_surat, $tgl_surat, $pengirim, $perihal, $id_surat);
             }
             $this->session->set_flashdata('message', message_box('Data telah diperbaharui. ' . $this->upload->display_errors()));
             redirect('surat/surat_masuk');
@@ -208,7 +208,7 @@ class Surat extends CI_Controller {
                 $up_data = $this->upload->data('file_name');
                 $this->surat_model->insert_surat_keluar_with_file($no_surat, $tgl_surat, $tujuan, $perihal, $up_data);
             } else {
-                $this->surat_model->insert_surat_keluar_with_file($no_surat, $tgl_surat, $tujuan, $perihal, $up_data);
+                $this->surat_model->insert_surat_keluar($no_surat, $tgl_surat, $tujuan, $perihal);
             }
             $this->session->set_flashdata('message', message_box('Data telah ditambah. ' . $this->upload->display_errors()));
             redirect('surat/surat_keluar');
@@ -217,7 +217,7 @@ class Surat extends CI_Controller {
                 $up_data = $this->upload->data('file_name');
                 $this->surat_model->update_surat_keluar_with_file($no_surat, $tgl_surat, $tujuan, $perihal, $up_data, $id_surat);
             } else {
-                $this->surat_model->update_surat_keluar($kode, $no_agenda, $indek_berkas, $uraian, $dari, $no_surat, $tgl_surat, $ket, $id_post);
+                $this->surat_model->update_surat_keluar($no_surat, $tgl_surat, $tujuan, $perihal, $id_surat);
             }
             $this->session->set_flashdata('message', message_box('Data telah diperbaharui. ' . $this->upload->display_errors()));
             redirect('surat/surat_keluar');
@@ -290,7 +290,7 @@ class Surat extends CI_Controller {
                 $up_data = $this->upload->data('file_name');
                 $this->surat_model->insert_surat_keluar_laporan_with_file($no_surat, $tgl_surat, $tujuan, $perihal, $up_data);
             } else {
-                $this->surat_model->insert_surat_keluar_laporan_with_file($no_surat, $tgl_surat, $tujuan, $perihal, $up_data);
+                $this->surat_model->insert_surat_keluar_laporan($no_surat, $tgl_surat, $tujuan, $perihal);
             }
             $this->session->set_flashdata('message', message_box('Data telah ditambah. ' . $this->upload->display_errors()));
             redirect('surat/surat_keluar_laporan');
@@ -299,7 +299,7 @@ class Surat extends CI_Controller {
                 $up_data = $this->upload->data('file_name');
                 $this->surat_model->update_surat_keluar_laporan_with_file($no_surat, $tgl_surat, $tujuan, $perihal, $up_data, $id_surat);
             } else {
-                $this->surat_model->update_surat_keluar_laporan_with_file($no_surat, $tgl_surat, $tujuan, $perihal, $up_data, $id_surat);
+                $this->surat_model->update_surat_keluar_laporan($no_surat, $tgl_surat, $tujuan, $perihal, $id_surat);
             }
             $this->session->set_flashdata('message', message_box('Data telah diperbaharui. ' . $this->upload->display_errors()));
             redirect('surat/surat_keluar_laporan');
@@ -372,7 +372,7 @@ class Surat extends CI_Controller {
                 $up_data = $this->upload->data('file_name');
                 $this->surat_model->insert_surat_klarifikasi_keluar_with_file($no_surat, $tgl_surat, $tujuan, $perihal, $up_data);
             } else {
-                $this->surat_model->insert_surat_klarifikasi_keluar_with_file($no_surat, $tgl_surat, $tujuan, $perihal, $up_data);
+                $this->surat_model->insert_surat_klarifikasi_keluar($no_surat, $tgl_surat, $tujuan, $perihal);
             }
             $this->session->set_flashdata('message', message_box('Data telah ditambah. ' . $this->upload->display_errors()));
             redirect('surat/surat_klarifikasi_keluar');
@@ -381,7 +381,7 @@ class Surat extends CI_Controller {
                 $up_data = $this->upload->data('file_name');
                 $this->surat_model->update_surat_klarifikasi_keluar_with_file($no_surat, $tgl_surat, $tujuan, $perihal, $up_data, $id_surat);
             } else {
-                $this->surat_model->update_surat_klarifikasi_keluar($no_surat, $tgl_surat, $tujuan, $perihal, $up_data, $id_surat);
+                $this->surat_model->update_surat_klarifikasi_keluar($no_surat, $tgl_surat, $tujuan, $perihal, $id_surat);
             }
             $this->session->set_flashdata('message', message_box('Data telah diperbaharui. ' . $this->upload->display_errors()));
             redirect('surat/surat_klarifikasi_keluar');
@@ -454,7 +454,7 @@ class Surat extends CI_Controller {
                 $up_data = $this->upload->data('file_name');
                 $this->surat_model->insert_surat_klarifikasi_keluar2_with_file($no_surat, $tgl_surat, $tujuan, $perihal, $up_data);
             } else {
-                $this->surat_model->insert_surat_klarifikasi_keluar2_with_file($no_surat, $tgl_surat, $tujuan, $perihal, $up_data);
+                $this->surat_model->insert_surat_klarifikasi_keluar2($no_surat, $tgl_surat, $tujuan, $perihal);
             }
             $this->session->set_flashdata('message', message_box('Data telah ditambah. ' . $this->upload->display_errors()));
             redirect('surat/surat_klarifikasi_keluar2');
@@ -463,7 +463,7 @@ class Surat extends CI_Controller {
                 $up_data = $this->upload->data('file_name');
                 $this->surat_model->update_surat_klarifikasi_keluar2_with_file($no_surat, $tgl_surat, $tujuan, $perihal, $up_data,$id_surat);
             } else {
-                $this->surat_model->update_surat_klarifikasi_keluar2($no_surat, $tgl_surat, $tujuan, $perihal, $up_data,$id_surat);
+                $this->surat_model->update_surat_klarifikasi_keluar2($no_surat, $tgl_surat, $tujuan, $perihal,$id_surat);
             }
             $this->session->set_flashdata('message', message_box('Data telah diperbaharui. ' . $this->upload->display_errors()));
             redirect('surat/surat_klarifikasi_keluar2');
@@ -534,7 +534,7 @@ class Surat extends CI_Controller {
                 $up_data = $this->upload->data('file_name');
                 $this->surat_model->insert_surat_klarifikasi_masuk_with_file($no_surat, $tgl_surat, $pengirim, $perihal, $up_data);
             } else {
-                $this->surat_model->insert_surat_klarifikasi_masuk_with_file($no_surat, $tgl_surat, $pengirim, $perihal, $up_data);
+                $this->surat_model->insert_surat_klarifikasi_masuk($no_surat, $tgl_surat, $pengirim, $perihal);
             }
             $this->session->set_flashdata('message', message_box('Data telah ditambah. ' . $this->upload->display_errors()));
             redirect('surat/surat_klarifikasi_masuk');
@@ -543,7 +543,7 @@ class Surat extends CI_Controller {
                 $up_data = $this->upload->data('file_name');
                 $this->surat_model->update_surat_klarifikasi_masuk_with_file($no_surat, $tgl_surat, $tujuan, $perihal, $up_data, $id_surat);
             } else {
-                $this->surat_model->update_surat_klarifikasi_masuk($kode, $no_agenda, $indek_berkas, $uraian, $dari, $no_surat, $tgl_surat, $ket, $id_post);
+                $this->surat_model->update_surat_klarifikasi_masuk($no_surat, $tgl_surat, $tujuan, $perihal, $id_surat);
             }
             $this->session->set_flashdata('message', message_box('Data telah diperbaharui. ' . $this->upload->display_errors()));
             redirect('surat/surat_klarifikasi_masuk');
@@ -619,7 +619,7 @@ class Surat extends CI_Controller {
                 $up_data = $this->upload->data('file_name');
                 $this->surat_model->insert_surat_tugas_with_file($no_surat, $tgl_surat, $yang_diberi_tugas, $daerah_tugas, $keterangan, $up_data);
             } else {
-                $this->surat_model->insert_surat_tugas($kode, $no_agenda, $indek_berkas, $uraian, $dari, $no_surat, $tgl_surat, $ket);
+                $this->surat_model->insert_surat_tugas($no_surat, $tgl_surat, $yang_diberi_tugas, $daerah_tugas, $keterangan);
             }
             $this->session->set_flashdata('message', message_box('Data telah ditambah. ' . $this->upload->display_errors()));
             redirect('surat/surat_tugas');
@@ -628,7 +628,7 @@ class Surat extends CI_Controller {
                 $up_data = $this->upload->data('file_name');
                 $this->surat_model->update_surat_tugas_with_file($no_surat, $tgl_surat, $yang_diberi_tugas, $daerah_tugas, $keterangan, $up_data, $id_surat);
             } else {
-                $this->surat_model->update_surat_tugas($no_surat, $tgl_surat, $yang_diberi_tugas, $daerah_tugas, $keterangan, $up_data, $id_surat);
+                $this->surat_model->update_surat_tugas($no_surat, $tgl_surat, $yang_diberi_tugas, $daerah_tugas, $keterangan, $id_surat);
             }
             $this->session->set_flashdata('message', message_box('Data telah diperbaharui. ' . $this->upload->display_errors()));
             redirect('surat/surat_tugas');
@@ -699,7 +699,7 @@ class Surat extends CI_Controller {
                 $up_data = $this->upload->data('file_name');
                 $this->surat_model->insert_surat_tembusan_with_file($no_surat, $tgl_surat, $pengirim, $perihal, $up_data);
             } else {
-                $this->surat_model->insert_surat_tembusan($no_surat, $tgl_surat, $pengirim, $perihal, $up_data);
+                $this->surat_model->insert_surat_tembusan($no_surat, $tgl_surat, $pengirim, $perihal);
             }
             $this->session->set_flashdata('message', message_box('Data telah ditambah. ' . $this->upload->display_errors()));
             redirect('surat/surat_tembusan');
@@ -708,7 +708,7 @@ class Surat extends CI_Controller {
                 $up_data = $this->upload->data('file_name');
                 $this->surat_model->update_surat_tembusan_with_file($no_surat, $tgl_surat, $pengirim, $perihal, $up_data, $id_surat);
             } else {
-                $this->surat_model->update_surat_tembusan($no_surat, $tgl_surat, $pengirim, $perihal, $up_data, $id_surat);
+                $this->surat_model->update_surat_tembusan($no_surat, $tgl_surat, $pengirim, $perihal, $id_surat);
             }
             $this->session->set_flashdata('message', message_box('Data telah diperbaharui. ' . $this->upload->display_errors()));
             redirect('surat/surat_tembusan');
