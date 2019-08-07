@@ -96,7 +96,7 @@ class Surat extends CI_Controller {
 
         //upload config 
         $config['upload_path'] = './assets/upload/surat_masuk_umum';//file yg diupload akan disimpan
-		$config['allowed_types']='doc|docx|pdf'; // tipe file yang boleh di upload
+		$config['allowed_types'] = 'jpg|png|jpeg|pdf|doc|docx'; // tipe file yang boleh di upload
 
 		$this->load->library('upload',$config);
 
