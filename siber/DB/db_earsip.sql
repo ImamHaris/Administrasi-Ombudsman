@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 01 Agu 2019 pada 14.19
+-- Waktu pembuatan: 07 Agu 2019 pada 14.15
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 7.3.2
 
@@ -1320,8 +1320,15 @@ CREATE TABLE `surat_keluar_laporan` (
   `perihal` varchar(255) NOT NULL,
   `file` varchar(255) DEFAULT NULL,
   `pengolah` int(3) NOT NULL,
-  `Asisten` int(10) NOT NULL
+  `Asisten` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `surat_keluar_laporan`
+--
+
+INSERT INTO `surat_keluar_laporan` (`id_surat`, `no_surat`, `tgl_surat`, `tujuan`, `perihal`, `file`, `pengolah`, `Asisten`) VALUES
+(1, '2/II/2019/BDL', '2019-08-02', 'Lambar', 'Adadeh', 'Laporan_Pengaduan_PPDB_SMA_12.docx', 1, '0');
 
 -- --------------------------------------------------------
 
@@ -1337,7 +1344,7 @@ CREATE TABLE `surat_keluar_umum` (
   `perihal` varchar(255) NOT NULL,
   `file` varchar(255) DEFAULT NULL,
   `pengolah` int(11) NOT NULL,
-  `Asisten` int(10) NOT NULL
+  `Asisten` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -1345,7 +1352,8 @@ CREATE TABLE `surat_keluar_umum` (
 --
 
 INSERT INTO `surat_keluar_umum` (`id_surat`, `no_surat`, `tgl_surat`, `tujuan`, `perihal`, `file`, `pengolah`, `Asisten`) VALUES
-(1, '1/II/2019/BDL', '2019-07-18', 'Bandar Lampung', 'Lamaran Pernikahan ', 'Spesifikasi_Tugas_Besar_25.pdf', 1, 0);
+(1, '1/II/2019/BDL', '2019-07-18', 'Bandar Lampung', 'Lamaran Pernikahan ', 'Spesifikasi_Tugas_Besar_25.pdf', 1, '0'),
+(2, '1234/BDL/2019', '2019-08-07', 'lampung', 'Urusan Pribadi', NULL, 1, '0');
 
 -- --------------------------------------------------------
 
@@ -1361,8 +1369,15 @@ CREATE TABLE `surat_klarifikasi_keluar` (
   `perihal` varchar(256) NOT NULL,
   `file` varchar(255) DEFAULT NULL,
   `pengolah` int(3) NOT NULL,
-  `Asisten` int(10) NOT NULL
+  `Asisten` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `surat_klarifikasi_keluar`
+--
+
+INSERT INTO `surat_klarifikasi_keluar` (`id_surat`, `no_surat`, `tgl_surat`, `tujuan`, `perihal`, `file`, `pengolah`, `Asisten`) VALUES
+(1, '3/II/2019/BDL 2019-07-18', '2019-08-02', 'manokwari', 'gk penting gausah nanya!', 'nasgor.jpg', 1, '0');
 
 -- --------------------------------------------------------
 
@@ -1378,8 +1393,15 @@ CREATE TABLE `surat_klarifikasi_keluar2` (
   `perihal` varchar(255) NOT NULL,
   `file` varchar(255) DEFAULT NULL,
   `pengolah` int(3) NOT NULL,
-  `Asisten` int(10) NOT NULL
+  `Asisten` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `surat_klarifikasi_keluar2`
+--
+
+INSERT INTO `surat_klarifikasi_keluar2` (`id_surat`, `no_surat`, `tgl_surat`, `tujuan`, `perihal`, `file`, `pengolah`, `Asisten`) VALUES
+(1, '1/II/2019/BDL', '2019-08-02', 'Bandar lampoeng', 'tebak', 'nasi.jpg', 1, '0');
 
 -- --------------------------------------------------------
 
@@ -1395,8 +1417,15 @@ CREATE TABLE `surat_klarifikasi_masuk` (
   `perihal` varchar(255) NOT NULL,
   `file` varchar(255) DEFAULT NULL,
   `pengolah` int(3) NOT NULL,
-  `Asisten` int(10) NOT NULL
+  `Asisten` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `surat_klarifikasi_masuk`
+--
+
+INSERT INTO `surat_klarifikasi_masuk` (`id_surat`, `no_surat`, `tgl_surat`, `pengirim`, `perihal`, `file`, `pengolah`, `Asisten`) VALUES
+(1, '1/II/2019/BDL', '2019-08-02', 'Imam Anak Pejabat Negara', 'Urusan Cinta', 'ayam.PNG', 1, '0');
 
 -- --------------------------------------------------------
 
@@ -1420,14 +1449,14 @@ CREATE TABLE `surat_masuk_umum` (
 
 INSERT INTO `surat_masuk_umum` (`id_surat`, `no_surat`, `tgl_surat`, `pengirim`, `perihal`, `file`, `pengolah`) VALUES
 (30, '1/II/2019/BDL', '2019-07-18', 'Alvijar FRP', 'Jalan Rosak', NULL, 1),
-(31, '1/II/2019/BDL', '2019-07-18', 'Aan', 'Jalan Rosak', NULL, 1),
 (32, '1/II/2019/BDL', '2019-07-18', 'Aan', 'Jalan Rosak', NULL, 1),
 (33, '1/II/2019/BDL', '2019-07-18', 'Alvijar FRP', 'Jalan Rosak', NULL, 1),
 (34, '1/II/2019/BDL', '2019-07-18', 'Aan', 'Lamaran Pernikahan ', NULL, 1),
 (35, '1/II/2019/BDL', '2019-07-18', 'Alvijar FRP', 'Jalan Rosak', NULL, 1),
 (36, '1/II/2019/BDL', '2019-07-18', 'Aan', 'Lamaran Pernikahan ', NULL, 1),
 (37, '1/II/2019/BDL', '2019-07-18', 'Alvijar FRP', 'Lamaran Pernikahan ', 'Spesifikasi_Tugas_Besar_27.pdf', 1),
-(38, '1/II/2019/BDL', '2019-07-18', 'Alvijar FRP', 'Lamaran Pernikahan ', 'Spesifikasi_Tugas_Besar_28.pdf', 1);
+(38, '1/II/2019/SPR', '2019-08-06', 'Imam Anak Pejabat Negara', 'Urusan Pribadi', NULL, 1),
+(39, '10/II/2019/BDL', '2019-08-07', 'Imam', 'gk penting', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -1567,37 +1596,37 @@ ALTER TABLE `disposisi`
 -- AUTO_INCREMENT untuk tabel `surat_keluar_laporan`
 --
 ALTER TABLE `surat_keluar_laporan`
-  MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `surat_keluar_umum`
 --
 ALTER TABLE `surat_keluar_umum`
-  MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `surat_klarifikasi_keluar`
 --
 ALTER TABLE `surat_klarifikasi_keluar`
-  MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `surat_klarifikasi_keluar2`
 --
 ALTER TABLE `surat_klarifikasi_keluar2`
-  MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `surat_klarifikasi_masuk`
 --
 ALTER TABLE `surat_klarifikasi_masuk`
-  MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `surat_masuk_umum`
 --
 ALTER TABLE `surat_masuk_umum`
-  MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id_surat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT untuk tabel `surat_tembusan`
