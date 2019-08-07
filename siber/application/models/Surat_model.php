@@ -364,7 +364,7 @@ class Surat_model extends CI_Model {
         $this->db->insert('surat_keluar_laporan', $data);
     }
 
-    public function insert_surat_keluar_laporan($no_surat, $tgl_surat, $tujuan, $perihal,$asisten) {
+    public function insert_surat_keluar_laporan($no_surat, $tgl_surat, $tujuan, $perihal, $asisten) {
         $data = array(
             'no_surat' => $no_surat,
             'tgl_surat' => $tgl_surat,
@@ -373,7 +373,7 @@ class Surat_model extends CI_Model {
             'pengolah' => $this->session->user_id,
             'asisten' => $asisten
         );
-        $this->db->insert('surat_keluar_umum', $data);
+        $this->db->insert('surat_keluar_laporan', $data);
     }
 
     public function update_surat_keluar_laporan_with_file($no_surat, $tgl_surat, $tujuan, $perihal, $up_data, $id_surat, $asisten) {
