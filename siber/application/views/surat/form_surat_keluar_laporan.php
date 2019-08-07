@@ -75,8 +75,7 @@ if ($mode == "edit" || $mode == "act_edit") {
                             </div>
                             <div class="form-group">
                                 <label for="asisten">Asisten Yang Menangani</label><br>
-                                <select name="asisten" class="form-control">
-                                <option>-Pilih Asisten-</option>    
+                                <select name="asisten" class="form-control" required>   
                                   <option value="Hidayat Pratama, S.H.">Hidayat Pratama, S.H.</option>
                                   <option value="Atika Mutiara Oktakevina, S.I.P.">Atika Mutiara Oktakevina, S.I.P.</option>
                                   <option value="Muhammad Burhan, S.Pd.">Muhammad Burhan, S.Pd.</option>
