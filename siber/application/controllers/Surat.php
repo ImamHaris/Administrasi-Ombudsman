@@ -254,6 +254,7 @@ class Surat extends CI_Controller {
         $tgl_surat = addslashes($this->input->post('tgl_surat'));
         $tujuan = addslashes($this->input->post('tujuan'));
         $perihal = addslashes($this->input->post('perihal'));
+        $asisten = addslashes($this->input->post('asisten'));
         $tglcari = addslashes($this->input->post('t'));
         $cari = addslashes($this->input->post('q'));
 
@@ -288,18 +289,18 @@ class Surat extends CI_Controller {
         } else if ($mau_ke == "act_add") {
             if ($this->upload->do_upload('file_surat')) {
                 $up_data = $this->upload->data('file_name');
-                $this->surat_model->insert_surat_keluar_laporan_with_file($no_surat, $tgl_surat, $tujuan, $perihal, $up_data);
+                $this->surat_model->insert_surat_keluar_laporan_with_file($no_surat, $tgl_surat, $tujuan, $perihal, $up_data, $asisten);
             } else {
-                $this->surat_model->insert_surat_keluar_laporan($no_surat, $tgl_surat, $tujuan, $perihal);
+                $this->surat_model->insert_surat_keluar_laporan($no_surat, $tgl_surat, $tujuan, $perihal, $asisten);
             }
             $this->session->set_flashdata('message', message_box('Data telah ditambah. ' . $this->upload->display_errors()));
             redirect('surat/surat_keluar_laporan');
         } else if ($mau_ke == "act_edit") {
             if ($this->upload->do_upload('file_surat')) {
                 $up_data = $this->upload->data('file_name');
-                $this->surat_model->update_surat_keluar_laporan_with_file($no_surat, $tgl_surat, $tujuan, $perihal, $up_data, $id_surat);
+                $this->surat_model->update_surat_keluar_laporan_with_file($no_surat, $tgl_surat, $tujuan, $perihal, $up_data, $asisten, $id_surat);
             } else {
-                $this->surat_model->update_surat_keluar_laporan($no_surat, $tgl_surat, $tujuan, $perihal, $id_surat);
+                $this->surat_model->update_surat_keluar_laporan($no_surat, $tgl_surat, $tujuan, $perihal, $asisten, $id_surat);
             }
             $this->session->set_flashdata('message', message_box('Data telah diperbaharui. ' . $this->upload->display_errors()));
             redirect('surat/surat_keluar_laporan');
