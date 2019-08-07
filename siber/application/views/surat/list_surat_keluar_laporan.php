@@ -53,10 +53,10 @@
                         <table class="table table-hover" style="width: 100%;">
                             <tr>
                                 <th style="width: 4%;">No.</th>
-                                <th style="width: 10%;">Nomor, Tgl. Surat</th>
+                                <th style="width: 15%;">Nomor, Tgl. Surat</th>
                                 <th style="width: 20%;">Tujuan</th>
                                 <th style="width: 30%;">Perihal</th>
-                                <th style="width: 30%;">Asisten Yang Menangani</th>
+                                <th style="width: 25%;">Asisten</th>
                                 <th style="width: 6%;">Aksi</th>
                             </tr>
                             <?php
@@ -73,7 +73,7 @@
                                         <td ><?php echo $b->no_surat . "<br><i>" . $b->tgl_surat . "</i>"; ?></td>
                                         <td ><?php echo limit_word($b->tujuan, 50, 0) . "<br><b>File : </b><i><a href='" . base_URL() . "assets/upload/surat_keluar_laporan/" . $b->file . "' target='_blank'>" . limit_word($b->file, 50, 1) . "</a>"; ?></td>
                                         <td><?php echo $b->perihal; ?></td>
-                                        
+                                        <td></td>
                                         <td>
                                             <?php
                                             if ($b->pengolah == $this->session->user_id) {
