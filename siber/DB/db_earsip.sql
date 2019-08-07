@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 07 Agu 2019 pada 14.15
+-- Waktu pembuatan: 07 Agu 2019 pada 14.40
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 7.3.2
 
@@ -1449,14 +1449,12 @@ CREATE TABLE `surat_masuk_umum` (
 
 INSERT INTO `surat_masuk_umum` (`id_surat`, `no_surat`, `tgl_surat`, `pengirim`, `perihal`, `file`, `pengolah`) VALUES
 (30, '1/II/2019/BDL', '2019-07-18', 'Alvijar FRP', 'Jalan Rosak', NULL, 1),
-(32, '1/II/2019/BDL', '2019-07-18', 'Aan', 'Jalan Rosak', NULL, 1),
 (33, '1/II/2019/BDL', '2019-07-18', 'Alvijar FRP', 'Jalan Rosak', NULL, 1),
 (34, '1/II/2019/BDL', '2019-07-18', 'Aan', 'Lamaran Pernikahan ', NULL, 1),
 (35, '1/II/2019/BDL', '2019-07-18', 'Alvijar FRP', 'Jalan Rosak', NULL, 1),
 (36, '1/II/2019/BDL', '2019-07-18', 'Aan', 'Lamaran Pernikahan ', NULL, 1),
 (37, '1/II/2019/BDL', '2019-07-18', 'Alvijar FRP', 'Lamaran Pernikahan ', 'Spesifikasi_Tugas_Besar_27.pdf', 1),
-(38, '1/II/2019/SPR', '2019-08-06', 'Imam Anak Pejabat Negara', 'Urusan Pribadi', NULL, 1),
-(39, '10/II/2019/BDL', '2019-08-07', 'Imam', 'gk penting', NULL, 1);
+(38, '1/II/2019/SPR', '2019-08-06', 'Imam Anak Pejabat Negara', 'Urusan Pribadi', NULL, 1);
 
 -- --------------------------------------------------------
 
